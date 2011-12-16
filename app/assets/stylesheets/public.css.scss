@@ -1,0 +1,318 @@
+/*
+*= require_self
+******/
+
+/*-------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+@import "variables";
+@import "gko/core";
+@import "gko/elastislide";
+/*-----------------------------------------
+   Shared Styles
+----------------------------------------- */ 
+.uppercase_font_style {
+	line-height: 24px;
+	font-size: 13px;
+	letter-spacing: 1px; 
+	text-transform: uppercase; 
+}
+/* Not compatible with dropdown */
+.menu_vertical {
+	overflow: hidden;
+	clear:both;
+	float: none;
+	text-align: left;
+	ul.menu {
+		float: left;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow: visible;
+		li.first-level {
+			clear: both;
+			float: left;
+			display: block;
+			margin: 0;
+			&:first-child { 
+				padding-left: 0;
+				background: none; }
+		}
+	}
+}
+/* Not compatible with dropdown */
+.menu_center {
+	overflow: hidden;
+	clear:both;
+	float: none;
+	text-align: center;
+	ul.menu {
+		float: left;
+		position: relative;
+		left: 50%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow: visible;
+		@extend .uppercase_font_style; 
+		li.first-level {
+			float: left;
+			position: relative;
+			right: 50%;
+			display: block;
+			margin: 0;
+			padding: 0 0 0 48px;
+			&:first-child { 
+				padding-left: 0;
+				background: none; }
+		}
+	}
+}
+/*-----------------------------------------
+   Structure
+----------------------------------------- */
+	
+.wrapper-wide {
+ @include container; 
+}
+.wrapper-content {
+ @include row; 
+}
+#main-content{
+ @include column(12);
+}
+#main-content.sidebar {
+ @include column(8);
+}
+#sidebar{ 
+ @include column(4); 
+}
+#wrapper-wide-main {
+	padding-top:36px; 
+}
+#wrapper-wide-footer {
+	margin: 60px 0 0 0;
+	padding: 15px 0 40px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
+#wrapper-wide-header {height:210px; background: transparent asset-url("nav_bg.png", image) 50% -160px no-repeat;}
+/*-----------------------------------------
+   Menu
+----------------------------------------- */
+#primary-menu {
+	margin: 0 0 0 0;
+	padding: 8px 0 9px 0;
+  @extend .menu_center; 
+	ul.menu {
+		@extend .uppercase_font_style; 
+		li {
+			background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
+			&:first-child { 
+				background: none; }
+		}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+		margin: 0;
+		//@extend .menu_vertical;
+	}
+}
+#pipe-menu {
+	@extend .menu_center;
+	ul.menu {
+		@extend .uppercase_font_style;
+		text-transform: capitalize;
+		font-style: italic;
+		letter-spacing: 0px;
+	}
+}
+
+/*-----------------------------------------
+   Header
+----------------------------------------- */ 
+h2#site-title {
+	@include logo(252px, 100px);
+	float: none;
+	margin: 0 auto !important;
+	
+}
+ul.menu
+ {
+  .active > a {
+    background-color: transparent;
+  }
+}
+h1.page-title {
+	text-transform: uppercase;
+	padding: 0 0 0 0;
+	margin: 0 0 10px 0;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	line-height: 1.4;
+	text-align: center;
+	padding: 0 36px 0 36px;
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+	}
+}
+.html_text {
+	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	padding: 0 36px 0 36px;
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+	column-count:2;
+	@media only screen and (max-width: 767px) {
+		-moz-column-count:1; /* Firefox */
+		-webkit-column-count:1; /* Safari and Chrome */
+		column-count:1;
+		padding: 0;
+	}
+}
+/*-----------------------------------------
+   Footer
+----------------------------------------- */ 
+#footer {
+	h3 {
+		@extend .uppercase_font_style;
+	}
+}
+.site_infos {
+ @include row;    
+}
+/*-----------------------------------------
+   Games
+----------------------------------------- */
+#main-content.games {
+	ul.list-view.list-view-games {
+		@include grid(3);
+		min-height:320px;
+		text-align: center;
+		.entry-thumb {
+			width: 212px;
+			height: 212px;
+			@include border-radius(106px);
+			overflow: hidden; 
+			margin: 0 auto;
+			border: 8px solid #fff;
+			line-height: 212px; 
+      a {
+				width: 212px;
+				height: 212px; 
+				line-height: 212px;
+				display:block;
+			}
+		}
+		.entry-infos {
+			margin-top: 16px;
+		}
+		h2.entry-title {
+			@extend .uppercase_font_style;
+		}
+	}
+}
+/*-----------------------------------------
+   Slideshow
+----------------------------------------- */
+/*-----------------------------------------
+   Home
+----------------------------------------- */
+#js_container {
+	display:none;
+} 
+/* Text inside of circle */
+.ec-circle h3{
+	font-weight: normal;  
+	font-style: italic;
+	color: transparent;
+	font-size: 48px;
+	line-height: 420px;
+	text-shadow: 0px 0px 100px #fff;
+	@include transition(text-shadow 600ms ease-in-out);
+}
+.ec-circle-hover h3{
+	text-shadow: 0px 0px 1px #fff;
+}
+/* The circle */
+.ec-circle{
+	float:left;
+	margin-left:20px;
+	width: 420px;
+	height: 420px;
+	@include border-radius(210px);
+	text-align: center;
+	overflow: hidden;
+	font-family:'Kelly Slab', Georgia, serif;
+	line-height: 420px;
+	background: #fff url(/images/Virtual_White.jpg) no-repeat center center;
+	-webkit-box-shadow: 
+        inset 0 0 1px 210px rgba(0,0,0,0.4),
+		inset 0 0 0 7px #fff;
+	-moz-box-shadow: 
+        inset 0 0 1px 210px rgba(255,255,255,0.4),
+		inset 0 0 0 7px #fff;
+	box-shadow: 
+        inset 0 0 1px 210px rgba(0,0,0,0.2),
+		inset 0 0 0 7px #fff;
+  @include transition(box-shadow 600ms ease-in-out);
+	display: block;
+	outline: none; 
+	/*For IE < 9 so that we have some kind of effect */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	&:first-child,
+	&:last-child {
+		margin-top:100px;
+		width: 220px;
+		height: 220px;
+		@include border-radius(110px);
+		h3 {
+			line-height: 220px;
+			font-size:24px;
+		}
+	};
+}
+.ec-circle.circle_one{
+	background: #fff url(/images/backgammon_home.jpg) no-repeat center center;
+} 
+.ec-circle.circle_two{
+	background: #fff url(/images/chess_home.jpg) no-repeat center center;
+}
+
+.ec-circle-hover{
+	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
+	/*For IE < 9 so that we have some kind of effect */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+
+.bubble img{
+	position:fixed;
+	top:50%;
+	left:50%;
+	width:10px;
+	height:10px;
+}
+.loader{
+	display:none;
+	width:200px;
+	height:200px;
+	background: #000 asset-url('ajax-loader.gif', image) no-repeat center center;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin:-100px 0px 0px -100px;
+	opacity: 0.7;
+	z-index:9999;
+	-moz-border-radius:100px;
+	-webkit-border-radius:100px;
+	border-radius:100px;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}

@@ -1,0 +1,33 @@
+<% @games ||= @site.games.with_translations(I18n.locale).order('content_translations.title ASC') %>
+<div id='wrapper-wide-footer' class='wrapper-wide' data-role='footer'>
+  <footer id='footer' class='wrapper-content'>
+    <div class="three-column">
+    <h3><%= "Jeux".html_safe %></h3>
+    <% if @games.any? %> 
+    <nav id="games_menu">
+      <ul id="games_menu">
+        <%= @games.map{|game| "<li>#{link_to(game.title, url_for([game.section, game]))}</li>"}.join.html_safe %>
+      </ul> 
+    </nav>
+    <% end %>
+    </div>
+    <div class="three-column">
+      <%= render(:partial => '/shared/menu', :locals => {:sections => @pipe_menu, :menu_name => "pipe"}) %>
+      <h3><%= "A visiter".html_safe %></h3>
+      <p><%= "Adresse une<br/>Adresse deux<br/>Adresse trois<br/>".html_safe %></p>
+    </div>
+    <div class="three-column">
+      <h3><%= "Nous contacter".html_safe %></h3>
+      <p><%= "Bd du Général<br/>Saint-Barthelemy<br/>Tel: 0000 000 000<br/>".html_safe %></p>
+    </div>
+    <div class="three-column">
+      <h3><%= "Nous suivre".html_safe %></h3>
+      <p><%= "Facebook<br/>Twitter<br/>".html_safe %></p>
+    </div>
+  </footer>
+  <div id='site-infos'>
+    <a id='site_by' href='http://www.joufdesign.com' target='_blank'>
+      <%= t(:'site_by', :name => "Jouf Design").html_safe %>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<% if record %>
+<%
+desc_omission = local_assigns.has_key?(:description_omission) ? description_omission : "[...]"
+desc_length = local_assigns.has_key?(:description_length) ? description_length : 120
+#@categories.map { |c| c.title.gsub( /\W/, '-' ).underscore }.join(' ')
+%>
+<li id="<%= dom_id(record) %>" class="entry" data-theme="c">
+ <div class="inner">
+    <div class='entry-thumb'>
+      <a href='<%= url_for([record.section, record]) %>' style='background: #fff url(<%= record.thumbnail.thumbnail(:medium).url %>) no-repeat center center;'><%= record.title %></a>
+    </div>
+    <div class="entry-infos">
+      <%= render_record_title(record) %>
+      <%= render_record_description(record, desc_length, desc_omission) %>
+    </div> 
+ </div>
+</li>
+<% end %> 
