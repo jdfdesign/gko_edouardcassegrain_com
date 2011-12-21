@@ -7,7 +7,7 @@ games ||= @site.games.with_translations(I18n.locale).order('games.position ASC')
     <div class="twelve columns">
   		<div class="section">
   		  <% games.each_with_index do |game, index| %>
-          <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle circle_<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail.url %>) no-repeat center center;'><h3><%= game.title %></h3></a>
+          <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle circle_<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail.process(:greyscale).url %>) no-repeat center center;'><h3><%= game.title %></h3></a>
   			<% end %>
   		</div>
     </div>
