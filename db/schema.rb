@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214161736) do
+ActiveRecord::Schema.define(:version => 20111216000000) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -74,6 +74,55 @@ ActiveRecord::Schema.define(:version => 20111214161736) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "game_translations", :force => true do |t|
+    t.integer  "game_id"
+    t.string   "locale"
+    t.string   "slug"
+    t.text     "meta_description"
+    t.text     "properties"
+    t.text     "meta_keywords"
+    t.string   "meta_title"
+    t.text     "body"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "feature_title"
+  end
+
+  add_index "game_translations", ["game_id"], :name => "index_game_translations_on_game_id"
+
+  create_table "games", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.text     "properties"
+    t.datetime "published_at"
+    t.string   "layout",            :limit => 40
+    t.string   "meta_title"
+    t.text     "meta_description"
+    t.text     "meta_keywords"
+    t.integer  "position",                        :default => 1
+    t.string   "preview_mime_type"
+    t.string   "preview_name"
+    t.integer  "preview_size"
+    t.integer  "preview_width"
+    t.integer  "preview_height"
+    t.string   "preview_uid"
+    t.string   "preview_ext"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "globalized",                      :default => 0
+    t.boolean  "show_in_homepage",                :default => false
+    t.string   "feature_title"
+  end
+
+  add_index "games", ["position", "section_id"], :name => "index_games_on_position_and_section_id"
+  add_index "games", ["section_id"], :name => "index_games_on_section_id"
+  add_index "games", ["site_id"], :name => "index_games_on_site_id"
+  add_index "games", ["slug"], :name => "index_games_on_slug"
 
   create_table "image_assignments", :force => true do |t|
     t.integer  "position",                      :default => 1, :null => false

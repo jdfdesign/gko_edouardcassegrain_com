@@ -1,21 +1,14 @@
 cd ~/developer/workspace/gko_cassegrain_com
 bundle install
 rails s
+
 bundle exec rake assets:precompile
-
-bundle exec rake railties:install:migrations
-bundle exec rake gko:install
-bundle exec rake gko:seed
-rails g spree:site
-
-bundle exec rake spree_sample:load
 
 bundle exec rake railties:install:migrations
 bundle exec rake db:bootstrap
 
  
 bundle exec rake db:admin:create
-
 bundle exec rake db:load_default 
-bundle exec rake db:load_sample 
+bundle exec rake db:load_sample
   

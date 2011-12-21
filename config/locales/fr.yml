@@ -1,0 +1,66 @@
+fr:
+  activerecord:
+    models:
+      game_list: Liste de jeux
+      game: Jeu
+
+  games:
+    properties: Informations techniques
+    no_record_found: "Aucun jeu n'a été trouvé"
+    links:
+      continue_reading: "Lire"
+      next: Jeu suivant
+      previous: Jeu précédent
+    titles:
+      in_categories: "Jeux dans la catégorie %{name}"
+      tagged: "Jeux étiquettés avec %{name}"
+  
+  flash:
+    game:
+      add_in_homepage: "Le jeu a été ajouté avec succès à la page d'accueil."
+      delete_from_homepage: "Le jeu a été retiré avec succès de la page d'accueil."
+
+  admin:
+    
+    fieldset:
+      preview: Prévisualisation
+    
+    game_lists:
+      actions:
+        edit: Configuration 
+        new: Nouveau jeu
+        destroy: Supprimer ce jeu
+        show: Lister les jeux
+        view: Voir le jeu
+        titles:
+          index: Liste des jeux
+      tooltips:
+        edit: Modifier la page du listing des jeux
+        show: Voir le jeu
+      titles:
+        edit: Modification de la configuration de la liste
+             
+    games: 
+      untranslated_message: 
+        one: "Attention: 1 jeu n'est pas traduit."
+        many: "Attention: %{count} jeux ne sont pas traduits."
+      select_blank: Sélectionner un jeu
+      collection:
+        empty: "Aucun jeu n'a été trouvé. %{link}"
+        create_item: "Créer un nouvel jeu maintenant."
+      actions:
+        new: Ajouter un jeu
+        destroy: Supprimer ce jeu
+        edit: Modifier ce jeu
+        index: Liste des jeux
+        view: Voir la page publique de ce jeu
+        previous: Previous
+        next: Next
+      tooltips:
+        index: Lister les jeux
+      titles:
+        new: Ajout d'un jeu
+        index: Liste des jeux
+        edit: Modification d'un jeu
+      columns:
+        game: Jeu

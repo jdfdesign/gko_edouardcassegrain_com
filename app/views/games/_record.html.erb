@@ -7,7 +7,7 @@ desc_length = local_assigns.has_key?(:description_length) ? description_length :
 <li id="<%= dom_id(record) %>" class="entry" data-theme="c">
  <div class="inner">
     <div class='entry-thumb'>
-      <a href='<%= url_for([record.section, record]) %>' style='background: #fff url(<%= record.thumbnail.thumbnail(:medium).url %>) no-repeat center center;'><%= record.title %></a>
+      <a href='<%= url_for([record.section, record]) %>' style='background: #fff url(<%= record.thumbnail.url %>) no-repeat center center;'></a>
     </div>
     <div class="entry-infos">
       <%= render_record_title(record) %>

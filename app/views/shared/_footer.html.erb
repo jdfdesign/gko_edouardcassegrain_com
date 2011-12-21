@@ -1,4 +1,4 @@
-<% @games ||= @site.games.with_translations(I18n.locale).order('content_translations.title ASC') %>
+<% @games ||= @site.games.with_translations(I18n.locale).order('game_translations.title ASC') %>
 <div id='wrapper-wide-footer' class='wrapper-wide' data-role='footer'>
   <footer id='footer' class='wrapper-content'>
     <div class="three-column">

@@ -1,30 +1,26 @@
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: c0d7635f6966128089b5795557dd479f716b7f69
+  revision: 00c80ecbc2fa3af01a3c2ae3489050cc39b4a835
   specs:
-    gko-images (0.0.43)
-      dragonfly (~> 0.9.8)
-      gko-core
-      mime-types
-      rack-cache (>= 0.5.3)
     gko-inquiry (0.0.32)
       filters_spam (~> 0.2)
       gko-core
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: c0d7635f6966128089b5795557dd479f716b7f69
+  revision: 00c80ecbc2fa3af01a3c2ae3489050cc39b4a835
   specs:
-    gko-auth (0.0.30)
-      cancan (= 1.6.5)
-      devise (= 1.5.1)
+    gko-images (0.0.43)
+      dragonfly (~> 0.9.8)
       gko-core
+      mime-types
+      rack-cache (>= 0.5.3)
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: c0d7635f6966128089b5795557dd479f716b7f69
+  revision: 00c80ecbc2fa3af01a3c2ae3489050cc39b4a835
   specs:
-    gko-core (0.0.72)
+    gko-core (0.0.73)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.6)
       bundler (= 1.1.pre.4)
@@ -53,6 +49,15 @@ GIT
       uglifier (>= 1.0.3)
       uuid (= 2.3.1)
       will_paginate (~> 3.0.0)
+
+GIT
+  remote: git@github.com:jdfdesign/gko-cms-31.git
+  revision: 00c80ecbc2fa3af01a3c2ae3489050cc39b4a835
+  specs:
+    gko-auth (0.0.30)
+      cancan (= 1.6.5)
+      devise (= 1.5.1)
+      gko-core
 
 GEM
   remote: http://rubygems.org/
@@ -231,9 +236,9 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
   gko-auth (= 0.0.30)!
-  gko-core (= 0.0.72)!
-  gko-images!
-  gko-inquiry!
+  gko-core (= 0.0.73)!
+  gko-images (= 0.0.43)!
+  gko-inquiry (= 0.0.32)!
   iconv
   sass-rails (~> 3.1.5.rc1)
   uglifier (>= 1.0.3)

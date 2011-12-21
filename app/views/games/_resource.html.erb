@@ -1,0 +1,25 @@
+<%
+has_stickers = @stickers.try(:any?)
+has_categories = @categories.try(:any?)
+%>
+<%= page_title(resource.title) %>
+<%= render 'shared/images', :images => @images if @images.try(:any?) %>
+<%= resource_body_tag do %>
+  <%= render_html_text(resource.body) if resource.body.present? %>
+  <% unless in_mobile_view? %>
+    <% if has_stickers || has_categories %> 
+      <div class='metas'>
+      <%= render('/categories/shared/meta_list', :categories => @categories) if has_categories %>
+      <%= render('/stickers/shared/meta_list', :stickers => @stickers) if has_stickers %>
+      </div>
+    <% end %> 
+    <%#= render '/shared/next_previous', :record => resource %>
+    <% end %>
+    <div class='html_text properties'>
+      <% if resource.properties.present? %>
+        <h3><%= t('games.properties') %></h3>
+        <%= resource.properties.html_safe %>
+      <% end %>
+    </div>
+    
+<% end %>

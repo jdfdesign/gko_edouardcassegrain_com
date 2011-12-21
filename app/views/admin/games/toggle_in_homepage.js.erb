@@ -1,0 +1,8 @@
+<% if resource.show_in_homepage %>
+$('#<%= dom_id(resource) %>').removeClass('unselected');
+$('#<%= dom_id(resource) %>').addClass('selected');
+<% else %>
+$('#<%= dom_id(resource) %>').removeClass('selected');
+$('#<%= dom_id(resource) %>').addClass('unselected');
+<% end %>
+$("body").append("<%= escape_javascript(jquery_flash_growlr_tag(:stay => false)) %>")

@@ -1,0 +1,20 @@
+<% games = @site.games.order('position ASC') %>
+<% if resource.persisted? %>
+    <%= collapsible_tag(t(:'admin.fieldset.general_informations')) do %>
+    <% if games.any? %> 
+      <%= fieldcontain_tag(:class => :check_boxes) do %> 
+        <%= games.map { |p| btn_to(p.title, 
+            url_for([:toggle_in_homepage, :admin, current_site, p.section, p]), 
+            :remote => :true, 
+            :id => "#{dom_id(p)}",
+            :class => "checkbox #{p.show_in_homepage ? 'selected' : 'unselected'}" ) }.join.html_safe %> 
+      <% end %> 
+    <% else %> 
+      <%= t(:'admin.games.collection.empty', :link => "").html_safe  %>
+    <% end %>
+    <% end %>   
+    <%= render :partial => 'admin/shared/form_seo_fields', :locals => {:f => f} %> 
+<% else %>
+  <%= render :partial => 'admin/sections/default_fields', :locals => {:f => f } %> 
+<% end %>
+

@@ -1,0 +1,49 @@
+<%= collapsible_tag(t(:'admin.fieldset.general_informations')) do %>
+  <%= f.input :section_id, :as => :hidden %>
+  <%= fieldset do %>
+    <%= f.input :title %>
+    <%= render :partial => 'admin/shared/form_wymeditor_field', :locals => {:f => f} %>
+    <%= render :partial => 'admin/shared/form_wymeditor_field', :locals => {:f => f, :field_name => :properties} %>
+    
+  <% end %>
+<% end %> 
+<%= collapsible_tag(t(:'admin.fieldset.preview')) do %>
+  <% if resource.preview.present? %>
+    <div>
+    <%= btn_to(t(:"admin.images.replace_file"), "", 
+      :class => "change_upload_file_btn", 
+      :inline => true, 
+      :'data-text' => t(:'admin.images.cancel_replace_file')) %>
+    <div class='upload_file_preview'>
+      <%= image_tag(resource.preview.url) %>
+    </div>
+    </div>                             
+  <% end %> 
+  <%= f.input :preview, 
+    :as => :file,
+    :label_html => { :class => 'ui-input-text' },
+    :input_html => { :class => 'ui-input-text ui-body-a ui-corner-all ui-shadow-inset' },
+    :wrapper_html => { :style => "display:#{resource.preview.present? ? 'none' : 'block'}"} %>   
+<% end %> 
+<% if current_site.has_plugin?(:images) %>
+  <%= collapsible_tag(t(:'admin.fieldset.images')) do %>
+    <%= render :partial => 'admin/images/shared/assignments_field', :locals => {:f => f} %>
+  <% end %>  
+<% end %>
+<% if current_site.has_plugin?(:category) && parent && parent.accept_categories %>
+  <%= collapsible_tag(t(:'admin.fieldset.categories')) do %>
+    <%= render :partial => 'admin/categories/select_checkboxes',
+         :locals => {:f => f, :categories => parent.categories.nested_set} %>
+  <% end %> 
+<% end %> 
+
+<% if current_site.has_plugin?(:sticker) && parent && parent.accept_stickers %>
+  <%= collapsible_tag(t(:'admin.fieldset.stickers')) do %>
+    <%= render :partial => 'admin/stickers/select_checkboxes',
+         :locals => {:f => f, :stickers => parent.stickers} %>
+   <% end %> 
+<% end %> 
+<%= render :partial => 'admin/shared/form_seo_fields', :locals => {:f => f} %>
+<%= render :partial => 'admin/shared/form_publish_fields', :locals => {:f => f} %>
+
+

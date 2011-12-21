@@ -19,7 +19,7 @@ $(document).ready(function() {
 			el.removeClass('ec-circle-hover');
 		},
 		onClick : function( el ) {
-			$loader.show();
+			//$loader.show();
 		}
 	}); 
 });

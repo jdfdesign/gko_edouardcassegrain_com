@@ -102,7 +102,7 @@
 	text-align: center;
 	font-size: 12px;
 }
-#wrapper-wide-header {height:210px; background: transparent asset-url("nav_bg.png", image) 50% -160px no-repeat;}
+#wrapper-wide-header {height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;}
 /*-----------------------------------------
    Menu
 ----------------------------------------- */
@@ -138,6 +138,11 @@
 /*-----------------------------------------
    Header
 ----------------------------------------- */ 
+#masterhead {
+	float:right;
+	background-color: black;
+	padding:4px;
+}
 h2#site-title {
 	@include logo(252px, 100px);
 	float: none;
@@ -164,19 +169,14 @@ h1.page-title {
 		padding: 0;
 	}
 }
+
 .html_text {
 	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	padding: 0 36px 0 36px;
-	-moz-column-count:2; /* Firefox */
-	-webkit-column-count:2; /* Safari and Chrome */
-	column-count:2;
 	@media only screen and (max-width: 767px) {
-		-moz-column-count:1; /* Firefox */
-		-webkit-column-count:1; /* Safari and Chrome */
-		column-count:1;
 		padding: 0;
 	}
 }
+
 /*-----------------------------------------
    Footer
 ----------------------------------------- */ 
@@ -197,18 +197,24 @@ h1.page-title {
 		min-height:320px;
 		text-align: center;
 		.entry-thumb {
-			width: 212px;
-			height: 212px;
-			@include border-radius(106px);
+			width: 220px;
+			height: 220px;
 			overflow: hidden; 
 			margin: 0 auto;
-			border: 8px solid #fff;
-			line-height: 212px; 
+			background: transparent;
+			line-height: 216px; 
       a {
-				width: 212px;
-				height: 212px; 
-				line-height: 212px;
+				width: 200px;
+				height: 200px; 
 				display:block;
+				border: 8px solid #fff; 
+				background-position: 50% 50%;
+				@include border-radius(104px);
+				opacity: 1;
+				@include transition(opacity 200ms ease-in-out);
+				&:hover {
+					opacity: .9;
+				}; 
 			}
 		}
 		.entry-infos {
@@ -218,10 +224,48 @@ h1.page-title {
 			@extend .uppercase_font_style;
 		}
 	}
+
+}
+#main-content.game { 
+	.next-previous {
+		display:none;
+	} 
+}
+.description.game {
+  @include sub_row; 
+}
+.description.game .html_text {
+ @include column(8);
+}
+.description.game .html_text.properties {
+	@include column(4);
+	h3 {
+		line-height: 24px;
+		font-size: 14px;
+		font-style: italic;
+		font-family: $baseFontFamily;
+		letter-spacing: 0px;
+		margin: 0 0 4px 0;
+		border-bottom: 1px dotted #B7B6B6;
+		@media only screen and (max-width: 767px) {
+			margin: 18px 0 4px 0;
+		} 
+	}
 }
 /*-----------------------------------------
    Slideshow
 ----------------------------------------- */
+.image-large-wrapper {
+	a.image-large-nav {
+		background: #000 asset_url("nav_image.png", image) no-repeat 0 50%;
+		width: 31px;
+		left: 12px;
+	}
+	a.image-large-nav.image-large-nav-next{
+		background-position:-36px 50%;
+		right: 12px;
+	}
+}
 /*-----------------------------------------
    Home
 ----------------------------------------- */
@@ -250,9 +294,7 @@ h1.page-title {
 	@include border-radius(210px);
 	text-align: center;
 	overflow: hidden;
-	font-family:'Kelly Slab', Georgia, serif;
 	line-height: 420px;
-	background: #fff url(/images/Virtual_White.jpg) no-repeat center center;
 	-webkit-box-shadow: 
         inset 0 0 1px 210px rgba(0,0,0,0.4),
 		inset 0 0 0 7px #fff;
@@ -279,13 +321,6 @@ h1.page-title {
 		}
 	};
 }
-.ec-circle.circle_one{
-	background: #fff url(/images/backgammon_home.jpg) no-repeat center center;
-} 
-.ec-circle.circle_two{
-	background: #fff url(/images/chess_home.jpg) no-repeat center center;
-}
-
 .ec-circle-hover{
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
 	/*For IE < 9 so that we have some kind of effect */
@@ -293,13 +328,6 @@ h1.page-title {
 }
 
 
-.bubble img{
-	position:fixed;
-	top:50%;
-	left:50%;
-	width:10px;
-	height:10px;
-}
 .loader{
 	display:none;
 	width:200px;

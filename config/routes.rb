@@ -7,6 +7,9 @@ GkoCassegrainCom::Application.routes.draw do
     resources :sites do
       resources :game_lists do
         resources :games do
+          member do
+            get :toggle_in_homepage
+          end
           collection do
             get :move
           end

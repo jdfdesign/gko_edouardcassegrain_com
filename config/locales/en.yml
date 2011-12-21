@@ -1,0 +1,11 @@
+en:
+  games:
+    properties: Technical informations
+    no_record_found: "Aucun jeu n'a été trouvé"
+    links:
+      continue_reading: "Lire"
+      next: Jeu suivant
+      previous: Jeu précédent
+    titles:
+      in_categories: "Jeux dans la catégorie %{name}"
+      tagged: "Jeux étiquettés avec %{name}"
