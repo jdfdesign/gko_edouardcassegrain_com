@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 920481f9c8497c7a44ca04d861581e5917c2c5b1
+  revision: 8e630c9e3878c9f01e82fe8bd5a4f230141beb68
   specs:
     gko-inquiry (0.0.32)
       filters_spam (~> 0.2)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 920481f9c8497c7a44ca04d861581e5917c2c5b1
+  revision: 8e630c9e3878c9f01e82fe8bd5a4f230141beb68
   specs:
     gko-images (0.0.43)
       dragonfly (~> 0.9.8)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 920481f9c8497c7a44ca04d861581e5917c2c5b1
+  revision: 8e630c9e3878c9f01e82fe8bd5a4f230141beb68
   specs:
     gko-core (0.0.76)
       activesupport-slices (= 0.0.2)
@@ -52,9 +52,9 @@ GIT
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 920481f9c8497c7a44ca04d861581e5917c2c5b1
+  revision: 8e630c9e3878c9f01e82fe8bd5a4f230141beb68
   specs:
-    gko-auth (0.0.30)
+    gko-auth (0.0.31)
       cancan (= 1.6.5)
       devise (= 1.5.1)
       gko-core
@@ -235,7 +235,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
-  gko-auth (= 0.0.30)!
+  gko-auth (= 0.0.31)!
   gko-core (= 0.0.76)!
   gko-images (= 0.0.43)!
   gko-inquiry (= 0.0.32)!
