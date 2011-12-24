@@ -3,7 +3,7 @@ has_stickers = @stickers.try(:any?)
 has_categories = @categories.try(:any?)
 %>
 <%= page_title(resource.title) %>
-<%= render 'shared/images', :images => @images if @images.try(:any?) %>
+<%= render "/images/shared/list", :images => @images if @images.try(:any?) %>
 <%= resource_body_tag do %>
   <%= render_html_text(resource.body) if resource.body.present? %>
   <% unless in_mobile_view? %>

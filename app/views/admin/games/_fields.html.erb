@@ -8,22 +8,20 @@
   <% end %>
 <% end %> 
 <%= collapsible_tag(t(:'admin.fieldset.preview')) do %>
-  <% if resource.preview.present? %>
-    <div>
-    <%= btn_to(t(:"admin.images.replace_file"), "", 
-      :class => "change_upload_file_btn", 
-      :inline => true, 
-      :'data-text' => t(:'admin.images.cancel_replace_file')) %>
-    <div class='upload_file_preview'>
-      <%= image_tag(resource.preview.url) %>
-    </div>
-    </div>                             
-  <% end %> 
-  <%= f.input :preview, 
-    :as => :file,
-    :label_html => { :class => 'ui-input-text' },
-    :input_html => { :class => 'ui-input-text ui-body-a ui-corner-all ui-shadow-inset' },
-    :wrapper_html => { :style => "display:#{resource.preview.present? ? 'none' : 'block'}"} %>   
+  <%= fieldset do %>
+    <% if resource.preview.present? %>
+        <%= btn_to(t(:"admin.images.replace_file"), "", 
+          :class => "change_upload_file_btn", 
+          :inline => true, 
+          :'data-text' => t(:'admin.images.cancel_replace_file')) %>
+        <div class='upload_file_preview'><%= image_tag(resource.preview.url) %></div>                              
+    <% end %>
+    <%= f.input :preview, 
+      :as => :file,
+      :label_html => { :class => 'ui-input-text' },
+      :input_html => { :class => 'ui-input-text ui-body-a ui-corner-all ui-shadow-inset' },
+      :wrapper_html => { :style => "display:#{resource.preview.present? ? 'none' : 'block'}"} %> 
+  <% end %>   
 <% end %> 
 <% if current_site.has_plugin?(:images) %>
   <%= collapsible_tag(t(:'admin.fieldset.images')) do %>

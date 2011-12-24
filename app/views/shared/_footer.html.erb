@@ -1,7 +1,7 @@
 <% @games ||= @site.games.with_translations(I18n.locale).order('game_translations.title ASC') %>
 <div id='wrapper-wide-footer' class='wrapper-wide' data-role='footer'>
   <footer id='footer' class='wrapper-content'>
-    <div class="three-column">
+    <div class="four-column">
     <h3><%= "Jeux".html_safe %></h3>
     <% if @games.any? %> 
     <nav id="games_menu">
@@ -11,18 +11,14 @@
     </nav>
     <% end %>
     </div>
-    <div class="three-column">
+    <div class="four-column">
       <%= render(:partial => '/shared/menu', :locals => {:sections => @pipe_menu, :menu_name => "pipe"}) %>
       <h3><%= "A visiter".html_safe %></h3>
-      <p><%= "Adresse une<br/>Adresse deux<br/>Adresse trois<br/>".html_safe %></p>
+      <p><%= "<a href='http://lolitajaca.com' target='_blank'>La collection 2012 de Lolita Jaca</a><br/><a href='http://hellostbarth.com' target='_blank'>Le portail touristique sur St-Barts Hello St.Barth</a>".html_safe %></p>
     </div>
-    <div class="three-column">
+    <div class="four-column">
       <h3><%= "Nous contacter".html_safe %></h3>
-      <p><%= "Bd du Général<br/>Saint-Barthelemy<br/>Tel: 0000 000 000<br/>".html_safe %></p>
-    </div>
-    <div class="three-column">
-      <h3><%= "Nous suivre".html_safe %></h3>
-      <p><%= "Facebook<br/>Twitter<br/>".html_safe %></p>
+      <p><%= "Showroom Lolita Jaca<br/>Les Hauts du Carré d’Or<br/>Gustavia 97133<br/>Saint-Barthélemy<br/>Cell.: +590 (0)690 24 59 98<br/>Tel.: +590 (0)590 27 17 64<br/>".html_safe %></p>
     </div>
   </footer>
   <div id='site-infos'>

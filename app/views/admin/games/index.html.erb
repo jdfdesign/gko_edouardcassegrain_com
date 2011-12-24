@@ -1,3 +1,6 @@
+<%= render :partial => "admin/contents/sortable", 
+  :locals => {:target => "#games", 
+  :url => move_admin_site_game_list_games_path } %>
 <%= render "admin/shared/section_menu", :section => parent %> 
 <%= render "actions" %>
 <%= render "records" %>

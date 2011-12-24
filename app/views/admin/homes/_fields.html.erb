@@ -1,5 +1,6 @@
 <% games = @site.games.order('position ASC') %>
-<% if resource.persisted? %>
+  <%= f.input :title %>
+  <% if resource.persisted? %>
     <%= collapsible_tag(t(:'admin.fieldset.general_informations')) do %>
     <% if games.any? %> 
       <%= fieldcontain_tag(:class => :check_boxes) do %> 

@@ -89,6 +89,7 @@ gko-images/iviewer/Makefile: gko-images/iviewer/Makefile
 gko-themes/maisonrouge/logo.png: gko-themes/maisonrouge/logo-9e9c38d09a88f8279f5fbfcb24a2a091.png
 gko-core/admin/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png: gko-core/admin/jquery-ui/ui-bg_glass_75_e6e6e6_1x400-2355e67fca2c734c391dfcae5633d136.png
 gko-images/photoswipe3.0.2/examples/08-exclusive-mode.html: gko-images/photoswipe3.0.2/examples/08-exclusive-mode-618f877aacb12f7b7e9a3a697f7e07e4.html
+gko-core/admin/bg.jpg: gko-core/admin/bg-4d11f34c2bb693eda0c6fc5638fb514d.jpg
 gko-images/galleria1.2.6a2/themes/classic/classic-demo.html: gko-images/galleria1.2.6a2/themes/classic/classic-demo-606337420987294e58e6be9158e73cda.html
 gko/externals/plupload/csharp/Plupload/FJCore/JpegMarker.cs: gko/externals/plupload/csharp/Plupload/FJCore/JpegMarker-9c440d3964d71ecc6535f02b3222a191.cs
 wymeditor/skins/gko/html5/h2.png: wymeditor/skins/gko/html5/h2-442f79a20de795fc27009086a0362de6.png
@@ -98,9 +99,9 @@ gko-themes/default/slideshow-separator.png: gko-themes/default/slideshow-separat
 wymeditor/skins/gko/link_add.png: wymeditor/skins/gko/link_add-529b8dee875cc168502c90c33702a369.png
 wymeditor/lang/it.js: wymeditor/lang/it-fc4fd992824a113c46301cb4ecf4482e.js
 gko-core/jquery-ui/ui-bg_flat_50_5c5c5c_40x100.png: gko-core/jquery-ui/ui-bg_flat_50_5c5c5c_40x100-037ae0e3b2968b0cf1c56efc1b4ef60b.png
-gko/admin/core.css: gko/admin/core-5866cacbd3b9ce72ec43071656cd510b.css
+gko/admin/core.css: gko/admin/core-862427b99e6a63450dda28dc569b00e6.css
 wymeditor/skins/gko/text_italic.png: wymeditor/skins/gko/text_italic-0567e14a2b9d6f53175454523e8656f0.png
-gko/admin/admin.js: gko/admin/admin-b20e9b395fb54ddd9481bab03f27c4e5.js
+gko/admin/admin.js: gko/admin/admin-de111d34bfa7a3a359e6f1fcd6ecdf58.js
 gko-images/photoswipe3.0.2/examples/images/twittericon.png: gko-images/photoswipe3.0.2/examples/images/twittericon-0cc12ae4585cff5fc0292f2f5d3a09fc.png
 gko-core/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png: gko-core/jquery-ui/ui-bg_glass_75_e6e6e6_1x400-2355e67fca2c734c391dfcae5633d136.png
 foundation/orbit/loading.gif: foundation/orbit/loading-5244b6c6280ccc90bc6c2a0707e24d45.gif
@@ -275,7 +276,7 @@ wymeditor/skins/gko/html5/figcaption.png: wymeditor/skins/gko/html5/figcaption-5
 gko/externals/plupload/flash/plupload/src/com/formatlos/BitmapDataUnlimited.as: gko/externals/plupload/flash/plupload/src/com/formatlos/BitmapDataUnlimited-3ff08606b4c9f0965a55b1301935d794.as
 wymeditor/lang/sl.js: wymeditor/lang/sl-8481e109f499b7ad379c1e8af92ad8b5.js
 gko/externals/plupload/csharp/Plupload/FJCore/JAI.txt: gko/externals/plupload/csharp/Plupload/FJCore/JAI-bd98c548fb8f1966ee92271bc84b4aba.txt
-gko-core/admin/bg.png: gko-core/admin/bg-ad331c44b0689ee455ad2ef99d86f063.png
+gko-core/admin/bg.png: gko-core/admin/bg-78f4e65c1bda2479ce8141ca2137ad4d.png
 gko/externals/plupload/flash/plupload/src/com/mxi/image/JPEG.as: gko/externals/plupload/flash/plupload/src/com/mxi/image/JPEG-9717beffaa8bcd19f31651aeef384a76.as
 gko-themes/default/slideshow-popout.png: gko-themes/default/slideshow-popout-80ecb31c1cfd641f025c3de340503741.png
 gko/externals/plupload/csharp/Plupload/FJCore/Filter/FilterNNResize.cs: gko/externals/plupload/csharp/Plupload/FJCore/Filter/FilterNNResize-f0610db57edccd2110b0f15667c68c9d.cs
@@ -290,7 +291,7 @@ gko-images/iviewer/test/test_image.jpg: gko-images/iviewer/test/test_image-36c80
 gko-core/public/slideshow.css: gko-core/public/slideshow-0868a20baf2c9d66a60370ccbb5cfa83.css
 gko/externals/plupload/csharp/Plupload/FJCore/Decoder/JpegComponent.cs: gko/externals/plupload/csharp/Plupload/FJCore/Decoder/JpegComponent-6c6f23f24698828cfbd583903cf7519e.cs
 wymeditor/lang/vi.js: wymeditor/lang/vi-91f524c44b3855571422a0e8dd98d47b.js
-public.css: public-ca2bc7512241fead92c3355b9f7bbafc.css
+public.css: public-8b36fcb2d1c1c27c009b4ba9ffaaf6c2.css
 gko-images/photoswipe3.0.2/examples/images/full/003.jpg: gko-images/photoswipe3.0.2/examples/images/full/003-db7e7a84fa649a24a7efbb5823908a45.jpg
 gko-images/iviewer/test/arrow.png: gko-images/iviewer/test/arrow-6e4b148d1c506837040aecfab1bc384d.png
 gko/externals/plupload/readme.txt: gko/externals/plupload/readme-3d8861a6c95c569829e73b0f2206f798.txt

@@ -190,6 +190,10 @@ h1.page-title {
 .site_infos {
  @include row;    
 }
+#site_by {
+ background: transparent asset-url("gko-core/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
+}
+	
 /*-----------------------------------------
    Games
 ----------------------------------------- */
