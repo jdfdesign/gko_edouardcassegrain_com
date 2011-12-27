@@ -5,7 +5,7 @@
     <h3><%= "Jeux".html_safe %></h3>
     <% if @games.any? %> 
     <nav id="games_menu">
-      <ul id="games_menu">
+      <ul>
         <%= @games.map{|game| "<li>#{link_to(game.title, url_for([game.section, game]))}</li>"}.join.html_safe %>
       </ul> 
     </nav>

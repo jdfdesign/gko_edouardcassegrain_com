@@ -183,8 +183,15 @@ h1.page-title {
    Footer
 ----------------------------------------- */ 
 #footer {
+	border-top: 1px solid #1e1e1e;
+	padding-top:12px;
 	h3 {
 		@extend .uppercase_font_style;
+	}
+}
+nav#games_menu {
+	ul {
+		li { margin-bottom: 0px !important;}
 	}
 }
 .site_infos {
