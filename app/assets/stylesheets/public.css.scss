@@ -294,6 +294,7 @@ nav#games_menu {
 	line-height: 420px;
 	text-shadow: 0px 0px 100px #fff;
 	@include transition(text-shadow 600ms ease-in-out);
+	word-wrap: 'break-word';
 }
 .ec-circle-hover h3{
 	text-shadow: 0px 0px 1px #fff;
