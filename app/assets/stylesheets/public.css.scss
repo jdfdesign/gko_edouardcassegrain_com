@@ -22,7 +22,7 @@
 	text-transform: uppercase; 
 }
 /* Not compatible with dropdown */
-.menu_vertical {
+@mixin menu_vertical() {
 	overflow: hidden;
 	clear:both;
 	float: none;
@@ -34,6 +34,7 @@
 		padding: 0;
 		list-style: none;
 		overflow: visible;
+		a { line-height: 4px; }
 		li.first-level {
 			clear: both;
 			float: left;
@@ -46,7 +47,7 @@
 	}
 }
 /* Not compatible with dropdown */
-.menu_center {
+@mixin menu_center() {
 	overflow: hidden;
 	clear:both;
 	float: none;
@@ -70,6 +71,22 @@
 			&:first-child { 
 				padding-left: 0;
 				background: none; }
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+		margin: 0;
+		display:block;
+		float:none !important;
+		@include menu_vertical(); 
+		ul.menu {
+			width:100%;
+			text-align: center; 
+			left: 0;
+			right:0; 
+			display:block;
+			li.first-level { float:none;clear:both;right:0;left:0;padding:0;}
+			a { padding: 10px 20px 10px 20px;display:block;}
 		}
 	}
 }
@@ -111,7 +128,7 @@
 #primary-menu {
 	margin: 0 0 0 0;
 	padding: 8px 0 9px 0;
-  @extend .menu_center; 
+  @include menu_center(); 
 	ul.menu {
 		@extend .uppercase_font_style; 
 		li {
@@ -124,11 +141,12 @@
 	@media only screen and (max-width: 767px) {
 		padding: 0;
 		margin: 0;
-		//@extend .menu_vertical;
+		ul.menu {//@extend .menu_vertical;
+			li {background: none;} }
 	}
 }
 #pipe-menu {
-	@extend .menu_center;
+	@include menu_center();
 	ul.menu {
 		@extend .uppercase_font_style;
 		text-transform: capitalize;
@@ -139,12 +157,21 @@
 
 /*-----------------------------------------
    Header
------------------------------------------ */ 
-#masterhead {
-	float:right;
+----------------------------------------- */
+#wrapper-wide-masterhead {
 	background-color: black;
-	padding:4px;
-}
+	padding:0px;
+	#locales {
+		float:right;
+		background-color: black;
+		padding:4px;
+		margin: 0px;
+		li {
+			margin: 0px;
+		}
+	} 
+} 
+
 h2#site-title {
 	@include logo(252px, 100px);
 	float: none;
@@ -291,10 +318,10 @@ nav#games_menu {
 	font-style: italic;
 	color: transparent;
 	font-size: 48px;
-	line-height: 420px;
+	margin-top:150px;
 	text-shadow: 0px 0px 100px #fff;
 	@include transition(text-shadow 600ms ease-in-out);
-	word-wrap: 'break-word';
+	word-wrap: break-word;
 }
 .ec-circle-hover h3{
 	text-shadow: 0px 0px 1px #fff;
@@ -330,7 +357,7 @@ nav#games_menu {
 		height: 220px;
 		@include border-radius(110px);
 		h3 {
-			line-height: 220px;
+			margin-top:80px;
 			font-size:24px;
 		}
 	};

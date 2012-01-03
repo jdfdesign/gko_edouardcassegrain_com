@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
   publishable
   translates :title, :body, :properties, :meta_title, :meta_description, :meta_keywords, :slug, :feature_title
   acts_as_list :scope => [:section_id]
+  default_scope :order => 'games.position'
   belongs_to :site
   belongs_to :section
   image_accessor :preview

@@ -8,9 +8,9 @@ class Admin::GamesController < Admin::ResourcesController
   # update a single position
   def move
     if params[:position].present?
-      resource = Content.find(params[:id])
+      resource = Game.find(params[:id])
       resource.insert_at(params[:position].to_i)
-      render(:head=>200)
+      render :nothing => true
     else
       puts "something wrong"
     end

@@ -11,9 +11,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 group :production do
-  gem "gko-core", '= 0.0.80', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
+  gem "gko-core", '= 0.0.82', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
   gem "gko-auth", '= 0.0.31', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
-  gem "gko-images", '= 0.0.43', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
+  gem "gko-images", '= 0.0.44', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
   gem "gko-inquiry", '= 0.0.32', :git => 'git@github.com:jdfdesign/gko-cms-31.git'
 end
 #group :development do
