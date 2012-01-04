@@ -1,4 +1,7 @@
 en:
+  contact_us: "Contact us"
+  follow_us: "Follow us"
+  latest_games: "Latest games"
   games:
     properties: Technical informations
     no_record_found: "Aucun jeu n'a été trouvé"

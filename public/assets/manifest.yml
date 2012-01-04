@@ -65,7 +65,7 @@ gko/admin/gko.jquery.mobile.js: gko/admin/gko.jquery.mobile-d1995f8315489cd3c727
 gko-images/plupload/transp50.png: gko-images/plupload/transp50-39869192a2ca6d99e2ce6660416652e7.png
 gko-themes/default/slideshow-fullscreen.png: gko-themes/default/slideshow-fullscreen-28c0b6e04fd2660358ed179512170c55.png
 wymeditor/lang/pt-BR.js: wymeditor/lang/pt-BR-d2a2a9544ff00f72e32d30174e114aa4.js
-public.js: public-bdac72bebd901ae6bcda3e0aae0f37de.js
+public.js: public-1249c55632dcd41bb809fde77226d0d2.js
 gko-core/admin/cms_icons_18_white.png: gko-core/admin/cms_icons_18_white-07e7154e374ff68b528f7e7892c0fef4.png
 gko-images/galleria1.2.6a2/plugins/video/mediaelement/bigplay.png: gko-images/galleria1.2.6a2/plugins/video/mediaelement/bigplay-7882f07f72c794775241876c8ce116a5.png
 wymeditor/skins/gko/iframe/lbl-blockquote.png: wymeditor/skins/gko/iframe/lbl-blockquote-df6c97033eec4af843e441ca789b5f01.png
@@ -99,10 +99,11 @@ gko-images/photoswipe3.0.2/README.md: gko-images/photoswipe3.0.2/README-298a1b1d
 gko-themes/default/slideshow-separator.png: gko-themes/default/slideshow-separator-289f2a013fcedb86bf261cbbb4fa6b5c.png
 wymeditor/skins/gko/link_add.png: wymeditor/skins/gko/link_add-529b8dee875cc168502c90c33702a369.png
 gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/DCT.cs: gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/DCT-824c83c22baab96358c6c30090d4164c.cs
+gko-core/admin/bg_icons.png: gko-core/admin/bg_icons-f5ca928329a8e38132009f8b7c32425c.png
 wymeditor/lang/it.js: wymeditor/lang/it-fc4fd992824a113c46301cb4ecf4482e.js
 gko/externals/plupload.1.5.1/javascript/jquery.ui.plupload/img/plupload-bw.png: gko/externals/plupload.1.5.1/javascript/jquery.ui.plupload/img/plupload-bw-4a7e9dc60f7f3e20f3d98cc86beb2034.png
 gko-core/jquery-ui/ui-bg_flat_50_5c5c5c_40x100.png: gko-core/jquery-ui/ui-bg_flat_50_5c5c5c_40x100-037ae0e3b2968b0cf1c56efc1b4ef60b.png
-gko/admin/core.css: gko/admin/core-227ff4b6e445335d69f8ae6e082325dc.css
+gko/admin/core.css: gko/admin/core-707f7bfaa4c2dad21b0d84a7e608a6be.css
 wymeditor/skins/gko/skin_old.js: wymeditor/skins/gko/skin_old-716c5811553dffd84af22aa524dc1d64.js
 gko/externals/plupload.1.5.1/flash/plupload/src/com/formatlos/Gif.as: gko/externals/plupload.1.5.1/flash/plupload/src/com/formatlos/Gif-de43bffe8be9bb3726c99603756f2d3f.as
 wymeditor/skins/gko/text_italic.png: wymeditor/skins/gko/text_italic-0567e14a2b9d6f53175454523e8656f0.png
@@ -294,7 +295,7 @@ gko-core/admin/jquery-ui/ui-bg_flat_30_cccccc_40x100.png: gko-core/admin/jquery-
 gko-images/iviewer/test/test_image.jpg: gko-images/iviewer/test/test_image-36c806ee8580f006ea08cf48af68be4b.jpg
 gko-core/public/slideshow.css: gko-core/public/slideshow-a37b00a739e474367e60a3e60002b9c8.css
 wymeditor/lang/vi.js: wymeditor/lang/vi-91f524c44b3855571422a0e8dd98d47b.js
-public.css: public-7ede05e689fbf874943154714e3cd38a.css
+public.css: public-e6ccd00a3d84c25277632a2060ed093f.css
 gko-images/photoswipe3.0.2/examples/images/full/003.jpg: gko-images/photoswipe3.0.2/examples/images/full/003-db7e7a84fa649a24a7efbb5823908a45.jpg
 gko-images/iviewer/test/arrow.png: gko-images/iviewer/test/arrow-6e4b148d1c506837040aecfab1bc384d.png
 gko-core/jquery-ui/ui-icons_454545_256x240.png: gko-core/jquery-ui/ui-icons_454545_256x240-7ce553e0b9fe2aa26bc3b9e0c7fd7518.png

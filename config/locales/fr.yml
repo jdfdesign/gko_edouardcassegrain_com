@@ -1,4 +1,7 @@
 fr:
+  contact_us: "Nous contacter"
+  follow_us: "Nous suivre"
+  latest_games: "Derniers jeux"
   activerecord:
     models:
       game_list: Liste de jeux

@@ -199,8 +199,9 @@ h1.page-title {
 	}
 }
 
-.html_text {
-	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+div.html_text {
+	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
 	@media only screen and (max-width: 767px) {
 		padding: 0;
 	}
@@ -274,23 +275,64 @@ nav#games_menu {
 .description.game {
   @include sub_row; 
 }
-.description.game .html_text {
+.description.game .html_text_wrapper {
  @include column(8);
-}
-.description.game .html_text.properties {
-	@include column(4);
-	h3 {
-		line-height: 24px;
-		font-size: 14px;
-		font-style: italic;
-		font-family: $baseFontFamily;
-		letter-spacing: 0px;
-		margin: 0 0 4px 0;
-		border-bottom: 1px dotted #B7B6B6;
+	div.html_text {
+ 		padding-left:100px;
 		@media only screen and (max-width: 767px) {
-			margin: 18px 0 4px 0;
+			padding: 0px !important;
+		}
+	}
+}
+
+.description.game .html_text_properties_wrapper {
+	@include column(4);
+	div.html_text {
+		padding-right:100px;
+		@media only screen and (max-width: 767px) {
+			padding: 0px !important;
+		}
+		h3 {
+			line-height: 24px;
+			font-size: 14px;
+			font-style: italic;
+			font-family: $baseFontFamily;
+			letter-spacing: 0px;
+			margin: 0 0 4px 0;
+			border-bottom: 1px dotted #B7B6B6;
+			@media only screen and (max-width: 767px) {
+				margin: 18px 0 4px 0;
+			}
+		}
+		ul {
+			margin-left: 0px;
 		} 
 	}
+}
+
+body#inquiry {
+	.description.game {
+	  @include sub_row; 
+	}
+	.description .html_text_wrapper {
+	 @include column(6);
+		div.html_text {
+	 		padding-left:100px;
+			@media only screen and (max-width: 767px) {
+				padding: 0px !important;
+			}
+		}
+	}
+
+	.description .inquiry_form_wrapper {
+		@include column(6);
+		.ui-field-contain {
+			padding:8px;
+			label{font-weight:bold;}
+			input[type="text"],input[type="email"],input[type="tel"], textarea {padding:12px;width:90%;}
+			.button{width:90%;background:#fa6e00;}
+		}
+	}	
 }
 /*-----------------------------------------
    Slideshow
@@ -336,15 +378,7 @@ nav#games_menu {
 	text-align: center;
 	overflow: hidden;
 	line-height: 420px;
-	-webkit-box-shadow: 
-        inset 0 0 1px 210px rgba(0,0,0,0.4),
-		inset 0 0 0 7px #fff;
-	-moz-box-shadow: 
-        inset 0 0 1px 210px rgba(255,255,255,0.4),
-		inset 0 0 0 7px #fff;
-	box-shadow: 
-        inset 0 0 1px 210px rgba(0,0,0,0.2),
-		inset 0 0 0 7px #fff;
+  @include box-shadow(inset 0 0 1px 210px rgba(0,0,0,0.4),inset 0 0 0 7px #fff); 
   @include transition(box-shadow 600ms ease-in-out);
 	display: block;
 	outline: none; 
@@ -361,6 +395,19 @@ nav#games_menu {
 			font-size:24px;
 		}
 	};
+	@media only screen and (max-width: 767px) {
+		margin-top:100px;
+		width: 220px;
+		height: 220px;
+		margin: 24px auto !important;
+		clear:both;
+		float: none !important;
+		@include border-radius(110px);
+		h3 {
+			margin-top:80px;
+			font-size:24px;
+		}
+	}
 }
 .ec-circle-hover{
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));

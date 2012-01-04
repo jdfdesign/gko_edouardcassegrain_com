@@ -10,8 +10,13 @@
 
 
 $(document).ready(function() {
-	Gallery.init($('.images:first')); 
+	if($('.images:first').length > 0) {
+		
+		Gallery.init($('.images:first'));
+	}
+	 
 	if (jQuery.browser.msie) {
+		console.log(jQuery.browser.msie);
 		$('.ec-circle h3').css({color:'#fff', display:'none'});
 	}
 	$('.circle').circlemouse({

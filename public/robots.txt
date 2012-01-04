@@ -1,8 +1,8 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /user/ 
-Disallow: /user_sessions
-Disallow: /users
+Disallow: /user_sessions/
+Disallow: /users/
 Disallow: /password_resets
 Disallow: /countries
 Disallow: /states
