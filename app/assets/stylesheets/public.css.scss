@@ -359,8 +359,9 @@ body#inquiry {
 	font-weight: normal;  
 	font-style: italic;
 	color: transparent;
-	font-size: 48px;
-	margin-top:150px;
+	margin-top:80px;
+	font-size:24px;
+	
 	text-shadow: 0px 0px 100px #fff;
 	@include transition(text-shadow 600ms ease-in-out);
 	word-wrap: break-word;
@@ -374,45 +375,45 @@ body#inquiry {
 	margin-left:20px;
 	width: 420px;
 	height: 420px;
-	@include border-radius(210px);
+	@include border-radius(110px);
+	margin-top:100px;
+	width: 220px;
+	height: 220px;
 	text-align: center;
 	overflow: hidden;
-	line-height: 420px;
+	line-height: 420px; 
+	background-color:#fa6e00;
   @include box-shadow(inset 0 0 1px 210px rgba(0,0,0,0.4),inset 0 0 0 7px #fff); 
   @include transition(box-shadow 600ms ease-in-out);
 	display: block;
 	outline: none; 
-	/*For IE < 9 so that we have some kind of effect */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	&:first-child,
-	&:last-child {
-		margin-top:100px;
-		width: 220px;
-		height: 220px;
-		@include border-radius(110px);
+	&.ec-circle-one {
+		width: 420px;
+		height: 420px;
+		margin-top:0px;
+		@include border-radius(210px);
 		h3 {
-			margin-top:80px;
-			font-size:24px;
+			font-size: 48px;
+			margin-top:150px;
 		}
-	};
-	@media only screen and (max-width: 767px) {
-		margin-top:100px;
-		width: 220px;
-		height: 220px;
-		margin: 24px auto !important;
-		clear:both;
-		float: none !important;
-		@include border-radius(110px);
-		h3 {
-			margin-top:80px;
-			font-size:24px;
+		@media only screen and (max-width: 960px) {
+			margin-top:100px;
+			width: 220px;
+			height: 220px;
+			margin: 24px auto !important;
+			clear:both;
+			float: none !important;
+			@include border-radius(110px);
+			h3 {
+				margin-top:80px;
+				font-size:24px;
+			}
 		}
 	}
+	
 }
 .ec-circle-hover{
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
-	/*For IE < 9 so that we have some kind of effect */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 
