@@ -21,7 +21,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
         end 
         
         if section.is_a?(GameList)
-          if(@posts = section.games.published.with_translations(locale))
+          if(@games = section.games.published.with_translations(locale))
              @games.each do |game|
                if default_locale?(locale)
                  xml.loc "#{@base_url}#{url_for([game.section, game])}"
