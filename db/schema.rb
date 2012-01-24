@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216000000) do
+ActiveRecord::Schema.define(:version => 20120124190136) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20111216000000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "configurations", :force => true do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.string   "type",       :limit => 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "configurations", ["site_id", "name", "type"], :name => "index_configurations_on_site_id_and_name_and_type"
 
   create_table "content_translations", :force => true do |t|
     t.integer  "content_id"
@@ -246,18 +256,47 @@ ActiveRecord::Schema.define(:version => 20111216000000) do
 
   add_index "mail_methods", ["site_id"], :name => "index_mail_methods_on_site_id"
 
-  create_table "preferences", :force => true do |t|
-    t.string   "name",       :limit => 100, :null => false
-    t.integer  "owner_id",                  :null => false
-    t.string   "owner_type", :limit => 50,  :null => false
-    t.integer  "group_id"
-    t.string   "group_type", :limit => 50
-    t.text     "value"
+  create_table "partner_translations", :force => true do |t|
+    t.integer  "partner_id"
+    t.string   "locale"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "preferences", ["owner_id", "owner_type", "name", "group_id", "group_type"], :name => "ix_prefs_on_owner_attr_pref", :unique => true
+  add_index "partner_translations", ["locale"], :name => "index_partner_translations_on_locale"
+  add_index "partner_translations", ["partner_id"], :name => "index_partner_translations_on_partner_id"
+
+  create_table "partners", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "url"
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.string   "image_mime_type"
+    t.string   "image_name"
+    t.integer  "image_size"
+    t.integer  "image_width"
+    t.integer  "image_height"
+    t.string   "image_uid"
+    t.string   "image_ext"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "globalized",      :default => 0
+  end
+
+  add_index "partners", ["section_id"], :name => "index_partners_on_section_id"
+  add_index "partners", ["site_id"], :name => "index_partners_on_site_id"
+
+  create_table "preferences", :force => true do |t|
+    t.string   "key",                      :null => false
+    t.string   "value_type", :limit => 50
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preferences", ["key"], :name => "index_preferences_on_key", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string "name"
@@ -385,6 +424,14 @@ ActiveRecord::Schema.define(:version => 20111216000000) do
   end
 
   add_index "states", ["country_id"], :name => "index_states_on_country_id"
+
+  create_table "supports", :force => true do |t|
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.text    "infos"
+  end
+
+  add_index "supports", ["owner_id", "owner_type"], :name => "index_supports_on_owner_id_and_owner_type", :unique => true
 
   create_table "tokenized_permissions", :force => true do |t|
     t.integer  "permissable_id"

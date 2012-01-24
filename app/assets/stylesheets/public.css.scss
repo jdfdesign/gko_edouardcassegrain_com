@@ -1,16 +1,10 @@
-/*
-*= require_self
-******/
-
-/*-------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-@import "variables";
-@import "gko/core";
+$baseFontFamily: Georgia,'Times New Roman',Times,serif;
+$baseFontColor: #ccc;
+$bodyBackground: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
+$altColor: #ccc;//blue
+$linkColor: #ccc;
+$linkColorHover: #fff;
+@import "gko/gko_public_all"; 
 @import "gko/elastislide";
 /*-----------------------------------------
    Shared Styles
@@ -142,7 +136,9 @@
 		padding: 0;
 		margin: 0;
 		ul.menu {//@extend .menu_vertical;
-			li {background: none;} }
+			li {background: none;}
+			a { text-align: center;} 
+		}
 	}
 }
 #pipe-menu {
@@ -234,7 +230,7 @@ nav#games_menu {
 ----------------------------------------- */
 #main-content.games {
 	ul.list-view.list-view-games {
-		@include grid(3);
+		@include block-grid(3);
 		min-height:320px;
 		text-align: center;
 		.entry-thumb {

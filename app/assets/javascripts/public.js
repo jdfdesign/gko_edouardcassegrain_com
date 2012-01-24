@@ -1,9 +1,3 @@
-//= require jquery.js
-//= require jquery_ujs
-//= require gko/externals/innershiv
-//= require gko/externals/jquery.easing.1.3
-//= require gko/externals/jquery.imagesloaded
-//= require gko/externals/jquery.elastislide
 //= require gko/externals/jquery.elastidegallery
 //= require modernizr.custom.72835
 //= require gko/externals/jquery.circlemouse
@@ -11,12 +5,10 @@
 
 $(document).ready(function() {
 	if($('.images:first').length > 0) {
-		
 		Gallery.init($('.images:first'));
 	}
 	 
 	if (jQuery.browser.msie) {
-		console.log(jQuery.browser.msie);
 		$('.ec-circle h3').css({color:'#fff', display:'none'});
 	}
 	$('.circle').circlemouse({

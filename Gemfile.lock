@@ -1,26 +1,25 @@
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 206f5a2ffc28110e51b26fc2d9f577f1e0c43165
+  revision: bbae41848a8168536890eda7a4e20c4cc49d39fa
   specs:
-    gko-inquiry (0.0.33)
-      filters_spam (~> 0.2)
-      gko-core
-
-GIT
-  remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 206f5a2ffc28110e51b26fc2d9f577f1e0c43165
-  specs:
-    gko-images (0.0.45)
+    gko_auth (0.1.07)
+      cancan (= 1.6.5)
+      devise (= 1.5.1)
+      gko_core
+    gko_images (0.1.07)
       dragonfly (~> 0.9.8)
-      gko-core
+      gko_core
       mime-types
       rack-cache (>= 0.5.3)
+    gko_inquiries (0.1.07)
+      filters_spam (~> 0.2)
+      gko_core
 
 GIT
   remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 206f5a2ffc28110e51b26fc2d9f577f1e0c43165
+  revision: bbae41848a8168536890eda7a4e20c4cc49d39fa
   specs:
-    gko-core (0.0.85)
+    gko_core (0.1.07)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.6)
       bundler (= 1.1.pre.4)
@@ -30,7 +29,7 @@ GIT
       exception_notification
       faker (= 1.0.0)
       gem-patching (= 0.0.3)
-      globalize3 (= 0.2.0.beta4)
+      globalize3 (= 0.2.0.beta6)
       has_scope (~> 0.5.1)
       highline (= 1.6.2)
       i18n-missing_translations (= 0.0.1)
@@ -49,15 +48,6 @@ GIT
       uglifier (>= 1.0.3)
       uuid (= 2.3.1)
       will_paginate (~> 3.0.0)
-
-GIT
-  remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: 206f5a2ffc28110e51b26fc2d9f577f1e0c43165
-  specs:
-    gko-auth (0.0.32)
-      cancan (= 1.6.5)
-      devise (= 1.5.1)
-      gko-core
 
 GEM
   remote: http://rubygems.org/
@@ -126,7 +116,7 @@ GEM
       i18n (~> 0.4)
     filters_spam (0.3)
     gem-patching (0.0.3)
-    globalize3 (0.2.0.beta4)
+    globalize3 (0.2.0.beta6)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
@@ -162,7 +152,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.2.1)
+    net-ssh (2.3.0)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     orm_adapter (0.0.5)
@@ -235,10 +225,10 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
-  gko-auth (= 0.0.32)!
-  gko-core (= 0.0.85)!
-  gko-images (= 0.0.45)!
-  gko-inquiry (= 0.0.33)!
+  gko_auth!
+  gko_core (= 0.1.07)!
+  gko_images!
+  gko_inquiries!
   iconv
   sass-rails (~> 3.1.5.rc1)
   uglifier (>= 1.0.3)

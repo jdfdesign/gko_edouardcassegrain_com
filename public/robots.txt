@@ -6,4 +6,11 @@ Disallow: /users/
 Disallow: /password_resets
 Disallow: /countries
 Disallow: /states
+Disallow: /en/admin/
+Disallow: /en/user/ 
+Disallow: /en/user_sessions/
+Disallow: /en/users/
+Disallow: /en/password_resets
+Disallow: /en/countries
+Disallow: /en/states
 Sitemap: http://edouardcassegrain.com/sitemap.xml
