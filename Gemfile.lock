@@ -1,25 +1,25 @@
 GIT
-  remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: afbae947e04e60a9fe13a101ff5dbebfb048a7ee
+  remote: git@github.com:jdfdesign/gko_cms_rails_3.git
+  revision: a12511e17e737f88c4432ce3ef687e5e2e1fed5f
   specs:
-    gko_auth (0.1.08)
+    gko_auth (0.1.14)
       cancan (= 1.6.5)
       devise (= 1.5.1)
       gko_core
-    gko_images (0.1.08)
+    gko_images (0.1.14)
       dragonfly (~> 0.9.8)
       gko_core
       mime-types
       rack-cache (>= 0.5.3)
-    gko_inquiries (0.1.08)
+    gko_inquiries (0.1.14)
       filters_spam (~> 0.2)
       gko_core
 
 GIT
-  remote: git@github.com:jdfdesign/gko-cms-31.git
-  revision: afbae947e04e60a9fe13a101ff5dbebfb048a7ee
+  remote: git@github.com:jdfdesign/gko_cms_rails_3.git
+  revision: a12511e17e737f88c4432ce3ef687e5e2e1fed5f
   specs:
-    gko_core (0.1.08)
+    gko_core (0.1.14)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.6)
       bundler (= 1.1.pre.4)
@@ -47,7 +47,7 @@ GIT
       truncate_html (~> 0.5)
       uglifier (>= 1.0.3)
       uuid (= 2.3.1)
-      will_paginate (~> 3.0.0)
+      will_paginate (~> 3.0.pre4)
 
 GEM
   remote: http://rubygems.org/
@@ -110,7 +110,7 @@ GEM
     erubis (2.7.0)
     exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
-    execjs (1.2.13)
+    execjs (1.3.0)
       multi_json (~> 1.0)
     faker (1.0.0)
       i18n (~> 0.4)
@@ -132,7 +132,7 @@ GEM
     jquery-rails (1.0.18)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.4)
+    json (1.6.5)
     macaddr (1.5.0)
       systemu (>= 2.4.0)
     mail (2.3.0)
@@ -211,7 +211,7 @@ GEM
       polyglot (>= 0.3.1)
     truncate_html (0.5.1)
     tzinfo (0.3.31)
-    uglifier (1.2.1)
+    uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     uuid (2.3.1)
@@ -226,7 +226,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
   gko_auth!
-  gko_core (= 0.1.08)!
+  gko_core (= 0.1.14)!
   gko_images!
   gko_inquiries!
   iconv

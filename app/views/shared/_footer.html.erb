@@ -1,7 +1,7 @@
 <% @games ||= @site.games.published.with_translations(I18n.locale).order('games.published_at ASC').limit(6) %>
-<div id='wrapper-wide-footer' class='wrapper-wide' data-role='footer'>
-  <footer id='footer' class='wrapper-content'>
-    <div class="four-column">
+<div id='wrapper-wide-footer' class='wrapper-wide container' data-role='footer'>
+  <footer id='footer' class='wrapper-content row'>
+    <div class="four columns">
     <h3><%= t("latest_games") %></h3>
     <% if @games.any? %> 
     <nav id="games_menu">
@@ -11,12 +11,12 @@
     </nav>
     <% end %>
     </div>
-    <div class="four-column">
+    <div class="four columns">
       <%= render(:partial => '/shared/menu', :locals => {:sections => @pipe_menu, :menu_name => "pipe"}) %>
       <h3><%= t("follow_us") %></h3>
       <p><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com/edouard.cassegrain&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:62px; height:90px;" allowtransparency="true"></iframe></p>
     </div>
-    <div class="four-column">
+    <div class="four columns">
       <h3><%= t("contact_us") %></h3>
       <p><%= "<a href='http://lolitajaca.com' target='_blank'>Showroom Lolita Jaca</a><br/>Les Hauts du Carré d’Or<br/>Gustavia 97133<br/>Saint-Barthélemy<br/>Cell.: +590 (0)690 24 59 98<br/>Tel.: +590 (0)590 27 17 64<br/>".html_safe %></p>
     </div>
