@@ -3,9 +3,9 @@ games = @site.games.with_translations(I18n.locale).in_homepage.order('games.posi
 games ||= @site.games.with_translations(I18n.locale).order('games.position ASC').limit(3) 
 %>
 <% content_for :page_content do %>
-  <div class="row" id="circles">
+  <div >
     <div class="twelve columns">
-  		<div class="section">
+  		<div class="section" id="circles">
   		  <% games.each_with_index do |game, index| %>
   		    <% geom = (index != 1 ? '210x210#' : '410x410#') %>
           <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle ec-circle-<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail(geom).process(:greyscale).url %>) no-repeat center center;'><h3><%= game.title %></h3></a>

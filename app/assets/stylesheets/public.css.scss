@@ -1,10 +1,10 @@
 $baseFontFamily: Georgia,'Times New Roman',Times,serif;
 $baseFontColor: #ccc;
-$bodyBackground: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
+
 $altColor: #ccc;//blue
 $linkColor: #ccc;
 $linkColorHover: #fff;
-@import "gko/gko_public_all"; 
+@import "gko_public_all"; 
 @import "gko/elastislide";
 /*-----------------------------------------
    Shared Styles
@@ -86,22 +86,9 @@ $linkColorHover: #fff;
 }
 /*-----------------------------------------
    Structure
------------------------------------------ */
-	
-.wrapper-wide {
- @include container; 
-}
-.wrapper-content {
- @include row; 
-}
-#main-content{
- @include column(12);
-}
-#main-content.sidebar {
- @include column(8);
-}
-#sidebar{ 
- @include column(4); 
+----------------------------------------- */ 
+body {
+	background: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
 }
 #wrapper-wide-main {
 	padding-top:36px; 
@@ -122,13 +109,18 @@ $linkColorHover: #fff;
 #primary-menu {
 	margin: 0 0 0 0;
 	padding: 8px 0 9px 0;
-  @include menu_center(); 
-	ul.menu {
+	
+  @include menu_center();
+	ul.nav-bar {
+		border: 0;
+		background: transparent;
 		@extend .uppercase_font_style; 
 		li {
+			border: 0; 
 			background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
 			&:first-child { 
 				background: none; }
+			
 		}
 	}
 	
@@ -190,6 +182,7 @@ h1.page-title {
 	line-height: 1.4;
 	text-align: center;
 	padding: 0 36px 0 36px;
+	color: white;
 	@media only screen and (max-width: 767px) {
 		padding: 0;
 	}
@@ -222,13 +215,13 @@ nav#games_menu {
  @include row;    
 }
 #site_by {
- background: transparent asset-url("gko-core/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
+ background: transparent asset-url("gko/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
 }
 	
 /*-----------------------------------------
    Games
 ----------------------------------------- */
-#main-content {
+
 	ul.block-grid-games {
 		@include block-grid(3);
 		min-height:320px;
@@ -250,7 +243,7 @@ nav#games_menu {
 				opacity: 1;
 				@include transition(opacity 200ms ease-in-out);
 				&:hover {
-					opacity: .9;
+					opacity: .8;
 				}; 
 			}
 		}
@@ -262,8 +255,7 @@ nav#games_menu {
 		}
 	}
 
-}
-#main-content.game { 
+#main.game { 
 	.next-previous {
 		display:none;
 	} 
@@ -382,7 +374,12 @@ body#inquiry {
   @include box-shadow(inset 0 0 1px 210px rgba(0,0,0,0.4),inset 0 0 0 7px #fff); 
   @include transition(box-shadow 600ms ease-in-out);
 	display: block;
-	outline: none; 
+	outline: none;
+	@media only screen and (max-width: 960px) {
+		margin: 24px auto !important;
+		clear:both;
+		float: none !important;
+	} 
 	&.ec-circle-one {
 		width: 420px;
 		height: 420px;

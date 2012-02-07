@@ -1,6 +1,6 @@
-//= require gko/externals/jquery.elastidegallery
+//= require gko/jquery.elastidegallery
 //= require modernizr.custom.72835
-//= require gko/externals/jquery.circlemouse
+//= require circlemouse
 
 
 $(document).ready(function() {
