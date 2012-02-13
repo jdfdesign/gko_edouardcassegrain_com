@@ -1,0 +1,294 @@
+@import "gko/variables";
+
+$baseFontFamily: Georgia,'Times New Roman',Times,serif;
+$textColor: #ccc;
+$altColor: #fff;//white
+$linkColor: #ccc;
+$linkColorActive: $altColor;
+$linkColorHover: $altColor;
+
+$navbarText: $textColor;
+$navbarLinkColor: $linkColor;
+$navbarLinkColorHover: $linkColorHover;
+
+@import "gko_public_all"; 
+@import "gko/elastislide";
+/*-----------------------------------------
+   Shared Styles
+----------------------------------------- */ 
+.uppercase_font_style {
+	line-height: 24px;
+	font-size: 13px;
+	letter-spacing: 1px; 
+	text-transform: uppercase; 
+}
+/* Not compatible with dropdown */
+@mixin menu_vertical() {
+	overflow: hidden;
+	clear:both;
+	float: none;
+	text-align: left;
+	ul.menu {
+		float: left;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow: visible;
+		a { line-height: 4px; }
+		li.first-level {
+			clear: both;
+			float: left;
+			display: block;
+			margin: 0;
+			&:first-child { 
+				padding-left: 0;
+				background: none; }
+		}
+	}
+}
+/* Not compatible with dropdown */
+@mixin menu_center() {
+	overflow: hidden;
+	clear:both;
+	float: none;
+	text-align: center;
+	ul.menu {
+		float: left;
+		position: relative;
+		left: 50%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow: visible;
+		@extend .uppercase_font_style; 
+		li.first-level {
+			float: left;
+			position: relative;
+			right: 50%;
+			display: block;
+			margin: 0;
+			padding: 0 0 0 48px;
+			&:first-child { 
+				padding-left: 0;
+				background: none; }
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+		margin: 0;
+		display:block;
+		float:none !important;
+		@include menu_vertical(); 
+		ul.menu {
+			width:100%;
+			text-align: center; 
+			left: 0;
+			right:0; 
+			display:block;
+			li.first-level { float:none;clear:both;right:0;left:0;padding:0;}
+			a { padding: 10px 20px 10px 20px;display:block;}
+		}
+	}
+}
+/*-----------------------------------------
+   Structure
+----------------------------------------- */ 
+
+#wrapper-wide-main {
+	padding-top:36px; 
+}
+#wrapper-wide-footer {
+	margin: 80px 0 0 0;
+	padding: 45px 0 40px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
+/*-----------------------------------------
+   Menu
+----------------------------------------- */
+#primary-menu {
+	margin: 0 0 0 0;
+	padding: 8px 0 9px 0;
+	
+  @include menu_center();
+	ul.nav-bar {
+		border: 0;
+		background: transparent;
+		@extend .uppercase_font_style; 
+		li {
+			border: 0; 
+			background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
+			&:first-child { 
+				background: none; }
+			
+		}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+		margin: 0;
+		ul.menu {//@extend .menu_vertical;
+			li {background: none;}
+			a { text-align: center;} 
+		}
+	}
+}
+#pipe-menu {
+	@include menu_center();
+	ul.menu {
+		@extend .uppercase_font_style;
+		text-transform: capitalize;
+		font-style: italic;
+		letter-spacing: 0px;
+	}
+}
+
+/*-----------------------------------------
+   Header
+----------------------------------------- */
+#wrapper-wide-masterhead {
+	background-color: black;
+	padding:0px;
+	#locales {
+		float:right;
+		background-color: black;
+		padding:4px;
+		margin: 0px;
+		li {
+			margin: 0px;
+		}
+	} 
+} 
+
+
+h1.page-title {
+	text-transform: uppercase;
+	padding: 0 0 0 0;
+	margin: 0 0 10px 0;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	line-height: 1.4;
+	text-align: center;
+	padding: 0 36px 0 36px;
+	color: white;
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+	}
+}
+
+div.html_text {
+	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+	}
+}
+
+
+/*-----------------------------------------
+   Games
+----------------------------------------- */
+
+	ul.block-grid-games {
+		@include block-grid(3);
+		min-height:320px;
+		text-align: center;
+		.entry-thumb {
+			width: 220px;
+			height: 220px;
+			overflow: hidden; 
+			margin: 0 auto;
+			background: transparent;
+			line-height: 216px; 
+      a {
+				width: 200px;
+				height: 200px; 
+				display:block;
+				border: 8px solid #fff; 
+				background-position: 50% 50%;
+				@include border-radius(104px);
+				opacity: 1;
+				@include transition(opacity 200ms ease-in-out);
+				&:hover {
+					opacity: .8;
+				}; 
+			}
+		}
+		.entry-infos {
+			margin-top: 16px;
+		}
+		h2.entry-title {
+			@extend .uppercase_font_style;
+		}
+	}
+
+#main.game { 
+	.next-previous {
+		display:none;
+	} 
+}
+.description.game {
+  @include sub_row; 
+}
+.description.game .html_text_wrapper {
+ @include column(8);
+	div.html_text {
+ 		padding-left:100px;
+		@media only screen and (max-width: 767px) {
+			padding: 0px !important;
+		}
+	}
+}
+
+.description.game .html_text_properties_wrapper {
+	@include column(4);
+	div.html_text {
+		padding-right:100px;
+		@media only screen and (max-width: 767px) {
+			padding: 0px !important;
+		}
+		h3 {
+			line-height: 24px;
+			font-size: 14px;
+			font-style: italic;
+			font-family: $baseFontFamily;
+			letter-spacing: 0px;
+			margin: 0 0 4px 0;
+			border-bottom: 1px dotted #B7B6B6;
+			@media only screen and (max-width: 767px) {
+				margin: 18px 0 4px 0;
+			}
+		}
+		ul {
+			margin-left: 0px;
+		} 
+	}
+}
+
+body#inquiry {
+	.description.game {
+	  @include sub_row; 
+	}
+	.description .html_text_wrapper {
+	 @include column(6);
+		div.html_text {
+	 		padding-left:100px;
+			@media only screen and (max-width: 767px) {
+				padding: 0px !important;
+			}
+		}
+	}
+
+	.description .inquiry_form_wrapper {
+		@include column(6);
+		.ui-field-contain {
+			padding:8px;
+			label{font-weight:bold;}
+			input[type="text"],input[type="email"],input[type="tel"], textarea {padding:12px;width:90%;}
+			.button{width:90%;background:#fa6e00;}
+		}
+	}	
+}

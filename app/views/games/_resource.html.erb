@@ -2,20 +2,31 @@
 has_stickers = @stickers.try(:any?)
 has_categories = @categories.try(:any?)
 %>
-<%= page_title(resource.title) %>
-<%= render "/images/shared/list", :images => @images if @images.try(:any?) %>
-<%= resource_body_tag do %>
-  <div class='html_text_wrapper'>
-    <div class='html_text'>
-      <%= resource.body.html_safe if resource.body.present? %>
+<div class="row-fluid">
+  <div class="span12">
+    <%= page_title(resource.title) %>
     </div>
   </div>
-  <div class='html_text_properties_wrapper'>
-    <div class='html_text html_text_properties'>
-      <% if resource.properties.present? %>
-      <h3><%= t('games.properties') %></h3>
-      <%= resource.properties.html_safe %>
-      <% end %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= render "/images/shared/list", :images => @images if @images.try(:any?) %> 
     </div>
   </div>
-<% end %>
+  <div class="row-fluid">
+    <%= resource_body_tag do %>
+      <div class='span7 html_text_wrapper'>
+        <div class='html_text'>
+          <%= resource.body.html_safe if resource.body.present? %>
+        </div>
+      </div>
+      <div class="span5 html_text_properties_wrapper">  
+       <div class='html_text html_text_properties'>
+          <% if resource.properties.present? %>
+            <h3><%= t('games.properties') %></h3>
+             <%= resource.properties.html_safe %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>        

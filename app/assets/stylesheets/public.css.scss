@@ -1,52 +1,55 @@
+@import "gko/variables";
+
 $baseFontFamily: Georgia,'Times New Roman',Times,serif;
 $textColor: #ccc;
-
-$altColor: #ccc;//blue
+$altColor: #fff;//white
 $linkColor: #ccc;
-$linkColorHover: #fff;
+$linkColorActive: $altColor;
+$linkColorHover: $altColor;
+
+$navbarText: $textColor;
+$navbarLinkColor: $linkColor;
+$navbarLinkColorHover: $linkColorHover;
+
 @import "gko_public_all"; 
-@import "gko/elastislide";
+@import "gko/elastislide"; 
+
 /*-----------------------------------------
    Shared Styles
 ----------------------------------------- */ 
 .uppercase_font_style {
-	line-height: 24px;
-	font-size: 13px;
 	letter-spacing: 1px; 
 	text-transform: uppercase; 
 }
-/* Not compatible with dropdown */
-@mixin menu_vertical() {
-	overflow: hidden;
-	clear:both;
-	float: none;
-	text-align: left;
-	ul.menu {
-		float: left;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		overflow: visible;
-		a { line-height: 4px; }
-		li.first-level {
-			clear: both;
-			float: left;
-			display: block;
-			margin: 0;
-			&:first-child { 
-				padding-left: 0;
-				background: none; }
-		}
-	}
+h1 {
+  font-size: 26px;
+  line-height: $baseLineHeight * 2; 
+	font-weight: normal;
+  small {
+    font-size: 18px;
+  }
 }
-/* Not compatible with dropdown */
+h2 {
+  line-height: $baseLineHeight * 1.5;
+  font-size: 22px; 
+	font-weight: normal;
+  small {
+    font-size: 14px;
+  }
+}
+h3 {
+  line-height: $baseLineHeight * 1.5;
+  font-size: 18px;
+	font-weight: normal;
+  small {
+    font-size: 14px;
+  }
+}
 @mixin menu_center() {
-	overflow: hidden;
 	clear:both;
 	float: none;
 	text-align: center;
-	ul.menu {
+	ul.nav {
 		float: left;
 		position: relative;
 		left: 50%;
@@ -67,110 +70,12 @@ $linkColorHover: #fff;
 				background: none; }
 		}
 	}
-	@media only screen and (max-width: 767px) {
-		padding: 0;
-		margin: 0;
-		display:block;
-		float:none !important;
-		@include menu_vertical(); 
-		ul.menu {
-			width:100%;
-			text-align: center; 
-			left: 0;
-			right:0; 
-			display:block;
-			li.first-level { float:none;clear:both;right:0;left:0;padding:0;}
-			a { padding: 10px 20px 10px 20px;display:block;}
-		}
-	}
 }
 /*-----------------------------------------
    Structure
 ----------------------------------------- */ 
 body {
 	background: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
-}
-#wrapper-wide-main {
-	padding-top:36px; 
-}
-#wrapper-wide-footer {
-	margin: 80px 0 0 0;
-	padding: 45px 0 40px 0;
-	width: 100%;
-	text-align: center;
-	font-size: 12px;
-}
-#wrapper-wide-header {
-	height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
-	border-top: 8px solid black;}
-/*-----------------------------------------
-   Menu
------------------------------------------ */
-#primary-menu {
-	margin: 0 0 0 0;
-	padding: 8px 0 9px 0;
-	
-  @include menu_center();
-	ul.nav-bar {
-		border: 0;
-		background: transparent;
-		@extend .uppercase_font_style; 
-		li {
-			border: 0; 
-			background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
-			&:first-child { 
-				background: none; }
-			
-		}
-	}
-	
-	@media only screen and (max-width: 767px) {
-		padding: 0;
-		margin: 0;
-		ul.menu {//@extend .menu_vertical;
-			li {background: none;}
-			a { text-align: center;} 
-		}
-	}
-}
-#pipe-menu {
-	@include menu_center();
-	ul.menu {
-		@extend .uppercase_font_style;
-		text-transform: capitalize;
-		font-style: italic;
-		letter-spacing: 0px;
-	}
-}
-
-/*-----------------------------------------
-   Header
------------------------------------------ */
-#wrapper-wide-masterhead {
-	background-color: black;
-	padding:0px;
-	#locales {
-		float:right;
-		background-color: black;
-		padding:4px;
-		margin: 0px;
-		li {
-			margin: 0px;
-		}
-	} 
-} 
-
-h2#site-title {
-	@include logo(252px, 100px);
-	float: none;
-	margin: 0 auto !important;
-	
-}
-ul.menu
- {
-  .active > a {
-    background-color: transparent;
-  }
 }
 h1.page-title {
 	text-transform: uppercase;
@@ -190,42 +95,64 @@ h1.page-title {
 
 div.html_text {
 	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-
-	@media only screen and (max-width: 767px) {
-		padding: 0;
-	}
+	
 }
 
 /*-----------------------------------------
-   Footer
+   Menu
+----------------------------------------- */
+
+/*-----------------------------------------
+   HEADER
+----------------------------------------- */
+h2#site-title {
+	@include logo(252px, 100px);
+	position:absolute;
+	left: 50%;
+  margin-left: -126px;
+	margin-top: -40px;
+}
+.navbar {
+	border-top: 8px solid black;
+	height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
+	.main-row {
+		position:relative;
+		@include menu_center();
+		.nav > li > a {
+			@extend .uppercase_font_style;
+			   
+		}
+	}
+	.nav-collapse {
+		margin-top:70px;
+	}
+}
+/*-----------------------------------------
+   FOOTER
 ----------------------------------------- */ 
 #footer {
 	border-top: 1px solid #1e1e1e;
-	padding-top:12px;
+	padding-top: $baseLineHeight * 2;
 	h3 {
 		@extend .uppercase_font_style;
+		font-size: 13px;
 	}
 }
-nav#games_menu {
-	ul {
-		li { margin-bottom: 0px !important;}
-	}
-}
-.site_infos {
- @include row;    
-}
+
 #site_by {
  background: transparent asset-url("gko/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
 }
-	
+
 /*-----------------------------------------
-   Games
+   GAMES
 ----------------------------------------- */
 
-	ul.block-grid-games {
-		@include block-grid(3);
-		min-height:320px;
-		text-align: center;
+	ul.block-grid.block-grid-games {
+		> li { 
+			min-height:320px;
+			text-align: center; 
+		}
+		
 		.entry-thumb {
 			width: 220px;
 			height: 220px;
@@ -251,7 +178,8 @@ nav#games_menu {
 			margin-top: 16px;
 		}
 		h2.entry-title {
-			@extend .uppercase_font_style;
+			@extend .uppercase_font_style; 
+			font-size: $baseFontSize;
 		}
 	}
 
@@ -260,70 +188,9 @@ nav#games_menu {
 		display:none;
 	} 
 }
-.description.game {
-  @include sub_row; 
-}
-.description.game .html_text_wrapper {
- @include column(8);
-	div.html_text {
- 		padding-left:100px;
-		@media only screen and (max-width: 767px) {
-			padding: 0px !important;
-		}
-	}
-}
 
-.description.game .html_text_properties_wrapper {
-	@include column(4);
-	div.html_text {
-		padding-right:100px;
-		@media only screen and (max-width: 767px) {
-			padding: 0px !important;
-		}
-		h3 {
-			line-height: 24px;
-			font-size: 14px;
-			font-style: italic;
-			font-family: $baseFontFamily;
-			letter-spacing: 0px;
-			margin: 0 0 4px 0;
-			border-bottom: 1px dotted #B7B6B6;
-			@media only screen and (max-width: 767px) {
-				margin: 18px 0 4px 0;
-			}
-		}
-		ul {
-			margin-left: 0px;
-		} 
-	}
-}
-
-body#inquiry {
-	.description.game {
-	  @include sub_row; 
-	}
-	.description .html_text_wrapper {
-	 @include column(6);
-		div.html_text {
-	 		padding-left:100px;
-			@media only screen and (max-width: 767px) {
-				padding: 0px !important;
-			}
-		}
-	}
-
-	.description .inquiry_form_wrapper {
-		@include column(6);
-		.ui-field-contain {
-			padding:8px;
-			label{font-weight:bold;}
-			input[type="text"],input[type="email"],input[type="tel"], textarea {padding:12px;width:90%;}
-			.button{width:90%;background:#fa6e00;}
-		}
-	}	
-}
 /*-----------------------------------------
-   Slideshow
+   SLIDESHOW
 ----------------------------------------- */
 .image-large-wrapper {
 	a.image-large-nav {
@@ -337,7 +204,7 @@ body#inquiry {
 	}
 }
 /*-----------------------------------------
-   Home
+   HOME
 ----------------------------------------- */
 #js_container {
 	display:none;
@@ -375,6 +242,10 @@ body#inquiry {
   @include transition(box-shadow 600ms ease-in-out);
 	display: block;
 	outline: none;
+ text-decoration: none;
+	&:hover {
+		 text-decoration: none; 
+		}
 	@media only screen and (max-width: 960px) {
 		margin: 24px auto !important;
 		clear:both;
