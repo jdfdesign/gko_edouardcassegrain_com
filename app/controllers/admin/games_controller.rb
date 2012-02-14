@@ -21,9 +21,9 @@ class Admin::GamesController < Admin::ResourcesController
     in_homepage = @game.show_in_homepage
     @game.update_attribute(:show_in_homepage, !in_homepage)
     if !in_homepage
-      flash[:notice] = t(:'flash.game.add_in_homepage')
+      flash[:success] = t(:'flash.game.add_in_homepage')
     else
-      flash[:notice] = t(:'flash.game.delete_from_homepage')
+      flash[:success] = t(:'flash.game.delete_from_homepage')
     end
     respond_with(resources)
   end

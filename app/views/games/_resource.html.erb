@@ -7,26 +7,22 @@ has_categories = @categories.try(:any?)
     <%= page_title(resource.title) %>
     </div>
   </div>
-  <div class="row-fluid">
+  <div class="row-fluid images-row">
     <div class="span12">
       <%= render "/images/shared/list", :images => @images if @images.try(:any?) %> 
     </div>
   </div>
   <div class="row-fluid">
-    <%= resource_body_tag do %>
-      <div class='span7 html_text_wrapper'>
-        <div class='html_text'>
-          <%= resource.body.html_safe if resource.body.present? %>
-        </div>
+    <div class='span7'>
+      <div class='html_text'>
+        <%= resource.body.html_safe if resource.body.present? %>
       </div>
-      <div class="span5 html_text_properties_wrapper">  
-       <div class='html_text html_text_properties'>
-          <% if resource.properties.present? %>
-            <h3><%= t('games.properties') %></h3>
-             <%= resource.properties.html_safe %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    </div>
+    <div class="span5 html_text html_text_properties">
+      <% if resource.properties.present? %>
+      <h3><%= t('games.properties') %></h3>
+      <%= resource.properties.html_safe %>
+      <% end %>
+    </div>  
   </div>
 </div>        

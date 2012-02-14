@@ -1,6 +1,7 @@
 @import "gko/variables";
 
 $baseFontFamily: Georgia,'Times New Roman',Times,serif;
+$altFontFamily: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 $textColor: #ccc;
 $altColor: #fff;//white
 $linkColor: #ccc;
@@ -45,11 +46,12 @@ h3 {
     font-size: 14px;
   }
 }
+
 @mixin menu_center() {
 	clear:both;
 	float: none;
 	text-align: center;
-	ul.nav {
+	.nav {
 		float: left;
 		position: relative;
 		left: 50%;
@@ -58,7 +60,7 @@ h3 {
 		list-style: none;
 		overflow: visible;
 		@extend .uppercase_font_style; 
-		li.first-level {
+		> li {
 			float: left;
 			position: relative;
 			right: 50%;
@@ -78,30 +80,14 @@ body {
 	background: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
 }
 h1.page-title {
-	text-transform: uppercase;
-	padding: 0 0 0 0;
-	margin: 0 0 10px 0;
-	font-size: 18px;
-	font-weight: normal;
-	letter-spacing: 1px;
-	line-height: 1.4;
+	font-size: 21px;
 	text-align: center;
-	padding: 0 36px 0 36px;
-	color: white;
-	@media only screen and (max-width: 767px) {
-		padding: 0;
-	}
+	@extend .uppercase_font_style;
+	margin-bottom: $baseLineHeight;
 }
-
 div.html_text {
-	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	
+	font-family: $altFontFamily; 
 }
-
-/*-----------------------------------------
-   Menu
------------------------------------------ */
-
 /*-----------------------------------------
    HEADER
 ----------------------------------------- */
@@ -112,34 +98,71 @@ h2#site-title {
   margin-left: -126px;
 	margin-top: -40px;
 }
+#locales {
+	background: black;
+	font-weight: normal;
+}
 .navbar {
 	border-top: 8px solid black;
 	height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
-	.main-row {
-		position:relative;
-		@include menu_center();
-		.nav > li > a {
-			@extend .uppercase_font_style;
-			   
-		}
-	}
-	.nav-collapse {
-		margin-top:70px;
+	font-size: 13px;
+}
+.navbar .main-row {
+	position:relative;
+}
+.navbar .main-row .nav {
+	float: left;
+	position: relative;
+	left: 50%;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+}
+.navbar .main-row .nav > li { 
+	float: left;
+	position: relative;
+	right: 50%;
+	display: block;
+	margin: 0;
+	padding: 0 0 0 48px;
+	background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
+	&:first-child { 
+		background: none;
+		padding-left: 0; 
 	}
 }
+.navbar .main-row .nav > li > a,
+.navbar .main-row .dropdown-menu a {
+	@extend .uppercase_font_style;
+	font-weight: normal; 
+}
+.navbar .nav-collapse {
+ margin-top:70px;
+}
+
 /*-----------------------------------------
    FOOTER
 ----------------------------------------- */ 
 #footer {
 	border-top: 1px solid #1e1e1e;
-	padding-top: $baseLineHeight * 2;
+	font-family: $altFontFamily;
+	//font-size: 12px;
+	p { 
+		font-family: $altFontFamily;
+	//	font-size: 12px;  
+	}
 	h3 {
 		@extend .uppercase_font_style;
-		font-size: 13px;
+	 // font-size: 13px;
+		margin-bottom: $baseLineHeight * .5;
+		color: $altColor;
+	}
+	.nav > li > a:hover {
+	  background-color: transparent;
 	}
 }
 
-#site_by {
+a#site_by {
  background: transparent asset-url("gko/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
 }
 
@@ -147,42 +170,45 @@ h2#site-title {
    GAMES
 ----------------------------------------- */
 
-	ul.block-grid.block-grid-games {
-		> li { 
-			min-height:320px;
-			text-align: center; 
-		}
-		
-		.entry-thumb {
-			width: 220px;
-			height: 220px;
-			overflow: hidden; 
-			margin: 0 auto;
-			background: transparent;
-			line-height: 216px; 
-      a {
-				width: 200px;
-				height: 200px; 
-				display:block;
-				border: 8px solid #fff; 
-				background-position: 50% 50%;
-				@include border-radius(104px);
-				opacity: 1;
-				@include transition(opacity 200ms ease-in-out);
-				&:hover {
-					opacity: .8;
-				}; 
-			}
-		}
-		.entry-infos {
-			margin-top: 16px;
-		}
-		h2.entry-title {
-			@extend .uppercase_font_style; 
-			font-size: $baseFontSize;
+ul.block-grid.block-grid-games {
+	> li { 
+		min-height:320px;
+		text-align: center; 
+	}
+	
+	.entry-thumb {
+		width: 220px;
+		height: 220px;
+		overflow: hidden; 
+		margin: 0 auto;
+		background: transparent;
+		line-height: 216px; 
+     a {
+			width: 200px;
+			height: 200px; 
+			display:block;
+			border: 8px solid #fff; 
+			background-position: 50% 50%;
+			@include border-radius(104px);
+			opacity: 1;
+			@include transition(opacity 200ms ease-in-out);
+			&:hover {
+				opacity: .8;
+			}; 
 		}
 	}
+	.entry-infos {
+		margin-top: 16px;
+	}
+	h2.entry-title {
+		@extend .uppercase_font_style; 
+		font-size: $baseFontSize;
+	}
+} 
 
+.html_text_properties h3:first-child {
+	margin-top:0px;
+}
 #main.game { 
 	.next-previous {
 		display:none;
@@ -279,21 +305,6 @@ h2#site-title {
 .ec-circle-hover{
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
 }
+ 
 
-
-.loader{
-	display:none;
-	width:200px;
-	height:200px;
-	background: #000 asset-url('ajax-loader.gif', image) no-repeat center center;
-	position:fixed;
-	top:50%;
-	left:50%;
-	margin:-100px 0px 0px -100px;
-	opacity: 0.7;
-	z-index:9999;
-	-moz-border-radius:100px;
-	-webkit-border-radius:100px;
-	border-radius:100px;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
-}
+@import "gko/responsive";
