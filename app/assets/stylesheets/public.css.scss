@@ -1,5 +1,3 @@
-@import "gko/variables";
-
 $baseFontFamily: Georgia,'Times New Roman',Times,serif;
 $altFontFamily: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 $textColor: #ccc;
@@ -16,66 +14,19 @@ $navbarLinkColorHover: $linkColorHover;
 @import "gko/elastislide"; 
 
 /*-----------------------------------------
-   Shared Styles
------------------------------------------ */ 
+   SHARED STYLES 
+----------------------------------------- */
 .uppercase_font_style {
 	letter-spacing: 1px; 
 	text-transform: uppercase; 
 }
-h1 {
-  font-size: 26px;
-  line-height: $baseLineHeight * 2; 
-	font-weight: normal;
-  small {
-    font-size: 18px;
-  }
-}
-h2 {
-  line-height: $baseLineHeight * 1.5;
-  font-size: 22px; 
-	font-weight: normal;
-  small {
-    font-size: 14px;
-  }
-}
-h3 {
-  line-height: $baseLineHeight * 1.5;
-  font-size: 18px;
-	font-weight: normal;
-  small {
-    font-size: 14px;
-  }
-}
-
-@mixin menu_center() {
-	clear:both;
-	float: none;
-	text-align: center;
-	.nav {
-		float: left;
-		position: relative;
-		left: 50%;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		overflow: visible;
-		@extend .uppercase_font_style; 
-		> li {
-			float: left;
-			position: relative;
-			right: 50%;
-			display: block;
-			margin: 0;
-			padding: 0 0 0 48px;
-			&:first-child { 
-				padding-left: 0;
-				background: none; }
-		}
-	}
-}
 /*-----------------------------------------
-   Structure
------------------------------------------ */ 
+ TYPOGRAPHY 
+----------------------------------------- */
+
+/*-----------------------------------------
+ STRUCTURAL LAYOUT 
+----------------------------------------- */
 body {
 	background: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
 }
@@ -91,53 +42,57 @@ div.html_text {
 /*-----------------------------------------
    HEADER
 ----------------------------------------- */
-h2#site-title {
-	@include logo(252px, 100px);
-	position:absolute;
-	left: 50%;
-  margin-left: -126px;
-	margin-top: -40px;
-}
-#locales {
-	background: black;
-	font-weight: normal;
-}
 .navbar {
 	border-top: 8px solid black;
 	height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
 	font-size: 13px;
 }
-.navbar .main-row {
+.navbar .brand {
+	@include logo(252px, 100px);
+	@include clearfix;
+	float: none;
+}
+
+.navbar-inner {
+  background-image: none;
+  background: none; 
+}
+.btn-navbar .icon-bar {
+	background-color: black;
+}
+
+.navbar .header-top .nav {
+	font-style: italic;
+	background: black;
+	font-weight: normal;
+	@include corner-bottom(4px);
+	padding: 0 4px 4px 4px;
+	 
+}
+.navbar .header-nav nav {
+	float:right;
 	position:relative;
+	left:-50%;
+	text-align:left;
 }
-.navbar .main-row .nav {
-	float: left;
-	position: relative;
-	left: 50%;
-	margin: 0;
-	padding: 0;
-	overflow: visible;
+.navbar .header-nav .nav {
+	position:relative;
+	left:50%;
 }
-.navbar .main-row .nav > li { 
-	float: left;
-	position: relative;
-	right: 50%;
-	display: block;
-	margin: 0;
-	padding: 0 0 0 48px;
+.navbar .header-nav .nav > li { 
 	background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
 	&:first-child { 
 		background: none;
 		padding-left: 0; 
 	}
 }
-.navbar .main-row .nav > li > a,
-.navbar .main-row .dropdown-menu a {
+.navbar .header-nav .nav > li > a,
+.navbar .header-nav .dropdown-menu a {
 	@extend .uppercase_font_style;
 	font-weight: normal; 
 }
 .navbar .nav-collapse {
- margin-top:70px;
+ margin-top:10px;
 }
 
 /*-----------------------------------------
@@ -218,7 +173,8 @@ ul.block-grid.block-grid-games {
 /*-----------------------------------------
    SLIDESHOW
 ----------------------------------------- */
-.image-large-wrapper {
+.image-large-wrapper {        
+	padding: 20px 60px;
 	a.image-large-nav {
 		background: #000 asset_url("nav_image.png", image) no-repeat 0 50%;
 		width: 31px;
