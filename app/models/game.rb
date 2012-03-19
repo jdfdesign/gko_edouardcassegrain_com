@@ -1,6 +1,9 @@
+# TODO: Merge with Content class
+
 class Game < ActiveRecord::Base
   publishable
   translates :title, :body, :properties, :meta_title, :meta_description, :meta_keywords, :slug, :feature_title
+  categorizable
   acts_as_list :scope => [:section_id]
   default_scope :order => 'games.position'
   belongs_to :site
@@ -100,5 +103,14 @@ class Game < ActiveRecord::Base
       preview = image_assignments.where("image_assignments.position = ?", 1).first.try(:image)
       preview.image.thumb(geometry) if preview
     end
+  end
+  
+  # TODO: Merge with Content class
+  # Indicate if this page should be included in robot.txt
+  # use trackable? rather than checking the attribute directly. this
+  # allows sub-classes to override trackable? if they want to provide
+  # their own definition.
+  def trackable?
+    published?
   end
 end

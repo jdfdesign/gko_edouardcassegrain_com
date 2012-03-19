@@ -1,4 +1,5 @@
-<% @games ||= @site.games.published.with_translations(I18n.locale).order('games.published_at ASC').limit(6) %>
+<% cache('site_footer') do %>
+  <% @games ||= @site.games.published.with_translations(I18n.locale).order('games.published_at ASC').limit(6) %>
 <div id='footer-container' class='container-fluid'>
   <div id='footer' class='row-fluid'>
     <div class="span4">
@@ -21,11 +22,15 @@
       <p><small><%= "<a href='http://lolitajaca.com' target='_blank'>Showroom Lolita Jaca</a><br/>Les Hauts du Carré d’Or<br/>Gustavia 97133<br/>Saint-Barthélemy<br/>Cell.: +590 (0)690 24 59 98<br/>Tel.: +590 (0)590 27 17 64<br/>".html_safe %></small></p>
     </div>
   </div>
-  <div id='site-infos' class='row-fluid'>
+</div>
+<div id='copyright-container' class='container-fluid'>
+  <div id='copyright' class='row-fluid'>
     <div class="span12">
+      <%= render "shared/mobile_switcher" %>
       <a id='site_by' href='http://www.joufdesign.com' target='_blank'>
         <%= t(:'site_by', :name => "Jouf Design").html_safe %>
       </a>
     </div>
   </div>
 </div>
+<% end %>

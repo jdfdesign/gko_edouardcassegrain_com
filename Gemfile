@@ -6,12 +6,12 @@ gem 'iconv'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5.rc1'
+  gem 'sass-rails',   '~> 3.1.5.rc2'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
 group :production do
-  gem 'gko_core', '= 0.1.34', :git => 'git@github.com:jdfdesign/gko_cms_rails_3.git'
+  gem 'gko_core', '= 0.1.84', :git => 'git@github.com:jdfdesign/gko_cms_rails_3.git'
   gem 'gko_auth', :git => 'git@github.com:jdfdesign/gko_cms_rails_3.git'
   gem 'gko_images', :git => 'git@github.com:jdfdesign/gko_cms_rails_3.git'
   gem 'gko_inquiries', :git => 'git@github.com:jdfdesign/gko_cms_rails_3.git'

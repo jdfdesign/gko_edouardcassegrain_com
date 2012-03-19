@@ -1,14 +1,95 @@
-$baseFontFamily: Georgia,'Times New Roman',Times,serif;
 $altFontFamily: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-$textColor: #ccc;
-$altColor: #fff;//white
-$linkColor: #ccc;
-$linkColorActive: $altColor;
-$linkColorHover: $altColor;
+$altColor: white ;
 
+$global-radii-blocks: 4px;
+
+// Layout 
+$containerMaxWidth: 0; 
+$rowMaxWidth: 980px;
+
+$bodyBackgroundColor: #0c0d0f;
+$contentContainerBackgroundColor: transparent;
+$contentBackgroundColor: transparent;
+$footerContainerBackgroundColor: transparent;
+$footerBackgroundColor: transparent;
+$copyrightContainerBackgroundColor: transparent;
+$copyrightBackgroundColor: transparent; 
+$mainBackgroundColor: transparent;
+$sidebarBackgroundColor: transparent;
+
+// Typography
+$baseFontFamily: Georgia,'Times New Roman',Times,serif;
+$baseFontSize: 12px;
+$baseLineHeight: 20px;
+$textColor: #ccc;
+$headingFontFamily: $baseFontFamily;
+$headingTextColor: $textColor;
+$headingBaseFontSize: 26px;
+
+// Links
+$linkColor: $textColor;
+$linkColorHover: $altColor;
+$linkColorActive: $altColor;
+
+// Nav base 
+$navLinkColor: $linkColor;
+$navLinkColorHover: $linkColorHover;
+$navLinkColorActive: $navLinkColorHover;
+$navBackgroundColor: transparent;
+$navBackgroundColorHover: $navBackgroundColor;
+$navBackgroundColorActive: $navBackgroundColor;
+
+// Navbar
+$navbarBackgroundHighlight: $bodyBackgroundColor;
+$navbarBackground: $bodyBackgroundColor;
 $navbarText: $textColor;
 $navbarLinkColor: $linkColor;
 $navbarLinkColorHover: $linkColorHover;
+$navbarLinkColorActive: $linkColorHover;
+$navbarLinkSpace: 0;
+$navbarLinkBackgroundColor: transparent;
+$navbarLinkBackgroundColorHover: $navbarLinkBackgroundColor;
+$navbarLinkBackgroundColorActive: $navbarLinkBackgroundColor; 
+$navbarLinkCorner: none;  
+$navbarButtonBackgroundHighlight: black; 
+$navbarButtonBackground: black; 
+$navbarButtonIconBarColor: #ccc;
+$navbarResponsiveLinkBorder: #1e1e1e;
+$navbarDropdownBackground: $navbarBackground;
+$navbarDropdownLinkColor: $navbarLinkColor;
+$navbarDropdownLinkColorHover: $navbarLinkColorHover;
+$navbarDropdownLinkColorActive: $navbarLinkColorActive; 
+
+// Footer links
+$footerLinkColor: $linkColor;
+$footerLinkColorHover: $linkColorHover;
+$footerLinkColorActive: $linkColorActive;
+$footerResponsiveLinkBorder: #1e1e1e; 
+
+// Copyright links
+$copyrightLinkColor: $linkColor;
+$copyrightLinkColorHover: $linkColorHover;
+$copyrightLinkColorActive: $linkColorActive;
+$copyrightLogoColor: white;
+ 
+// Form
+$inputTextColor: $textColor;
+$inputBackgroundColor: $bodyBackgroundColor;
+$inputBorderColor: $textColor;
+$inputFocusBorderColor: rgba(82, 168, 236, 0.8); 
+$inputBorderRadius: 3px; 
+
+// Grid
+$blockGridImageBorder: none;
+$blockGridImageBackgroundColor: transparent; 
+$blockGridBackgroundColor: transparent; 
+$blockGridImageCorner: none;
+$blockGridImageShadow: none;
+
+
+
+// Icon
+$pdfIcon: 'gko/icon_pdf_grey_light_x110.png';
 
 @import "gko_public_all"; 
 @import "gko/elastislide"; 
@@ -28,7 +109,7 @@ $navbarLinkColorHover: $linkColorHover;
  STRUCTURAL LAYOUT 
 ----------------------------------------- */
 body {
-	background: #0c0d0f image-url("bg.jpg") 50% 0px no-repeat;
+	background: $bodyBackgroundColor image-url("bg.jpg") 50% 0px no-repeat;
 }
 h1.page-title {
 	font-size: 21px;
@@ -36,62 +117,76 @@ h1.page-title {
 	@extend .uppercase_font_style;
 	margin-bottom: $baseLineHeight;
 }
-div.html_text {
+div.html_text { 
+	font-size: $baseFontSize + 2;
+	line-height: $baseLineHeight + 2;
+	p, ul {
+		font-size: $baseFontSize + 2;
+		line-height: $baseLineHeight + 2;
+	}
+}
+div.html_text_properties {
+	h3:first-child {
+		margin-top:0px;
+	}
+	p, ul {
 	font-family: $altFontFamily; 
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+}
 }
 /*-----------------------------------------
    HEADER
 ----------------------------------------- */
 .navbar {
-	border-top: 8px solid black;
-	height:210px; background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
-	font-size: 13px;
+
 }
 .navbar .brand {
 	@include logo(252px, 100px);
-	@include clearfix;
 	float: none;
+	margin: 0 auto !important;
 }
 
 .navbar-inner {
-  background-image: none;
-  background: none; 
+	border-top: 8px solid black;
+	height:210px; 
+	background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
+	font-size: 13px; 
 }
-.btn-navbar .icon-bar {
-	background-color: black;
-}
-
 .navbar .header-top .nav {
 	font-style: italic;
 	background: black;
 	font-weight: normal;
 	@include corner-bottom(4px);
 	padding: 0 4px 4px 4px;
-	 
 }
-.navbar .header-nav nav {
-	float:right;
-	position:relative;
-	left:-50%;
-	text-align:left;
+.header-nav nav {
+  @include center-nav;
+	.nav > li {
+		@extend .uppercase_font_style;
+		font-weight: normal; 
+		.text { 
+			padding-left: 8px;
+		}
+		.icon {
+			display: inline-block;
+			width:8px;
+			height: 8px;
+			background: transparent asset-url("nav-dot.png", image) 0 0 no-repeat;
+		} 
+		&:first-child { 
+			background: none;
+			padding-left: 0;
+			.text {
+				padding-left: 0; 
+			}
+			.icon {
+				display: none;
+			} 
+		}
+	} 
 }
-.navbar .header-nav .nav {
-	position:relative;
-	left:50%;
-}
-.navbar .header-nav .nav > li { 
-	background: transparent asset-url("nav-dot.png", image) 21px 50% no-repeat; 
-	&:first-child { 
-		background: none;
-		padding-left: 0; 
-	}
-}
-.navbar .header-nav .nav > li > a,
-.navbar .header-nav .dropdown-menu a {
-	@extend .uppercase_font_style;
-	font-weight: normal; 
-}
-.navbar .nav-collapse {
+.nav-collapse {
  margin-top:10px;
 }
 
@@ -112,13 +207,9 @@ div.html_text {
 		margin-bottom: $baseLineHeight * .5;
 		color: $altColor;
 	}
-	.nav > li > a:hover {
-	  background-color: transparent;
+	.nav {
+		@include vertical-nav;
 	}
-}
-
-a#site_by {
- background: transparent asset-url("gko/logo_gecko_white.png", image) no-repeat scroll 0 1px; 
 }
 
 /*-----------------------------------------
@@ -155,15 +246,13 @@ ul.block-grid.block-grid-games {
 	.entry-infos {
 		margin-top: 16px;
 	}
-	h2.entry-title {
+	h2 {
 		@extend .uppercase_font_style; 
 		font-size: $baseFontSize;
 	}
 } 
 
-.html_text_properties h3:first-child {
-	margin-top:0px;
-}
+
 #main.game { 
 	.next-previous {
 		display:none;
@@ -173,17 +262,21 @@ ul.block-grid.block-grid-games {
 /*-----------------------------------------
    SLIDESHOW
 ----------------------------------------- */
-.image-large-wrapper {        
-	padding: 20px 60px;
-	a.image-large-nav {
-		background: #000 asset_url("nav_image.png", image) no-repeat 0 50%;
-		width: 31px;
-		left: 12px;
-	}
-	a.image-large-nav.image-large-nav-next{
+
+.carousel-control {
+	background: black asset_url("nav_image.png", image) no-repeat 0 50%;
+	@include circle(30px);
+	opacity: .7;
+	text-indent: -9999px;
+	border: none;
+	left: 12px; 
+	&:hover {
+		opacity: 1;
+	};
+	&.right {
 		background-position:-36px 50%;
 		right: 12px;
-	}
+	} 
 }
 /*-----------------------------------------
    HOME
@@ -263,4 +356,20 @@ ul.block-grid.block-grid-games {
 }
  
 
+/*-----------------------------------------
+ RESPONSIVE
+----------------------------------------- */
 @import "gko/responsive";
+@media(max-width: 980px) {
+	.navbar-inner {
+		background-color: black; 
+	}
+	.header-nav nav .nav > li { 
+		.text {
+			padding-left: 0px;
+		}
+		.icon {
+			display: none;
+		} 
+	}
+}
