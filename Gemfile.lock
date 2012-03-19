@@ -1,28 +1,28 @@
 GIT
   remote: git@github.com:jdfdesign/gko_cms_rails_3.git
-  revision: ad222a02b1ad2ccc6ee4b6c781c92b81c98bca9c
+  revision: 5632bcbcb495165ef06dcf66f2e05b792a9cae34
   specs:
-    gko_auth (0.1.88)
+    gko_auth (0.1.89)
       cancan (= 1.6.7)
       devise (= 2.0.4)
       gko_core
-    gko_categories (0.1.88)
+    gko_categories (0.1.89)
       gko_core
-    gko_images (0.1.88)
+    gko_images (0.1.89)
       dragonfly (~> 0.9.10)
       gko_core
       mime-types
       rack-cache (>= 0.5.3)
-    gko_inquiries (0.1.88)
+    gko_inquiries (0.1.89)
       filters_spam (~> 0.2)
       gko_core
       launchy
 
 GIT
   remote: git@github.com:jdfdesign/gko_cms_rails_3.git
-  revision: ad222a02b1ad2ccc6ee4b6c781c92b81c98bca9c
+  revision: 5632bcbcb495165ef06dcf66f2e05b792a9cae34
   specs:
-    gko_core (0.1.88)
+    gko_core (0.1.89)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
       bundler (= 1.1.pre.4)
@@ -234,7 +234,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   gko_auth!
   gko_categories!
-  gko_core (= 0.1.88)!
+  gko_core (= 0.1.89)!
   gko_images!
   gko_inquiries!
   iconv
