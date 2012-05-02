@@ -38,10 +38,16 @@ GIT
       uglifier (>= 1.0.3)
       uuid (= 2.3.5)
       will_paginate (~> 3.0.2)
+    gko_documents (0.2.65)
+      dragonfly (~> 0.9.8)
+      rack-cache (>= 0.5.3)
     gko_images (0.2.65)
     gko_inquiries (0.2.65)
       filters_spam (~> 0.2)
       launchy
+    gko_themes (0.2.65)
+      less-rails-bootstrap
+      rubyzip (= 0.9.6.1)
 
 GEM
   remote: http://rubygems.org/
@@ -95,6 +101,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.1)
+    commonjs (0.2.6)
     crummy (1.5.0)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
@@ -130,6 +137,13 @@ GEM
     json (1.7.0)
     launchy (2.1.0)
       addressable (~> 2.2.6)
+    less (2.2.1)
+      commonjs (~> 0.2.6)
+    less-rails (2.2.2)
+      actionpack (>= 3.1)
+      less (~> 2.2.0)
+    less-rails-bootstrap (2.0.12)
+      less-rails (~> 2.2.0)
     macaddr (1.5.0)
       systemu (>= 2.4.0)
     mail (2.4.4)
@@ -224,7 +238,9 @@ DEPENDENCIES
   gko_auth (= 0.2.65)!
   gko_categories (= 0.2.65)!
   gko_core (= 0.2.65)!
+  gko_documents (= 0.2.65)!
   gko_images (= 0.2.65)!
   gko_inquiries (= 0.2.65)!
+  gko_themes (= 0.2.65)!
   sass-rails (~> 3.2.5)
   uglifier (>= 1.0.3)

@@ -14,7 +14,9 @@ group :production do
 	gem 'gko_core', prod_version, :git => prod_location
 	gem 'gko_auth', prod_version, :git => prod_location
 	gem 'gko_images', prod_version, :git => prod_location
+	gem 'gko_documents', prod_version, :git => prod_location
 	gem 'gko_inquiries', prod_version, :git => prod_location
+	gem 'gko_themes', prod_version, :git => prod_location
 	gem 'gko_categories', prod_version, :git => prod_location
 end
 #group :development do
