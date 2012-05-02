@@ -97,7 +97,7 @@ $pdfIcon: 'gko/icon_pdf_grey_light_x110.png';
 /*-----------------------------------------
    SHARED STYLES 
 ----------------------------------------- */
-.uppercase_font_style {
+.uppercase-font-style {
 	letter-spacing: 1px; 
 	text-transform: uppercase; 
 }
@@ -114,7 +114,7 @@ body {
 h1.page-title {
 	font-size: 21px;
 	text-align: center;
-	@extend .uppercase_font_style;
+	@extend .uppercase-font-style;
 	margin-bottom: $baseLineHeight;
 }
 div.html_text { 
@@ -138,9 +138,6 @@ div.html_text_properties {
 /*-----------------------------------------
    HEADER
 ----------------------------------------- */
-.navbar {
-
-}
 .navbar .brand {
 	@include logo(252px, 100px);
 	float: none;
@@ -149,8 +146,7 @@ div.html_text_properties {
 
 .navbar-inner {
 	border-top: 8px solid black;
-	height:210px; 
-	background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat;
+	background-color: black; 
 	font-size: 13px; 
 }
 .navbar .header-top .nav {
@@ -161,29 +157,9 @@ div.html_text_properties {
 	padding: 0 4px 4px 4px;
 }
 .header-nav nav {
-  @include center-nav;
 	.nav > li {
-		@extend .uppercase_font_style;
+		@extend .uppercase-font-style;
 		font-weight: normal; 
-		.text { 
-			padding-left: 8px;
-		}
-		.icon {
-			display: inline-block;
-			width:8px;
-			height: 8px;
-			background: transparent asset-url("nav-dot.png", image) 0 0 no-repeat;
-		} 
-		&:first-child { 
-			background: none;
-			padding-left: 0;
-			.text {
-				padding-left: 0; 
-			}
-			.icon {
-				display: none;
-			} 
-		}
 	} 
 }
 .nav-collapse {
@@ -202,7 +178,7 @@ div.html_text_properties {
 	//	font-size: 12px;  
 	}
 	h3 {
-		@extend .uppercase_font_style;
+		@extend .uppercase-font-style;
 	 // font-size: 13px;
 		margin-bottom: $baseLineHeight * .5;
 		color: $altColor;
@@ -215,48 +191,54 @@ div.html_text_properties {
 /*-----------------------------------------
    GAMES
 ----------------------------------------- */
-
-ul.block-grid.block-grid-games {
-	> li { 
-		min-height:320px;
+ul.grid.grid-games {
+margin: 0 auto !important;	
+}
+ul.grid.grid-games > li { 
+		min-width: 220px;
+		min-height:322px;
 		text-align: center; 
-	}
-	
-	.entry-thumb {
-		width: 220px;
-		height: 220px;
-		overflow: hidden; 
-		margin: 0 auto;
-		background: transparent;
-		line-height: 216px; 
-     a {
-			width: 200px;
-			height: 200px; 
-			display:block;
-			border: 8px solid #fff; 
-			background-position: 50% 50%;
-			@include border-radius(104px);
-			opacity: 1;
-			@include transition(opacity 200ms ease-in-out);
-			&:hover {
-				opacity: .8;
-			}; 
+		
+	.thumbnail {
+		border: none;
+		@include border-radius(0);
+		@include box-shadow(none);
+		padding:0;
+		.thumbnail-image {
+			width: 220px;
+			height: 220px;
+			overflow: hidden; 
+			margin: 0 auto;
+			background: transparent;
+			line-height: 216px; 
+	     a {
+				
+				width: 200px;
+				height: 200px; 
+				display:block;
+				border: 8px solid #fff; 
+				background-position: 50% 50%;
+				@include border-radius(104px);
+				opacity: 1;
+				@include transition(opacity 200ms ease-in-out);
+				&:hover {
+					opacity: .8;
+				}; 
+			}
 		}
-	}
-	.entry-infos {
-		margin-top: 16px;
-	}
-	h2 {
-		@extend .uppercase_font_style; 
-		font-size: $baseFontSize;
+		.thumbnail-caption {
+			margin-top: 16px;
+		}
+		.thumbnail-title {
+			@extend .uppercase-font-style; 
+			font-size: $baseFontSize - 1;
+		}
 	}
 } 
 
 
-#main.game { 
-	.next-previous {
-		display:none;
-	} 
+.next-previous {
+	display:none;
 }
 
 /*-----------------------------------------
@@ -355,21 +337,57 @@ ul.block-grid.block-grid-games {
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
 }
  
-
+.games-categories {
+	border-bottom: 1px solid #B7B6B6;
+	margin-bottom: $baseLineHeight;
+	@include clearfix;
+	.nav-container {
+		@include center-nav;
+		.nav-list > li > a {
+			margin: 0;
+			letter-spacing: 1px; 
+			text-transform: uppercase;
+			font-weight: normal;
+			text-shadow: 0px 1px 0 $black;
+			font-size: $baseFontSize - 2;
+		}
+		.nav-list > li.active > a {
+			color: $black;
+			text-shadow: 0px 1px 0 $white;
+		}
+	}
+}
 /*-----------------------------------------
  RESPONSIVE
 ----------------------------------------- */
 @import "gko/responsive";
-@media(max-width: 980px) {
+@media (min-width: 980px) {
 	.navbar-inner {
-		background-color: black; 
+		height:210px; 
+		background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat; 
 	}
-	.header-nav nav .nav > li { 
-		.text {
-			padding-left: 0px;
-		}
-		.icon {
-			display: none;
+	.header-nav nav {
+	  @include center-nav;
+		.nav > li {
+			.text { 
+				padding-left: 8px;
+			}
+			.icon {
+				display: inline-block;
+				width:8px;
+				height: 8px;
+				background: transparent asset-url("nav-dot.png", image) 0 0 no-repeat;
+			} 
+			&:first-child { 
+				background: none;
+				padding-left: 0;
+				.text {
+					padding-left: 0; 
+				}
+				.icon {
+					display: none;
+				} 
+			}
 		} 
 	}
 }

@@ -4,15 +4,16 @@ desc_omission = local_assigns.has_key?(:description_omission) ? description_omis
 desc_length = local_assigns.has_key?(:description_length) ? description_length : 120
 #@categories.map { |c| c.title.gsub( /\W/, '-' ).underscore }.join(' ')
 %>
-<li id="<%= dom_id(record) %>" class="entry" data-theme="c">
- <div class="inner">
-    <div class='entry-thumb'>
+
+<li id="<%= dom_id(record) %>" class="filterable" <%= "data-tags='#{typehead_list(record.available_categories, "id")}'" if record.available_categories.any? %>>
+	<div class="thumbnail">
+    <div class='thumbnail-image'>
       <a href='<%= url_for([record.section, record]) %>' style='background: #fff url(<%= record.thumbnail('210x210#').url %>) no-repeat center center;'></a>
     </div>
-    <div class="entry-infos">
+    <div class="thumbnail-caption">
       <%= render_record_title(record) %>
-      <%#= render_record_description(record, desc_length, desc_omission) %>
     </div> 
  </div>
+
 </li>
 <% end %> 

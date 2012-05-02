@@ -46,8 +46,8 @@ class GamesController < BaseController
       #FIXME image no necessary need translation !!!!
       #@images = resource.images.with_translations(I18n.locale)
       @images = resource.images
-      @categories = resource.categories.with_translations(I18n.locale) if parent.categorizable?
-      @stickers = resource.stickers.with_translations(I18n.locale) if parent.stickable?
+      @categories = resource.available_categories if parent.categorizable?
+      @stickers = resource.available_categories if parent.stickable?
 
       if parent.commentable?
         @comments = resource.comments
@@ -61,12 +61,12 @@ class GamesController < BaseController
 
     # TODO should be in category engine  
     def load_section_categories
-      @section_categories ||= parent.categories.with_translations(I18n.locale) if parent.categorizable?
+      @section_categories ||= parent.available_categories if parent.categorizable?
     end 
 
     # TODO should be in sticker engine 
     def load_section_stickers
-      @section_stickers ||= parent.stickers.with_translations(I18n.locale) if parent.stickable?
+      @section_stickers ||= parent.available_categories if parent.stickable?
     end
 
 

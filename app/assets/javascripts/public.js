@@ -1,4 +1,5 @@
 //= require gko/jquery.elastidegallery
+//= require jquery.categoriesFilter
 //= require modernizr.custom.72835
 //= require circlemouse
 
@@ -7,7 +8,10 @@ $(document).ready(function() {
 	if($('.images:first').length > 0) {
 		Gallery.init($('.images:first'));
 	}
-	 
+	//if(!$('body').hasClass('mobile')) {
+		init_categories_filters();// ! always after init_ajax
+	//}
+	
 	if (jQuery.browser.msie) {
 		$('.ec-circle h3').css({color:'#fff', display:'none'});
 	}

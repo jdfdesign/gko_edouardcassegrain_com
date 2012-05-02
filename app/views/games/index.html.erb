@@ -1,0 +1,16 @@
+<div class="hide-on-mobile">
+<%= render('categories/shared/nav_list', :categories => @section_categories , :title => '') %>
+</div>
+<%= render 'shared/slideshow', :images => parent.images if parent.images.try(:any?) %>
+<%= render_html_text(parent.body) %>
+<div class='collection-container galleries'>
+  <% if @games.any? %>
+    <%= render "shared/pagination", :entries => @games %>
+    <%= grid_tag(parent.preferred_column_count) do %>
+      <%= render(:partial => "record", :collection => @games, :as => :record) %>
+    <% end %>
+    <%= render "shared/pagination", :entries => @games %>
+  <% else %>
+    <%= render "no_records_found", :entries => @games %>
+  <% end %>
+</div>

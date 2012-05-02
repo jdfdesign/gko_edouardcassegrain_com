@@ -8,7 +8,7 @@
   
   <%= accordion_group(t(:'admin.fieldset.preview'), 'preview_group', 'content_accordion') do %>
   <%= fieldcontain_tag do %>
-    <label><%= "Image".html_safe %></label>
+    <label class="control-label"><%= "Image".html_safe %></label>
     <div class='controls upload_file_preview'>
       <%= image_tag(resource.preview.url, :class => 'js-file-preview') if f.object.preview.present? %>
       <div class='file-field' style="display:<%= f.object.preview.present? ? 'none' : 'block' %>">

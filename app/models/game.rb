@@ -2,6 +2,7 @@
 
 class Game < ActiveRecord::Base
   publishable
+  has_images
   translates :title, :body, :properties, :meta_title, :meta_description, :meta_keywords, :slug, :feature_title
   categorizable
   acts_as_list :scope => [:section_id]
@@ -9,19 +10,7 @@ class Game < ActiveRecord::Base
   belongs_to :site
   belongs_to :section
   image_accessor :preview
-  # What is the max image size a user can upload
-  MAX_SIZE_IN_MB = 1
-  # What is the max image format a user can upload
-  FILE_TYPES = %w(image/jpg image/jpeg image/png image/gif)
-
-  has_many  :image_assignments, 
-            :as => :attachable, 
-            :dependent => :destroy, 
-            :order => :position
-  has_many  :images, 
-            :through => :image_assignments,
-            :order => "image_assignments.position"
-
+  attr_accessible :type, :body, :category_ids, :account_id, :meta_description, :author_id, :title, :slug, :meta_title, :section_id, :meta_keywords, :feature_title, :properties 
   class << self
     def preview_size
       '410x410#'
@@ -58,6 +47,7 @@ class Game < ActiveRecord::Base
     def next(record, field = "published_at")
       with_section(record.section_id).order("#{field} ASC").where("#{field} > ?", record.send(field)).first 
     end
+
   end
 
   validates :title, :presence => true
@@ -77,16 +67,35 @@ class Game < ActiveRecord::Base
     self.class.base_class.previous(self, field)
   end
 
-
-  # Used for hint in admin space
-  def path
-    section.path ? (section.path + "/" + permalink) : ""
+  def permalink(locale=nil)
+    locale ||= ::Globalize.locale
+    read_attribute(:slug, :locale => locale)
   end
   
-  def permalink
-    slug
+  # Used for hint in admin space and cache
+  # Warn : Permalink can be blank if it is not published
+  def public_url(locale=nil)
+    locale ||= ::Globalize.locale
+    p = self.permalink(locale)
+    return nil unless p.present?
+    u = [self.section.path(locale), p]
+    if(locale != ::I18n.default_locale.to_sym)
+      u.unshift(locale.to_s)
+    end
+    u = u.join('/')
+    u = '/' + u
+    u
   end
-
+  
+  # Get public urls for all locales
+  def public_urls
+    urls = []
+    self.used_locales.each do |l|
+      urls << self.public_url(l)
+    end
+    urls.flatten.compact.uniq
+  end
+  
   def to_param(title=nil)
     title == :permalink ? permalink : super()
   end
