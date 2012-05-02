@@ -1,12 +1,12 @@
 GIT
   remote: git@github.com:jdfdesign/gko_cms3.git
-  revision: 9dc877f05ca2e529026aaaaaefe37f57b57da2a4
+  revision: 9b5a2fe3a8d6e6b78e3cdb2fb26b57a89932c4fd
   specs:
-    gko_auth (0.2.66)
+    gko_auth (0.2.67)
       cancan (= 1.6.7)
       devise (= 2.0.4)
-    gko_categories (0.2.66)
-    gko_core (0.2.66)
+    gko_categories (0.2.67)
+    gko_core (0.2.67)
       RedCloth (= 4.2.9)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
@@ -38,14 +38,14 @@ GIT
       uglifier (>= 1.0.3)
       uuid (= 2.3.5)
       will_paginate (~> 3.0.2)
-    gko_documents (0.2.66)
+    gko_documents (0.2.67)
       dragonfly (~> 0.9.8)
       rack-cache (>= 0.5.3)
-    gko_images (0.2.66)
-    gko_inquiries (0.2.66)
+    gko_images (0.2.67)
+    gko_inquiries (0.2.67)
       filters_spam (~> 0.2)
       launchy
-    gko_themes (0.2.66)
+    gko_themes (0.2.67)
       less-rails-bootstrap
       rubyzip (= 0.9.6.1)
 
@@ -235,12 +235,12 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.2)
-  gko_auth (= 0.2.66)!
-  gko_categories (= 0.2.66)!
-  gko_core (= 0.2.66)!
-  gko_documents (= 0.2.66)!
-  gko_images (= 0.2.66)!
-  gko_inquiries (= 0.2.66)!
-  gko_themes (= 0.2.66)!
+  gko_auth (= 0.2.67)!
+  gko_categories (= 0.2.67)!
+  gko_core (= 0.2.67)!
+  gko_documents (= 0.2.67)!
+  gko_images (= 0.2.67)!
+  gko_inquiries (= 0.2.67)!
+  gko_themes (= 0.2.67)!
   sass-rails (~> 3.2.5)
   uglifier (>= 1.0.3)
