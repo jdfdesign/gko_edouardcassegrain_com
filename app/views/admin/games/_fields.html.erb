@@ -1,32 +1,62 @@
-<div class='accordion' id="content_accordion">
-  <%= accordion_group(t(:'admin.fieldset.general_informations'), 'general_informations_group', 'content_accordion', :open => true) do %>
-    <%= f.input :section_id, :as => :hidden %>
-    <%= f.input :title %>
-    <%= render :partial => 'admin/shared/form_wymeditor_field', :locals => {:f => f} %>
-    <%= render :partial => 'admin/shared/form_wymeditor_field', :locals => {:f => f, :field_name => :properties} %> 
-  <% end %>
-  
-  <%= accordion_group(t(:'admin.fieldset.preview'), 'preview_group', 'content_accordion') do %>
-  <%= fieldcontain_tag do %>
-    <label class="control-label"><%= "Image".html_safe %></label>
-    <div class='controls upload_file_preview'>
-      <%= image_tag(resource.preview.url, :class => 'js-file-preview') if f.object.preview.present? %>
-      <div class='file-field' style="display:<%= f.object.preview.present? ? 'none' : 'block' %>">
-        <%= f.file_field :preview, :class => 'file' %> 
-      </div>
-      <br class='clearfix'\>
-      <%= btn_to(t(:"admin.images.replace_file"), "", 
-        :class => "small change_upload_file_btn", 
-        :inline => true,
-        :data => {:toggle => "toggle", :text => t(:'admin.images.cancel_replace_file') } ) if f.object.preview.present? %>
-    </div> 
-  <% end %>
-  
-<% end %> 
-<%= render_image_accordion_group(f, 'content_accordion') if current_site.has_plugin?(:images) %> 
-<%= render_category_accordion_group(parent, f, 'content_accordion') if current_site.has_plugin?(:categories)%>
-<%= render_sticker_accordion_group(parent, f, 'content_accordion') if current_site.has_plugin?(:stickers) %>
-<%= render_seo_accordion_group(f, 'content_accordion') %>
-<%= render :partial => 'admin/shared/form_publish_fields', :locals => {:f => f} %>  
+<ul class="nav nav-tabs">
+  <%= li_tab_for("#content-basic-tab", t(:'admin.fieldset.general_informations'), 'active') %>
+  <%= li_tab_for("#content-preview-tab", t(:'admin.fieldset.preview')) %>
+  <%= li_tab_for("#content-images-tab", t(:'admin.fieldset.images')) %>
+  <%= li_tab_for("#content-categories-tab", t(:'admin.fieldset.categories')) if f.object.section.categorizable? %>
+  <%= li_tab_for("#content-stickers-tab", t(:'admin.fieldset.stickers')) if f.object.section.stickable? %>
+  <%= li_tab_for("#content-seo-tab", t(:'admin.fieldset.seo')) %>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="content-basic-tab">
+		<%
+		   resource_namespace = "/admin/#{resource.class.name.underscore.pluralize}".html_safe
+		   has_meta_association = !resource.class.reflect_on_association(:meta).nil?
+		   has_extensions = lookup_context.find_all("#{resource_namespace}/_associations_fields").any?
+		   has_options = lookup_context.find_all("#{resource_namespace}/_option_fields").any?
+		%>
+		<%= f.input :account_id, :as => :hidden %>
+		<%= f.input :title %>
+		<%= render 'form_wymeditor_field', :f => f %>
+		<%= render 'form_wymeditor_field', :f => f, :field_name => :properties %>
+		<% if has_meta_association %>
+			<%= f.simple_fields_for :meta do |meta_form| %>
+				<%= render "meta_fields", :f => meta_form %>
+			<% end %>
+		<% end %>
+		<%= render "#{resource_namespace}/option_fields", :f => f if has_options %>
+		<%= render "#{resource_namespace}/associations_fields", :f => f if has_extensions %>
+		<%= render 'form_publish_fields', :f => f %>
+  	</div>
+	<div class="tab-pane" id="content-preview-tab">
+	    <label class="control-label"><%= "Image".html_safe %></label>
+	    <div class='controls upload_file_preview'>
+	      <%= image_tag(resource.preview.url, :class => 'js-file-preview') if f.object.preview.present? %>
+	      <div class='file-field' style="display:<%= f.object.preview.present? ? 'none' : 'block' %>">
+	        <%= f.file_field :preview, :class => 'file' %> 
+	      </div>
+	      <br class='clearfix'\>
+	      <%= btn_to(t(:"admin.images.replace_file"), "", 
+	        :class => "small change_upload_file_btn", 
+	        :inline => true,
+	        :data => {:toggle => "toggle", :text => t(:'admin.images.cancel_replace_file') } ) if f.object.preview.present? %>
+	    </div>
+  	</div>
+  	<div class="tab-pane" id="content-images-tab">
+		<%= render 'form_image_assignments', :f => f %>
+  	</div>
+	<% if f.object.section.categorizable? %>
+	<div class="tab-pane" id="content-categories-tab">
+		<%= render 'form_categories_checkboxes', :f => f %>
+  	</div>
+	<% end %>
+  	<% if f.object.section.stickable? %>
+	<div class="tab-pane" id="content-stickers-tab">
+		<%= render 'form_stickers_checkboxes', :f => f %>
+  	</div>
+	<% end %>
+  	<div class="tab-pane" id="content-seo-tab">
+		<%= render 'form_seo_fields', :f => f %>
+  	</div>
 </div>
 

@@ -1,0 +1,24 @@
+<% resource_cache(resource) do %>
+	<div class="row-fluid hide-on-phones">
+		<div class="span12">
+			<%= render_parent_categories(:title => '') %>
+		</div>
+	</div> 
+	<article class="project">
+		<div class="row-fluid">
+	  		<div class="span12">	
+	  		<%= render_page_title(resource.title) %>
+	  		<%= render_slideshow_for(resource) %>
+	  		</div>
+		</div>
+		<div class="row-fluid">
+		  <div class="span7">
+		  	<%= render_html_text(resource.body) %>
+		  </div>
+		  <div class="span4 offset1">
+		  	<%= render_html_text(resource.properties) %>
+		  	<%#= render_resource_categories %>
+		  </div>
+		</div>
+	</article>
+<% end %>

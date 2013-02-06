@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430155449) do
+ActiveRecord::Schema.define(:version => 20130206091503) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -23,22 +23,35 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.datetime "updated_at"
   end
 
+  create_table "assets", :force => true do |t|
+    t.integer  "site_id"
+    t.string   "content_type"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "size"
+    t.string   "source"
+    t.string   "source_filename"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "assets", ["site_id"], :name => "index_assets_on_site_id"
+
   create_table "categories", :force => true do |t|
-    t.integer "site_id"
-    t.integer "section_id"
-    t.integer "parent_id"
-    t.integer "lft",              :default => 0, :null => false
-    t.integer "rgt",              :default => 0, :null => false
-    t.string  "name"
-    t.string  "slug"
-    t.string  "path"
-    t.integer "level",            :default => 0, :null => false
-    t.string  "title"
-    t.text    "body"
-    t.string  "meta_title"
-    t.text    "meta_description"
-    t.text    "meta_keywords"
-    t.integer "globalized",       :default => 0
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.integer  "parent_id"
+    t.integer  "lft",              :default => 0, :null => false
+    t.integer  "rgt",              :default => 0, :null => false
+    t.string   "name"
+    t.string   "slug"
+    t.string   "path"
+    t.string   "title"
+    t.text     "body"
+    t.string   "meta_title"
+    t.text     "meta_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
@@ -58,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "locale"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.text     "body"
     t.string   "title"
     t.string   "path"
@@ -70,16 +82,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
   add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
 
-  create_table "configurations", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "name"
-    t.string   "type",       :limit => 50
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "configurations", ["site_id", "name", "type"], :name => "index_configurations_on_site_id_and_name_and_type"
-
   create_table "content_translations", :force => true do |t|
     t.integer  "content_id"
     t.string   "locale"
@@ -87,7 +89,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "slug"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -99,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.integer  "site_id"
     t.integer  "section_id"
     t.integer  "account_id"
-    t.integer  "author_id"
     t.string   "type"
     t.string   "title"
     t.string   "slug"
@@ -108,15 +108,15 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "layout",           :limit => 40
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.text     "options"
     t.string   "author_name",      :limit => 120
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "globalized",                      :default => 0
     t.integer  "position",                        :default => 1
+    t.integer  "access_count",                    :default => 0
   end
 
+  add_index "contents", ["access_count"], :name => "index_contents_on_access_count"
   add_index "contents", ["position", "section_id"], :name => "index_contents_on_position_and_section_id"
   add_index "contents", ["section_id"], :name => "index_contents_on_section_id"
   add_index "contents", ["site_id"], :name => "index_contents_on_site_id"
@@ -132,13 +132,79 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.datetime "updated_at"
   end
 
+  create_table "document_assignments", :force => true do |t|
+    t.integer  "position",                      :default => 1, :null => false
+    t.integer  "document_id",                                  :null => false
+    t.integer  "attachable_id",                                :null => false
+    t.string   "attachable_type", :limit => 40,                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
+  add_index "document_assignments", ["attachable_id", "attachable_type"], :name => "index_document_assignments_on_attachable_id_and_attachable_type"
+
+  create_table "document_items", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.date     "published_at"
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.string   "document_mime_type"
+    t.string   "document_name"
+    t.integer  "document_size"
+    t.string   "document_uid"
+    t.string   "document_ext"
+    t.string   "image_mime_type"
+    t.string   "image_name"
+    t.integer  "image_size"
+    t.integer  "image_width"
+    t.integer  "image_height"
+    t.string   "image_uid"
+    t.string   "image_ext"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "country_id"
+    t.string   "language",           :limit => 5
+  end
+
+  add_index "document_items", ["country_id"], :name => "index_press_articles_on_country_id"
+  add_index "document_items", ["section_id"], :name => "index_press_articles_on_section_id"
+  add_index "document_items", ["site_id"], :name => "index_press_articles_on_site_id"
+
+  create_table "document_translations", :force => true do |t|
+    t.integer  "document_id"
+    t.string   "locale"
+    t.text     "alt"
+    t.string   "title"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "document_translations", ["document_id"], :name => "index_document_translations_on_document_id"
+  add_index "document_translations", ["locale"], :name => "index_document_translations_on_locale"
+
+  create_table "documents", :force => true do |t|
+    t.string   "title",                      :limit => 100
+    t.string   "lang",                       :limit => 4
+    t.string   "alt"
+    t.integer  "account_id"
+    t.integer  "site_id"
+    t.integer  "document_assignments_count",                :default => 0
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.string   "document_mime_type"
+    t.string   "document_name"
+    t.integer  "document_size"
+    t.string   "document_uid"
+    t.string   "document_ext"
+  end
+
   create_table "game_translations", :force => true do |t|
     t.integer  "game_id"
     t.string   "locale"
     t.string   "slug"
     t.text     "meta_description"
     t.text     "properties"
-    t.text     "meta_keywords"
     t.string   "meta_title"
     t.text     "body"
     t.string   "title"
@@ -160,7 +226,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "layout",            :limit => 40
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.integer  "position",                        :default => 1
     t.string   "preview_mime_type"
     t.string   "preview_name"
@@ -171,7 +236,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "preview_ext"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "globalized",                      :default => 0
     t.boolean  "show_in_homepage",                :default => false
     t.string   "feature_title"
   end
@@ -207,44 +271,19 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
   add_index "image_folders", ["parent_id"], :name => "index_image_folders_on_parent_id"
   add_index "image_folders", ["site_id"], :name => "index_image_folders_on_site_id"
 
-  create_table "image_stickers", :force => true do |t|
-    t.string   "name"
-    t.integer  "site_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "image_stickers", ["name"], :name => "index_image_stickers_on_name"
-  add_index "image_stickers", ["site_id"], :name => "index_image_stickers_on_site_id"
-
-  create_table "image_stickings", :force => true do |t|
-    t.integer  "sticker_id"
+  create_table "image_folders_images", :id => false, :force => true do |t|
+    t.integer  "image_folder_id"
     t.integer  "image_id"
-    t.integer  "image_stickings_count", :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "image_stickings", ["sticker_id", "image_id"], :name => "index_image_stickings_on_sticker_id_and_image_id"
-
-  create_table "image_translations", :force => true do |t|
-    t.integer  "image_id"
-    t.string   "locale"
-    t.string   "alt"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "image_translations", ["image_id"], :name => "index_image_translations_on_image_id"
+  add_index "image_folders_images", ["image_folder_id", "image_id"], :name => "index_image_folders_images_on_image_folder_id_and_image_id"
+  add_index "image_folders_images", ["image_id", "image_folder_id"], :name => "index_image_folders_images_on_image_id_and_image_folder_id"
 
   create_table "images", :force => true do |t|
-    t.string   "title",                   :limit => 100
-    t.string   "alt"
-    t.integer  "account_id"
-    t.integer  "author_id"
     t.integer  "site_id"
-    t.integer  "image_assignments_count",                :default => 0
+    t.integer  "image_assignments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_mime_type"
@@ -253,14 +292,8 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.integer  "image_width"
     t.integer  "image_height"
     t.string   "image_uid"
-    t.string   "image_ext"
-    t.integer  "globalized",                             :default => 0
-    t.integer  "image_folder_id"
   end
 
-  add_index "images", ["account_id"], :name => "index_images_on_account_id"
-  add_index "images", ["author_id"], :name => "index_images_on_author_id"
-  add_index "images", ["image_folder_id"], :name => "index_images_on_image_folder_id"
   add_index "images", ["site_id"], :name => "index_images_on_site_id"
 
   create_table "inquiries", :force => true do |t|
@@ -282,6 +315,21 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
 
   add_index "inquiries", ["site_id"], :name => "index_inquiries_on_site_id"
 
+  create_table "languages", :force => true do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.string   "code"
+    t.integer  "position",     :default => 1
+    t.string   "presentation"
+    t.boolean  "public",       :default => false
+    t.boolean  "default",      :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "languages", ["site_id", "position"], :name => "index_languages_on_site_id_and_position"
+  add_index "languages", ["site_id"], :name => "index_languages_on_site_id"
+
   create_table "liquid_models", :force => true do |t|
     t.integer  "site_id"
     t.text     "body"
@@ -295,11 +343,20 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
   end
 
   create_table "mail_methods", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "environment"
-    t.boolean  "active",      :default => true
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "site_id",                                                       :null => false
+    t.string   "environment",            :default => "production"
+    t.boolean  "enable_mail_delivery",   :default => true
+    t.string   "mail_host",              :default => "localhost"
+    t.string   "mail_domain",            :default => "localhost"
+    t.integer  "mail_port",              :default => 25
+    t.string   "mail_auth_type",         :default => "none"
+    t.string   "smtp_username",                                                 :null => false
+    t.string   "smtp_password",                                                 :null => false
+    t.string   "secure_connection_type", :default => "None"
+    t.string   "mails_from",             :default => "no-reply@joufdesign.com"
+    t.string   "mail_bcc"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
   end
 
   add_index "mail_methods", ["site_id"], :name => "index_mail_methods_on_site_id"
@@ -330,7 +387,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "image_ext"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "globalized",      :default => 0
     t.integer  "position",        :default => 1
   end
 
@@ -370,9 +426,7 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "slug"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.text     "body"
-    t.string   "title_addon"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -396,38 +450,23 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.text     "body"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.string   "redirect_url"
-    t.string   "title_addon"
     t.datetime "published_at"
     t.boolean  "hidden",            :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "menu_title"
-    t.integer  "globalized",        :default => 0
-    t.integer  "level"
     t.boolean  "shallow_permalink", :default => true
+    t.boolean  "robot_index",       :default => true
+    t.boolean  "robot_follow",      :default => true
+    t.boolean  "restricted",        :default => false
+    t.string   "template"
   end
 
   add_index "sections", ["link_id", "link_type"], :name => "index_sections_on_link_id_and_link_type"
+  add_index "sections", ["parent_id", "lft"], :name => "index_sections_on_parent_id_and_lft"
   add_index "sections", ["parent_id"], :name => "index_sections_on_parent_id"
   add_index "sections", ["site_id"], :name => "index_sections_on_site_id"
-
-  create_table "settings", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "name"
-    t.text     "value"
-    t.boolean  "destroyable",             :default => true
-    t.string   "scoping"
-    t.boolean  "restricted",              :default => false
-    t.string   "callback_proc_as_string"
-    t.string   "form_value_type",         :default => "text_area", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "settings", ["name"], :name => "index_settings_on_name"
-  add_index "settings", ["site_id"], :name => "index_settings_on_site_id"
 
   create_table "site_registrations", :force => true do |t|
     t.integer "user_id"
@@ -455,13 +494,11 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.string   "meta_title"
     t.string   "subtitle"
     t.string   "timezone"
-    t.string   "locales",                  :limit => 17
-    t.boolean  "public",                                 :default => true
+    t.boolean  "public",                   :default => true
     t.text     "options"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "site_registrations_count",               :default => 0
-    t.integer  "globalized",                             :default => 0
+    t.integer  "site_registrations_count", :default => 0
     t.text     "plugins"
     t.string   "logo_mime_type"
     t.string   "logo_name"
@@ -470,6 +507,12 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
     t.integer  "logo_height"
     t.string   "logo_uid"
     t.string   "logo_ext"
+    t.string   "default_image_uid"
+    t.integer  "languages_count",          :default => 0
+    t.datetime "liquid_models_updated_at"
+    t.text     "page_types"
+    t.boolean  "front_page_cached",        :default => false
+    t.text     "mailer_settings"
   end
 
   add_index "sites", ["account_id"], :name => "index_sites_on_account_id"
@@ -482,14 +525,6 @@ ActiveRecord::Schema.define(:version => 20120430155449) do
   end
 
   add_index "states", ["country_id"], :name => "index_states_on_country_id"
-
-  create_table "supports", :force => true do |t|
-    t.integer "owner_id"
-    t.string  "owner_type"
-    t.text    "infos"
-  end
-
-  add_index "supports", ["owner_id", "owner_type"], :name => "index_supports_on_owner_id_and_owner_type", :unique => true
 
   create_table "tokenized_permissions", :force => true do |t|
     t.integer  "permissable_id"

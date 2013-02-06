@@ -1,0 +1,26 @@
+<% cache([site, I18n.locale, 'footer']) do %>
+  <% @games ||= site.games.published.with_translations(I18n.locale).order('games.published_at ASC').limit(6) %>
+<div id='footer-container' class='container-fluid'>
+  <div id='footer' class='row-fluid'>
+    <div class="span4">
+    <h3><small><%= t("latest_games") %></small></h3>
+    <% if @games.any? %> 
+    <nav id="games_menu">
+      <ul class="nav small">
+        <%= @games.map{|game| "<li>#{link_to(game.title, url_for([game.section, game]))}</li>"}.join.html_safe %>
+      </ul> 
+    </nav>
+    <% end %>
+    </div>
+    <div class="span4">
+      <%= render_menu('pipe') %>
+      <h3><small><%= t("follow_us") %></small></h3>
+      <p><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com/edouard.cassegrain&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:62px; height:90px;" allowtransparency="true"></iframe></p>
+    </div>
+    <div class="span4">
+      <h3><small><%= t("contact_us") %></small></h3>
+      <p><small><%= "<a href='http://lolitajaca.com' target='_blank'>Showroom Lolita Jaca</a><br/>Les Hauts du Carré d’Or<br/>Gustavia 97133<br/>Saint-Barthélemy<br/>Cell.: +590 (0)690 24 59 98<br/>Tel.: +590 (0)590 27 17 64<br/>".html_safe %></small></p>
+    </div>
+  </div>
+</div>
+<% end %>

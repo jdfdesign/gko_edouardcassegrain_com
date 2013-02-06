@@ -1,6 +1,5 @@
 <% 
-games = @site.games.with_translations(I18n.locale).in_homepage.order('games.position ASC').limit(3)
-games ||= @site.games.with_translations(I18n.locale).order('games.position ASC').limit(3) 
+games = site.games.with_globalize.in_homepage.limit(3)
 %>
 <% content_for :page_content do %>
   <div class="row-fluid">
@@ -8,7 +7,7 @@ games ||= @site.games.with_translations(I18n.locale).order('games.position ASC')
   		<div class="section" id="circles">
   		  <% games.each_with_index do |game, index| %>
   		    <% geom = (index != 1 ? '210x210#' : '410x410#') %>
-          <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle ec-circle-<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail(geom).process(:greyscale).url %>) no-repeat center center;'><h3><%= game.title %></h3></a>
+          <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle ec-circle-<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail.thumbnail(geom).process(:greyscale).url %>) no-repeat center center;'><h3><%= game.title %></h3></a>
   			<% end %>
   		</div>
     </div>

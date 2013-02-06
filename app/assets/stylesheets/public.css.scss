@@ -1,98 +1,6 @@
-$altFontFamily: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-$altColor: white ;
-
-$global-radii-blocks: 4px;
-
-// Layout 
-$containerMaxWidth: 0; 
-$rowMaxWidth: 980px;
-
-$bodyBackgroundColor: #0c0d0f;
-$contentContainerBackgroundColor: transparent;
-$contentBackgroundColor: transparent;
-$footerContainerBackgroundColor: transparent;
-$footerBackgroundColor: transparent;
-$copyrightContainerBackgroundColor: transparent;
-$copyrightBackgroundColor: transparent; 
-$mainBackgroundColor: transparent;
-$sidebarBackgroundColor: transparent;
-
-// Typography
-$baseFontFamily: Georgia,'Times New Roman',Times,serif;
-$baseFontSize: 12px;
-$baseLineHeight: 20px;
-$textColor: #ccc;
-$headingFontFamily: $baseFontFamily;
-$headingTextColor: $textColor;
-$headingBaseFontSize: 26px;
-
-// Links
-$linkColor: $textColor;
-$linkColorHover: $altColor;
-$linkColorActive: $altColor;
-
-// Nav base 
-$navLinkColor: $linkColor;
-$navLinkColorHover: $linkColorHover;
-$navLinkColorActive: $navLinkColorHover;
-$navBackgroundColor: transparent;
-$navBackgroundColorHover: $navBackgroundColor;
-$navBackgroundColorActive: $navBackgroundColor;
-
-// Navbar
-$navbarBackgroundHighlight: $bodyBackgroundColor;
-$navbarBackground: $bodyBackgroundColor;
-$navbarText: $textColor;
-$navbarLinkColor: $linkColor;
-$navbarLinkColorHover: $linkColorHover;
-$navbarLinkColorActive: $linkColorHover;
-$navbarLinkSpace: 0;
-$navbarLinkBackgroundColor: transparent;
-$navbarLinkBackgroundColorHover: $navbarLinkBackgroundColor;
-$navbarLinkBackgroundColorActive: $navbarLinkBackgroundColor; 
-$navbarLinkCorner: none;  
-$navbarButtonBackgroundHighlight: black; 
-$navbarButtonBackground: black; 
-$navbarButtonIconBarColor: #ccc;
-$navbarResponsiveLinkBorder: #1e1e1e;
-$navbarDropdownBackground: $navbarBackground;
-$navbarDropdownLinkColor: $navbarLinkColor;
-$navbarDropdownLinkColorHover: $navbarLinkColorHover;
-$navbarDropdownLinkColorActive: $navbarLinkColorActive; 
-
-// Footer links
-$footerLinkColor: $linkColor;
-$footerLinkColorHover: $linkColorHover;
-$footerLinkColorActive: $linkColorActive;
-$footerResponsiveLinkBorder: #1e1e1e; 
-
-// Copyright links
-$copyrightLinkColor: $linkColor;
-$copyrightLinkColorHover: $linkColorHover;
-$copyrightLinkColorActive: $linkColorActive;
-$copyrightLogoColor: white;
- 
-// Form
-$inputTextColor: $textColor;
-$inputBackgroundColor: $bodyBackgroundColor;
-$inputBorderColor: $textColor;
-$inputFocusBorderColor: rgba(82, 168, 236, 0.8); 
-$inputBorderRadius: 3px; 
-
-// Grid
-$blockGridImageBorder: none;
-$blockGridImageBackgroundColor: transparent; 
-$blockGridBackgroundColor: transparent; 
-$blockGridImageCorner: none;
-$blockGridImageShadow: none;
-
-
-
-// Icon
-$pdfIcon: 'gko/icon_pdf_grey_light_x110.png';
-
+@import "variables";
 @import "gko_public_all"; 
-@import "gko/elastislide"; 
+@import "flexslider/flexslider";
 
 /*-----------------------------------------
    SHARED STYLES 
@@ -101,22 +9,21 @@ $pdfIcon: 'gko/icon_pdf_grey_light_x110.png';
 	letter-spacing: 1px; 
 	text-transform: uppercase; 
 }
+
+.next-previous {
+	display:none;
+}
+
 /*-----------------------------------------
  TYPOGRAPHY 
 ----------------------------------------- */
-
-/*-----------------------------------------
- STRUCTURAL LAYOUT 
------------------------------------------ */
-body {
-	background: $bodyBackgroundColor image-url("bg.jpg") 50% 0px no-repeat;
-}
-h1.page-title {
+.page-title {
 	font-size: 21px;
 	text-align: center;
 	@extend .uppercase-font-style;
 	margin-bottom: $baseLineHeight;
 }
+
 div.html_text { 
 	font-size: $baseFontSize + 2;
 	line-height: $baseLineHeight + 2;
@@ -130,40 +37,51 @@ div.html_text_properties {
 		margin-top:0px;
 	}
 	p, ul {
-	font-family: $altFontFamily; 
-	font-size: $baseFontSize;
-	line-height: $baseLineHeight;
+		font-family: $baseFontFamily; 
+	}
 }
+/*-----------------------------------------
+ STRUCTURAL LAYOUT 
+----------------------------------------- */
+body {
+	background: $bodyBackground image-url("bg.jpg") 50% 0px no-repeat;
 }
+
 /*-----------------------------------------
    HEADER
 ----------------------------------------- */
-.navbar .brand {
-	@include logo(252px, 100px);
-	float: none;
-	margin: 0 auto !important;
-}
-
-.navbar-inner {
-	border-top: 8px solid black;
-	background-color: black; 
-	font-size: 13px; 
-}
-.navbar .header-top .nav {
-	font-style: italic;
-	background: black;
-	font-weight: normal;
-	@include corner-bottom(4px);
-	padding: 0 4px 4px 4px;
-}
-.header-nav nav {
-	.nav > li {
-		@extend .uppercase-font-style;
-		font-weight: normal; 
-	} 
-}
-.nav-collapse {
- margin-top:10px;
+.navbar {
+	.brand {
+		@include logo(252px, 100px);
+		float: none;
+		margin: 0 auto !important;
+	}
+	.nav > li > a:hover {
+		color: $white;
+	};
+	.header-top .nav {
+		font-style: italic;
+		background: black;
+		font-weight: normal;
+		@include border-radius(0 4px);
+		padding: 0 4px 4px 4px;
+		float: right;
+	}
+	.header-nav nav {
+		.nav > li {
+			@extend .uppercase-font-style;
+			font-weight: normal; 
+		} 
+	}
+	.nav-collapse {
+	 	margin-top:10px;
+	}
+	.navbar-inner {
+		border-top: 8px solid black;
+		background-color: black; 
+		font-size: 13px; 
+	}
+	
 }
 
 /*-----------------------------------------
@@ -171,30 +89,33 @@ div.html_text_properties {
 ----------------------------------------- */ 
 #footer {
 	border-top: 1px solid #1e1e1e;
-	font-family: $altFontFamily;
+	font-family: $baseFontFamily;
 	//font-size: 12px;
 	p { 
-		font-family: $altFontFamily;
+		font-family: $baseFontFamily;
 	//	font-size: 12px;  
 	}
 	h3 {
 		@extend .uppercase-font-style;
 	 // font-size: 13px;
 		margin-bottom: $baseLineHeight * .5;
-		color: $altColor;
+		color: $white;
 	}
 	.nav {
 		@include vertical-nav;
+	}
+	.nav > li > a {
+		padding: 0;
 	}
 }
 
 /*-----------------------------------------
    GAMES
 ----------------------------------------- */
-ul.grid.grid-games {
+#grid-games {
 margin: 0 auto !important;	
 }
-ul.grid.grid-games > li { 
+#grid-games > li { 
 		min-width: 220px;
 		min-height:322px;
 		text-align: center; 
@@ -204,21 +125,27 @@ ul.grid.grid-games > li {
 		@include border-radius(0);
 		@include box-shadow(none);
 		padding:0;
-		.thumbnail-image {
-			width: 220px;
-			height: 220px;
-			overflow: hidden; 
-			margin: 0 auto;
+		.image {
+			
+			padding: 0;
+			margin: 0;
 			background: transparent;
 			line-height: 216px; 
+			@include border-radius(110px);
+			border: 8px solid #fff; 
+			overflow: hidden; 
+			@include box-shadow(none);
+			padding:0;
+			width: 204px;
+			height: 204px;
 	     a {
-				
+				padding: 0;
+				margin: 0;
 				width: 200px;
 				height: 200px; 
 				display:block;
-				border: 8px solid #fff; 
+				
 				background-position: 50% 50%;
-				@include border-radius(104px);
 				opacity: 1;
 				@include transition(opacity 200ms ease-in-out);
 				&:hover {
@@ -226,10 +153,10 @@ ul.grid.grid-games > li {
 				}; 
 			}
 		}
-		.thumbnail-caption {
+		.caption {
 			margin-top: 16px;
 		}
-		.thumbnail-title {
+		.title {
 			@extend .uppercase-font-style; 
 			font-size: $baseFontSize - 1;
 		}
@@ -237,29 +164,7 @@ ul.grid.grid-games > li {
 } 
 
 
-.next-previous {
-	display:none;
-}
 
-/*-----------------------------------------
-   SLIDESHOW
------------------------------------------ */
-
-.carousel-control {
-	background: black asset_url("nav_image.png", image) no-repeat 0 50%;
-	@include circle(30px);
-	opacity: .7;
-	text-indent: -9999px;
-	border: none;
-	left: 12px; 
-	&:hover {
-		opacity: 1;
-	};
-	&.right {
-		background-position:-36px 50%;
-		right: 12px;
-	} 
-}
 /*-----------------------------------------
    HOME
 ----------------------------------------- */
@@ -337,57 +242,65 @@ ul.grid.grid-games > li {
 	@include box-shadow(inset 0 0 1px 210px rgba(250,110,0,0.9), inset 0 0 0 20px rgba(250,110,0,1), inset 0 0 0 0 rgba(243,213,0,0.5));
 }
  
-.games-categories {
-	border-bottom: 1px solid #B7B6B6;
+
+.parent-categories {
+	text-align:center;
+	border-bottom: 1px solid #B7B6B6; 
 	margin-bottom: $baseLineHeight;
-	@include clearfix;
-	.nav-container {
-		@include center-nav;
-		.nav-list > li > a {
-			margin: 0;
-			letter-spacing: 1px; 
-			text-transform: uppercase;
-			font-weight: normal;
-			text-shadow: 0px 1px 0 $black;
-			font-size: $baseFontSize - 2;
-		}
-		.nav-list > li.active > a {
-			color: $black;
-			text-shadow: 0px 1px 0 $white;
-		}
+	.nav {
+		margin-bottom: 0;
 	}
+	.nav,
+	.nav > li {
+	  float:none;
+	  display:inline-block;
+	  *display:inline; /* ie7 fix */
+	  *zoom:1; /* hasLayout ie7 trigger */
+	  vertical-align: top;
+	}
+	
+	.nav > li > a {
+		
+		padding: 10px 15px 10px;
+		letter-spacing: 1px; 
+		text-transform: uppercase;
+		font-weight: normal;
+		color: $white;
+		text-shadow: 0px 1px 0 $black;
+		font-size: $baseFontSize - 2;
+	}
+
+	.nav > li.active > a {
+		color: $black;
+		text-shadow: 0px 1px 0 $white;
+		background-color: #cccccc;
+	}
+		
 }
-/*-----------------------------------------
- RESPONSIVE
------------------------------------------ */
+
+ /* RESPONSIVE CSS
+    -------------------------------------------------- */
+@import "twitter/bootstrap/responsive";
 @import "gko/responsive";
 @media (min-width: 980px) {
-	.navbar-inner {
-		height:210px; 
-		background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat; 
-	}
-	.header-nav nav {
-	  @include center-nav;
-		.nav > li {
-			.text { 
-				padding-left: 8px;
-			}
-			.icon {
-				display: inline-block;
-				width:8px;
-				height: 8px;
-				background: transparent asset-url("nav-dot.png", image) 0 0 no-repeat;
-			} 
-			&:first-child { 
-				background: none;
-				padding-left: 0;
-				.text {
-					padding-left: 0; 
+	.navbar {
+		.navbar-inner {
+			height:210px; 
+			background: transparent asset-url("nav_bg.png", image) 50% -150px no-repeat; 
+		}
+		.header-nav nav {
+			@include center-nav;
+			.nav > li {
+				.text { 
+					padding-left: 8px;
 				}
-				.icon {
-					display: none;
-				} 
-			}
-		} 
+				&:first-child { 
+					background: none;
+					padding-left: 0;
+				}
+			} 
+			
+		}
 	}
+
 }

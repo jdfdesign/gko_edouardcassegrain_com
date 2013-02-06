@@ -1,0 +1,19 @@
+<%# collection_row_cache(game) do %>
+	<%
+		options = {}
+		if parent_has_categories?
+			categories = game.available_categories.map(&:title)
+			options['data-type'] = categories.map {|c| c.parameterize }
+			options['data-id'] = game.id	
+		end
+	%>
+
+	<%= grid_item_tag_for(game, options) do %>
+		<%= render_record_thumb(game, :size => "220x220#") %>
+		<%= grid_item_caption_tag do %>
+			<%= render_record_title(game) %>
+			<%#= render_record_description(game) %>
+			<%#= render_record_link(game) %>
+		<% end %>
+	<% end %>
+<%# end if game %>

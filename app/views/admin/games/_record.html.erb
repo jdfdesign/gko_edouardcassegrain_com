@@ -1,9 +1,7 @@
-<%
-title = record.title || "!(#{record.read_attribute(:title, default_locale)})"
-%>
-<tr id="<%= dom_id(record)%>">
-  <td><%= published_status(record) + glink_to(title, url_for([:edit, :admin, current_site, record.section, record])) %></td>
-  <td><%= icons_to_actions([:destroy, :edit], record) %>
-    <%= icon_to_view(url_for([record.section, record])) if resource.persisted? %>
-  </td>
-</tr>
+<% cache(["admin", @resource_locale.to_s, record]) do %>
+	<td><%= published_status(record) + glink_to(record.labelize, url_for([:edit, :admin, current_site, parent, record])) %></td>
+	<%= content_tag_for_actions do  %>
+		<%= icons_to_actions([:destroy, :edit], record) %>
+	    <%= icon_to_public_page(record.public_url) if record.public_url.present? %>
+	<% end %>
+<% end %>
