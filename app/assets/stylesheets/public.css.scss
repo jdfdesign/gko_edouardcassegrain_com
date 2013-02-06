@@ -130,22 +130,23 @@ margin: 0 auto !important;
 			padding: 0;
 			margin: 0;
 			background: transparent;
-			line-height: 216px; 
+			//line-height: 216px; 
 			@include border-radius(110px);
 			border: 8px solid #fff; 
 			overflow: hidden; 
 			@include box-shadow(none);
 			padding:0;
-			width: 204px;
-			height: 204px;
+			width: 200px;
+			height: 200px;
 	     a {
 				padding: 0;
 				margin: 0;
 				width: 200px;
 				height: 200px; 
 				display:block;
-				
-				background-position: 50% 50%;
+				overflow: hidden; 
+				@include border-radius(110px);
+				//background-position: 50% 50%;
 				opacity: 1;
 				@include transition(opacity 200ms ease-in-out);
 				&:hover {
