@@ -21,10 +21,6 @@ GkoCassegrainCom::Application.routes.draw do
   :to => "games#show"
   get 'game_lists/:game_list_id/*permalink', 
   :to => "games#show", :as => :game_list_game
-  
-  # overwrite admin/blog#show to point to admin/posts#index instead
-  # can this be simplified? haven't had any luck putting it into the resource block
-  get 'admin/sites/:site_id/game_lists/:game_list_id', :to => 'admin/games#index'
 
   namespace :admin do
     resources :sites do

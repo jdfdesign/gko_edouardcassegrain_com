@@ -1,20 +1,7 @@
 class Admin::GamesController < Admin::ResourcesController
+  include Extensions::Controllers::Cacheable
   has_scope :with_title, :only => :index
-  belongs_to :site
-  belongs_to :game_list
-  respond_to :html, :js, :mobile
-  before_filter :get_unstranstaled_resources, :only => [:index]
-
-  # update a single position
-  def move
-    if params[:position].present?
-      resource = Game.find(params[:id])
-      resource.insert_at(params[:position].to_i)
-      render :nothing => true
-    else
-      puts "something wrong"
-    end
-  end
+  nested_belongs_to :site, :game_list
 
   def toggle_in_homepage
     @game = Game.find_by_id(params[:id])
