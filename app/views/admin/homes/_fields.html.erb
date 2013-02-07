@@ -1,23 +1,36 @@
-<% games = @site.games.order('position ASC') %>
-  <%= f.input :title %>
-  <% if resource.persisted? %>
-    <div class='accordion' id="content_accordion">
-      <%= accordion_group(t(:'admin.fieldset.general_informations'), 'general_informations_group', 'content_accordion', :open => true) do %>  
-    <% if games.any? %> 
-      <%= fieldcontain_tag(:class => :check_boxes) do %> 
-        <%= games.map { |p| btn_to(p.title, 
+<% if f.object.persisted? %>
+<ul class="nav nav-tabs">
+  <%= li_tab_for("#section-basic-tab", t(:'admin.fieldset.general_informations'), 'active') %>
+  <%= li_tab_for("#section-images-tab", "Mises en avant") %>
+  <%= li_tab_for("#section-advanced-tab", t(:'admin.fieldset.options')) %>
+  <%= li_tab_for("#section-seo-tab", t(:'admin.fieldset.seo')) %>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="section-basic-tab">
+	<%= render('admin/sections/default_fields', :f => f) %>
+
+  </div>
+  <div class="tab-pane" id="section-images-tab">
+	
+	<% if @games = current_site.games.order('position ASC') %> 
+        <%= @games.map { |p| btn_to(p.title, 
             url_for([:toggle_in_homepage, :admin, current_site, p.section, p]), 
             :remote => :true, 
             :id => "#{dom_id(p)}",
             :class => "checkbox #{p.show_in_homepage ? 'btn-success' : 'unselected'}" ) }.join.html_safe %> 
-      <% end %> 
     <% else %> 
       <%= t(:'admin.games.collection.empty', :link => "").html_safe  %>
     <% end %>
-    </div>
-    <% end %>   
-    <%= render_seo_accordion_group(f, 'content_accordion') %>   
+  </div>
+  <div class="tab-pane" id="section-advanced-tab">
+	<%= render('option_fields', :f => f) %>
+  </div>
+  <div class="tab-pane" id="section-seo-tab">
+	<%= render('form_seo_fields', :f => f) %>
+  </div>
+</div>
 <% else %>
-  <%= render :partial => 'admin/sections/default_fields', :locals => {:f => f } %> 
+    <%= render('admin/sections/default_fields', :f => f) %>
 <% end %>
 
