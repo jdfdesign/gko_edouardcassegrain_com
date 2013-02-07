@@ -85,9 +85,9 @@ $tableBorder:                       #ddd; // table and cell border
 
 // Buttons
 // -------------------------
-$btnBackground:                     $white;
-$btnBackgroundHighlight:            darken($white, 10%);
-$btnBorder:                         #bbb;
+$btnBackground:                     $grayDark;// $white
+$btnBackgroundHighlight:            darken($grayDark, 10%);// darken($white, 10%) 
+$btnBorder:                         $grayDarker;// #bbb
 
 $btnPrimaryBackground:              $linkColor;
 $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%);
@@ -176,16 +176,16 @@ $navbarCollapseWidth:             979px;
 $navbarCollapseDesktopWidth:      $navbarCollapseWidth + 1;
 
 $navbarHeight:                    40px;
-$navbarBackgroundHighlight:       #ffffff;
-$navbarBackground:                darken($navbarBackgroundHighlight, 5%);
-$navbarBorder:                    darken($navbarBackground, 12%);
+$navbarBackgroundHighlight:       $grayDark;//#ffffff
+$navbarBackground:                darken($navbarBackgroundHighlight, 5%);//darken($navbarBackgroundHighlight, 5%)
+$navbarBorder:                    darken($navbarBackground, 12%);//darken($navbarBackground, 12%)
 
-$navbarText:                      #777;
-$navbarLinkColor:                 #777;
-$navbarLinkColorHover:            $grayDark;
-$navbarLinkColorActive:           $gray;
+$navbarText:                      $grayLighter;//#777
+$navbarLinkColor:                 $grayLighter;//#777
+$navbarLinkColorHover:            $white;//$grayDark
+$navbarLinkColorActive:           $white;//$gray
 $navbarLinkBackgroundHover:       transparent;
-$navbarLinkBackgroundActive:      darken($navbarBackground, 5%);
+$navbarLinkBackgroundActive:      transparent;//darken($navbarBackground, 5%) 
 
 $navbarBrandColor:                $navbarLinkColor;
 

@@ -52,13 +52,20 @@ body {
 ----------------------------------------- */
 .navbar {
 	.brand {
-		@include logo(252px, 100px);
 		float: none;
-		margin: 0 auto !important;
+		padding: 0;
+		background: transparent image-url("logo.png") center center no-repeat;
+		background-size: contain;
+		cursor: pointer;
+		text-decoration: none;
+		display: block;
+		@include center-block;
+		@include size(100px,252px);
+		@include hide-text;
 	}
-	.nav > li > a:hover {
-		color: $white;
-	};
+	//.nav > li > a:hover {
+	//	color: $white;
+	//};
 	.header-top .nav {
 		font-style: italic;
 		background: black;
@@ -159,7 +166,7 @@ margin: 0 auto !important;
 		}
 		.title {
 			@extend .uppercase-font-style; 
-			font-size: $baseFontSize - 1;
+			font-size: $baseFontSize - 2;
 		}
 	}
 } 
@@ -283,6 +290,25 @@ margin: 0 auto !important;
     -------------------------------------------------- */
 @import "twitter/bootstrap/responsive";
 @import "gko/responsive";
+@media (max-width: 767px) {
+	body {
+		padding-left: 0px;
+	    padding-right: 0px;
+	}
+	#main-container {
+		padding-left: 20px;
+	    padding-right: 20px;
+	}
+}
+
+@media (max-width: 979px) {
+	.navbar .brand {
+		padding-left: 0px;
+		padding-right: 0px;
+		@include center-block;
+	}
+}
+
 @media (min-width: 980px) {
 	.navbar {
 		.navbar-inner {

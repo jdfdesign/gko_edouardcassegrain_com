@@ -2867,23 +2867,23 @@ button.close {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFE6E6E6, GradientType=0);
   vertical-align: middle;
   cursor: pointer;
-  background-color: whitesmoke;
-  background-image: -moz-linear-gradient(top, white, #e6e6e6);
-  background-image: -ms-linear-gradient(top, white, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, white, #e6e6e6);
-  background-image: -o-linear-gradient(top, white, #e6e6e6);
-  background-image: linear-gradient(top, white, #e6e6e6);
+  background-color: #292929;
+  background-image: -moz-linear-gradient(top, #333333, #1a1a1a);
+  background-image: -ms-linear-gradient(top, #333333, #1a1a1a);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#1a1a1a));
+  background-image: -webkit-linear-gradient(top, #333333, #1a1a1a);
+  background-image: -o-linear-gradient(top, #333333, #1a1a1a);
+  background-image: linear-gradient(top, #333333, #1a1a1a);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFE6E6E6, GradientType=0);
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF333333, endColorstr=#FF1A1A1A, GradientType=0);
+  border-color: #1a1a1a #1a1a1a black;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
-  *background-color: #e6e6e6;
+  *background-color: #1a1a1a;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #bbbbbb;
+  border: 1px solid #222222;
   *border: 0;
-  border-bottom-color: #a2a2a2;
+  border-bottom-color: #090909;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -2894,12 +2894,12 @@ button.close {
 }
 /* line 451, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
-  background-color: #e6e6e6;
-  *background-color: #d9d9d9;
+  background-color: #1a1a1a;
+  *background-color: #0d0d0d;
 }
 /* line 458, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .btn:active, .btn.active {
-  background-color: #cccccc \9;
+  background-color: black \9;
   /* IE6-9 */
 }
 /* line 58, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
@@ -3365,7 +3365,7 @@ input[type="submit"].btn.btn-mini {
 }
 /* line 124, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_button-groups.scss */
 .btn-group.open .btn.dropdown-toggle {
-  background-color: #e6e6e6;
+  background-color: #1a1a1a;
 }
 /* line 127, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_button-groups.scss */
 .btn-group.open .btn-primary.dropdown-toggle {
@@ -3944,15 +3944,15 @@ input[type="submit"].btn.btn-mini {
   min-height: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #f9f9f9;
-  background-image: -moz-linear-gradient(top, white, #f2f2f2);
-  background-image: -ms-linear-gradient(top, white, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
-  background-image: -o-linear-gradient(top, white, #f2f2f2);
-  background-image: linear-gradient(top, white, #f2f2f2);
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -ms-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(top, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF2F2F2, GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF333333, endColorstr=#FF262626, GradientType=0);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -3973,7 +3973,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 40, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar {
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 43, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .brand:hover {
@@ -3988,7 +3988,7 @@ input[type="submit"].btn.btn-mini {
   font-size: 20px;
   font-weight: 200;
   line-height: 1;
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 60, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .navbar-text {
@@ -3997,11 +3997,11 @@ input[type="submit"].btn.btn-mini {
 }
 /* line 65, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .navbar-link {
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 67, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .navbar-link:hover {
-  color: #333333;
+  color: white;
 }
 /* line 73, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .btn,
@@ -4073,8 +4073,8 @@ input[type="submit"].btn.btn-mini {
   font-weight: normal;
   line-height: 1;
   color: white;
-  background-color: white;
-  border: 1px solid #b3b3b3;
+  background-color: #666666;
+  border: 1px solid #1a1a1a;
   -webkit-box-shadow: "inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)";
   -moz-box-shadow: "inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)";
   box-shadow: "inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)";
@@ -4170,7 +4170,7 @@ input[type="submit"].btn.btn-mini {
   float: none;
   padding: 9px 10px 11px;
   line-height: 19px;
-  color: #777777;
+  color: #eeeeee;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -4192,16 +4192,16 @@ input[type="submit"].btn.btn-mini {
 /* line 224, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .nav > li > a:hover {
   background-color: transparent;
-  color: #333333;
+  color: white;
   text-decoration: none;
 }
 
 /* line 232, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
 .navbar .nav .active > a,
 .navbar .nav .active > a:hover {
-  color: #555555;
+  color: white;
   text-decoration: none;
-  background-color: #e6e6e6;
+  background-color: transparent;
 }
 
 /* line 239, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
@@ -4210,8 +4210,8 @@ input[type="submit"].btn.btn-mini {
   width: 1px;
   margin: 0 9px;
   overflow: hidden;
-  background-color: #f2f2f2;
-  border-right: 1px solid white;
+  background-color: #262626;
+  border-right: 1px solid #333333;
 }
 
 /* line 249, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_navbar.scss */
@@ -4227,18 +4227,18 @@ input[type="submit"].btn.btn-mini {
   padding: 7px 10px;
   margin-left: 5px;
   margin-right: 5px;
-  background-color: #f9f9f9;
-  background-image: -moz-linear-gradient(top, white, #f2f2f2);
-  background-image: -ms-linear-gradient(top, white, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
-  background-image: -o-linear-gradient(top, white, #f2f2f2);
-  background-image: linear-gradient(top, white, #f2f2f2);
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -ms-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(top, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF2F2F2, GradientType=0);
-  border-color: #f2f2f2 #f2f2f2 #cccccc;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF333333, endColorstr=#FF262626, GradientType=0);
+  border-color: #262626 #262626 black;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
-  *background-color: #f2f2f2;
+  *background-color: #262626;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: "inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)";
@@ -4247,12 +4247,12 @@ input[type="submit"].btn.btn-mini {
 }
 /* line 451, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .navbar .btn-navbar:hover, .navbar .btn-navbar:active, .navbar .btn-navbar.active, .navbar .btn-navbar.disabled, .navbar .btn-navbar[disabled] {
-  background-color: #f2f2f2;
-  *background-color: #e6e6e6;
+  background-color: #262626;
+  *background-color: #1a1a1a;
 }
 /* line 458, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .navbar .btn-navbar:active, .navbar .btn-navbar.active {
-  background-color: #d9d9d9 \9;
+  background-color: #0d0d0d \9;
   /* IE6-9 */
 }
 
@@ -6708,7 +6708,7 @@ ul.small {
 /* line 357, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 .nav-collapse .nav > li > a:hover,
 .nav-collapse .nav .active > a:hover {
-  color: #333333;
+  color: white;
   background-color: transparent;
 }
 /* line 365, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
@@ -6716,7 +6716,7 @@ ul.small {
 .nav-collapse .nav .active > .dropdown-toggle,
 .nav-collapse .nav .open.active > .dropdown-toggle,
 .nav-collapse .nav .active > a {
-  color: #555555;
+  color: white;
   background-color: transparent;
 }
 
@@ -6728,21 +6728,21 @@ ul.small {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background-color: #f9f9f9;
-  background-image: -moz-linear-gradient(top, white, #f2f2f2);
-  background-image: -ms-linear-gradient(top, white, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
-  background-image: -o-linear-gradient(top, white, #f2f2f2);
-  background-image: linear-gradient(top, white, #f2f2f2);
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -ms-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(top, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF2F2F2, GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF333333, endColorstr=#FF262626, GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 /* line 380, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 .navbar .nav .active > .dropdown-toggle:hover {
-  color: #333333;
+  color: white;
 }
 
 /* line 386, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
@@ -6757,18 +6757,18 @@ ul.small {
   float: none;
   width: auto;
   max-width: 320px;
-  background-color: #f9f9f9;
-  background-image: -moz-linear-gradient(top, white, #f2f2f2);
-  background-image: -ms-linear-gradient(top, white, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
-  background-image: -o-linear-gradient(top, white, #f2f2f2);
-  background-image: linear-gradient(top, white, #f2f2f2);
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -ms-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(top, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF2F2F2, GradientType=0);
-  border-color: #f2f2f2 #f2f2f2 #cccccc;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF333333, endColorstr=#FF262626, GradientType=0);
+  border-color: #262626 #262626 black;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
-  *background-color: #f2f2f2;
+  *background-color: #262626;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
@@ -6784,12 +6784,12 @@ ul.small {
 }
 /* line 451, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .navbar .btn-navbar:hover, .navbar .btn-navbar:active, .navbar .btn-navbar.active, .navbar .btn-navbar.disabled, .navbar .btn-navbar[disabled] {
-  background-color: #f2f2f2;
-  *background-color: #e6e6e6;
+  background-color: #262626;
+  *background-color: #1a1a1a;
 }
 /* line 458, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter.2.0.4/bootstrap/_mixins.scss */
 .navbar .btn-navbar:active, .navbar .btn-navbar.active {
-  background-color: #d9d9d9 \9;
+  background-color: #0d0d0d \9;
   /* IE6-9 */
 }
 /* line 396, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
@@ -6799,26 +6799,26 @@ ul.small {
 
 /* line 402, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 .navbar .dropdown-menu {
-  background-color: #f2f2f2;
+  background-color: #262626;
 }
 /* line 405, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 .navbar .dropdown-menu a {
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 54, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 .navbar .dropdown-menu a:hover {
-  color: #333333;
+  color: white;
 }
 /* line 58, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 .navbar .dropdown-menu a:focus {
-  color: #555555;
+  color: white;
 }
 
 /* line 412, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 .navbar .nav .dropdown-toggle .caret,
 .navbar .nav .open.dropdown .caret {
-  border-top-color: #777777;
-  border-bottom-color: #777777;
+  border-top-color: #eeeeee;
+  border-bottom-color: #eeeeee;
 }
 
 /* line 418, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
@@ -6855,11 +6855,11 @@ FOOTER
 }
 /* line 445, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko_public_all.css.scss */
 #footer a {
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 54, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #footer a:hover {
-  color: #333333;
+  color: white;
 }
 /* line 58, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #footer a:focus {
@@ -6880,11 +6880,11 @@ FOOTER
   padding: 10px 10px 11px;
   line-height: 19px;
   text-decoration: none;
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 54, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #footer .nav > li > a:hover {
-  color: #333333;
+  color: white;
 }
 /* line 58, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #footer .nav > li > a:focus {
@@ -6913,11 +6913,11 @@ COPYRIGHT
 #copyright a {
   font-size: 11px;
   padding-left: 32px;
-  color: #777777;
+  color: #eeeeee;
 }
 /* line 54, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #copyright a:hover {
-  color: #333333;
+  color: white;
 }
 /* line 58, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
 #copyright a:focus {
@@ -7271,33 +7271,26 @@ body {
 ----------------------------------------- */
 /* line 54, ../../app/assets/stylesheets/public.css.scss */
 .navbar .brand {
+  float: none;
+  padding: 0;
+  background: transparent url(/assets/logo-62c3d34529d44e9e6248f7aa39d39f20.png) center center no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  width: 252px;
+  height: 100px;
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  padding: 0;
-  width: 252px;
-  height: 100px;
-  background: transparent url(/assets/logo-62c3d34529d44e9e6248f7aa39d39f20.png) 0 0 no-repeat;
-  background-size: cover;
-  float: none;
-  margin: 0 auto;
-  cursor: pointer;
-  float: none;
-  margin: 0 auto !important;
 }
-/* line 96, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_mixins.scss */
-.navbar .brand a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-/* line 59, ../../app/assets/stylesheets/public.css.scss */
-.navbar .nav > li > a:hover {
-  color: white;
-}
-/* line 62, ../../app/assets/stylesheets/public.css.scss */
+/* line 69, ../../app/assets/stylesheets/public.css.scss */
 .navbar .header-top .nav {
   font-style: italic;
   background: black;
@@ -7308,15 +7301,15 @@ body {
   padding: 0 4px 4px 4px;
   float: right;
 }
-/* line 71, ../../app/assets/stylesheets/public.css.scss */
+/* line 78, ../../app/assets/stylesheets/public.css.scss */
 .navbar .header-nav nav .nav > li {
   font-weight: normal;
 }
-/* line 76, ../../app/assets/stylesheets/public.css.scss */
+/* line 83, ../../app/assets/stylesheets/public.css.scss */
 .navbar .nav-collapse {
   margin-top: 10px;
 }
-/* line 79, ../../app/assets/stylesheets/public.css.scss */
+/* line 86, ../../app/assets/stylesheets/public.css.scss */
 .navbar .navbar-inner {
   border-top: 8px solid black;
   background-color: black;
@@ -7326,21 +7319,21 @@ body {
 /*-----------------------------------------
    FOOTER
 ----------------------------------------- */
-/* line 90, ../../app/assets/stylesheets/public.css.scss */
+/* line 97, ../../app/assets/stylesheets/public.css.scss */
 #footer {
   border-top: 1px solid #1e1e1e;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-/* line 94, ../../app/assets/stylesheets/public.css.scss */
+/* line 101, ../../app/assets/stylesheets/public.css.scss */
 #footer p {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-/* line 98, ../../app/assets/stylesheets/public.css.scss */
+/* line 105, ../../app/assets/stylesheets/public.css.scss */
 #footer h3 {
   margin-bottom: 10px;
   color: white;
 }
-/* line 104, ../../app/assets/stylesheets/public.css.scss */
+/* line 111, ../../app/assets/stylesheets/public.css.scss */
 #footer .nav {
   margin: 0;
 }
@@ -7348,7 +7341,7 @@ body {
 #footer .nav > li {
   float: none;
 }
-/* line 107, ../../app/assets/stylesheets/public.css.scss */
+/* line 114, ../../app/assets/stylesheets/public.css.scss */
 #footer .nav > li > a {
   padding: 0;
 }
@@ -7356,18 +7349,18 @@ body {
 /*-----------------------------------------
    GAMES
 ----------------------------------------- */
-/* line 115, ../../app/assets/stylesheets/public.css.scss */
+/* line 122, ../../app/assets/stylesheets/public.css.scss */
 #grid-games {
   margin: 0 auto !important;
 }
 
-/* line 118, ../../app/assets/stylesheets/public.css.scss */
+/* line 125, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li {
   min-width: 220px;
   min-height: 322px;
   text-align: center;
 }
-/* line 123, ../../app/assets/stylesheets/public.css.scss */
+/* line 130, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail {
   border: none;
   -webkit-border-radius: 0;
@@ -7378,7 +7371,7 @@ body {
   box-shadow: none;
   padding: 0;
 }
-/* line 128, ../../app/assets/stylesheets/public.css.scss */
+/* line 135, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail .image {
   padding: 0;
   margin: 0;
@@ -7395,7 +7388,7 @@ body {
   width: 200px;
   height: 200px;
 }
-/* line 141, ../../app/assets/stylesheets/public.css.scss */
+/* line 148, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail .image a {
   padding: 0;
   margin: 0;
@@ -7413,29 +7406,29 @@ body {
   -o-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
 }
-/* line 152, ../../app/assets/stylesheets/public.css.scss */
+/* line 159, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail .image a:hover {
   opacity: .8;
 }
-/* line 157, ../../app/assets/stylesheets/public.css.scss */
+/* line 164, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail .caption {
   margin-top: 16px;
 }
-/* line 160, ../../app/assets/stylesheets/public.css.scss */
+/* line 167, ../../app/assets/stylesheets/public.css.scss */
 #grid-games > li .thumbnail .title {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /*-----------------------------------------
    HOME
 ----------------------------------------- */
-/* line 172, ../../app/assets/stylesheets/public.css.scss */
+/* line 179, ../../app/assets/stylesheets/public.css.scss */
 #js_container {
   display: none;
 }
 
 /* Text inside of circle */
-/* line 176, ../../app/assets/stylesheets/public.css.scss */
+/* line 183, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle h3 {
   font-weight: normal;
   font-style: italic;
@@ -7451,13 +7444,13 @@ body {
   word-wrap: break-word;
 }
 
-/* line 187, ../../app/assets/stylesheets/public.css.scss */
+/* line 194, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle-hover h3 {
   text-shadow: 0px 0px 1px white;
 }
 
 /* The circle */
-/* line 191, ../../app/assets/stylesheets/public.css.scss */
+/* line 198, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle {
   float: left;
   margin-left: 20px;
@@ -7485,19 +7478,19 @@ body {
   outline: none;
   text-decoration: none;
 }
-/* line 209, ../../app/assets/stylesheets/public.css.scss */
+/* line 216, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle:hover {
   text-decoration: none;
 }
 @media only screen and (max-width: 960px) {
-  /* line 191, ../../app/assets/stylesheets/public.css.scss */
+  /* line 198, ../../app/assets/stylesheets/public.css.scss */
   .ec-circle {
     margin: 24px auto !important;
     clear: both;
     float: none !important;
   }
 }
-/* line 217, ../../app/assets/stylesheets/public.css.scss */
+/* line 224, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle.ec-circle-one {
   width: 420px;
   height: 420px;
@@ -7506,13 +7499,13 @@ body {
   -moz-border-radius: 210px;
   border-radius: 210px;
 }
-/* line 222, ../../app/assets/stylesheets/public.css.scss */
+/* line 229, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle.ec-circle-one h3 {
   font-size: 48px;
   margin-top: 150px;
 }
 @media only screen and (max-width: 960px) {
-  /* line 217, ../../app/assets/stylesheets/public.css.scss */
+  /* line 224, ../../app/assets/stylesheets/public.css.scss */
   .ec-circle.ec-circle-one {
     margin-top: 100px;
     width: 220px;
@@ -7524,31 +7517,31 @@ body {
     -moz-border-radius: 110px;
     border-radius: 110px;
   }
-  /* line 234, ../../app/assets/stylesheets/public.css.scss */
+  /* line 241, ../../app/assets/stylesheets/public.css.scss */
   .ec-circle.ec-circle-one h3 {
     margin-top: 80px;
     font-size: 24px;
   }
 }
 
-/* line 242, ../../app/assets/stylesheets/public.css.scss */
+/* line 249, ../../app/assets/stylesheets/public.css.scss */
 .ec-circle-hover {
   -webkit-box-shadow: inset 0 0 1px 210px rgba(250, 110, 0, 0.9), inset 0 0 0 20px #fa6e00, inset 0 0 0 0 rgba(243, 213, 0, 0.5);
   -moz-box-shadow: inset 0 0 1px 210px rgba(250, 110, 0, 0.9), inset 0 0 0 20px #fa6e00, inset 0 0 0 0 rgba(243, 213, 0, 0.5);
   box-shadow: inset 0 0 1px 210px rgba(250, 110, 0, 0.9), inset 0 0 0 20px #fa6e00, inset 0 0 0 0 rgba(243, 213, 0, 0.5);
 }
 
-/* line 247, ../../app/assets/stylesheets/public.css.scss */
+/* line 254, ../../app/assets/stylesheets/public.css.scss */
 .parent-categories {
   text-align: center;
   border-bottom: 1px solid #b7b6b6;
   margin-bottom: 20px;
 }
-/* line 251, ../../app/assets/stylesheets/public.css.scss */
+/* line 258, ../../app/assets/stylesheets/public.css.scss */
 .parent-categories .nav {
   margin-bottom: 0;
 }
-/* line 255, ../../app/assets/stylesheets/public.css.scss */
+/* line 262, ../../app/assets/stylesheets/public.css.scss */
 .parent-categories .nav,
 .parent-categories .nav > li {
   float: none;
@@ -7559,7 +7552,7 @@ body {
   /* hasLayout ie7 trigger */
   vertical-align: top;
 }
-/* line 263, ../../app/assets/stylesheets/public.css.scss */
+/* line 270, ../../app/assets/stylesheets/public.css.scss */
 .parent-categories .nav > li > a {
   padding: 10px 15px 10px;
   letter-spacing: 1px;
@@ -7569,7 +7562,7 @@ body {
   text-shadow: 0px 1px 0 black;
   font-size: 12px;
 }
-/* line 274, ../../app/assets/stylesheets/public.css.scss */
+/* line 281, ../../app/assets/stylesheets/public.css.scss */
 .parent-categories .nav > li.active > a {
   color: black;
   text-shadow: 0px 1px 0 white;
@@ -8834,7 +8827,7 @@ body {
 
   /* line 63, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
   .nav-collapse .nav .nav-header {
-    color: #777777;
+    color: #eeeeee;
     text-shadow: none;
   }
 
@@ -8843,7 +8836,7 @@ body {
   .nav-collapse .dropdown-menu a {
     padding: 9px 15px;
     font-weight: bold;
-    color: #777777;
+    color: #eeeeee;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -8866,7 +8859,7 @@ body {
   /* line 85, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
   .nav-collapse .nav > li > a:hover,
   .nav-collapse .dropdown-menu a:hover {
-    background-color: #f2f2f2;
+    background-color: #262626;
   }
 
   /* line 89, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
@@ -8934,8 +8927,8 @@ body {
     float: none;
     padding: 10px 15px;
     margin: 10px 0;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #262626;
+    border-bottom: 1px solid #262626;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -10235,7 +10228,7 @@ body {
 
   /* line 63, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
   .nav-collapse .nav .nav-header {
-    color: #777777;
+    color: #eeeeee;
     text-shadow: none;
   }
 
@@ -10244,7 +10237,7 @@ body {
   .nav-collapse .dropdown-menu a {
     padding: 9px 15px;
     font-weight: bold;
-    color: #777777;
+    color: #eeeeee;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -10267,7 +10260,7 @@ body {
   /* line 85, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
   .nav-collapse .nav > li > a:hover,
   .nav-collapse .dropdown-menu a:hover {
-    background-color: #f2f2f2;
+    background-color: #262626;
   }
 
   /* line 89, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/vendor/assets/stylesheets/twitter/bootstrap/responsive-navbar.scss */
@@ -10335,8 +10328,8 @@ body {
     float: none;
     padding: 10px 15px;
     margin: 10px 0;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #262626;
+    border-bottom: 1px solid #262626;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -10413,7 +10406,7 @@ body {
 
   /* line 33, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_responsive.scss */
   .navbar .header-nav .nav > li {
-    border-top: 1px solid lighter(#777777, 15%);
+    border-top: 1px solid lighter(#eeeeee, 15%);
     text-align: center;
   }
 
@@ -10446,7 +10439,7 @@ body {
   }
   /* line 63, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_responsive.scss */
   .navbar .nav-collapse .dropdown-menu a {
-    color: #777777;
+    color: #eeeeee;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-style: italic;
     -webkit-border-radius: none;
@@ -10456,7 +10449,7 @@ body {
   }
   /* line 69, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_responsive.scss */
   .navbar .nav-collapse .dropdown-menu a:hover {
-    color: #333333;
+    color: white;
   }
 
   /* line 77, ../../../../.rvm/gems/ruby-1.8.7-p370/bundler/gems/gko_cms3-1ca52550f50d/gko_core/app/assets/stylesheets/gko/_responsive.scss */
@@ -10614,8 +10607,31 @@ table.hide-on-tablets {
     display: block !important;
   }
 }
+@media (max-width: 767px) {
+  /* line 294, ../../app/assets/stylesheets/public.css.scss */
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  /* line 298, ../../app/assets/stylesheets/public.css.scss */
+  #main-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 979px) {
+  /* line 305, ../../app/assets/stylesheets/public.css.scss */
+  .navbar .brand {
+    padding-left: 0px;
+    padding-right: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media (min-width: 980px) {
-  /* line 288, ../../app/assets/stylesheets/public.css.scss */
+  /* line 314, ../../app/assets/stylesheets/public.css.scss */
   .navbar .navbar-inner {
     height: 210px;
     background: transparent url(/assets/nav_bg-c236455bb87262bf7eb15fbfff8acdf6.png) 50% -150px no-repeat;
@@ -10633,11 +10649,11 @@ table.hide-on-tablets {
     right: 50%;
     display: block;
   }
-  /* line 295, ../../app/assets/stylesheets/public.css.scss */
+  /* line 321, ../../app/assets/stylesheets/public.css.scss */
   .navbar .header-nav nav .nav > li .text {
     padding-left: 8px;
   }
-  /* line 298, ../../app/assets/stylesheets/public.css.scss */
+  /* line 324, ../../app/assets/stylesheets/public.css.scss */
   .navbar .header-nav nav .nav > li:first-child {
     background: none;
     padding-left: 0;
