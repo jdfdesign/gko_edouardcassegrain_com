@@ -29,7 +29,7 @@ GkoCassegrainCom::Application.routes.draw do
           member do
             get :toggle_in_homepage
           end
-          collection do
+          collection do 
             get :move
           end
         end
