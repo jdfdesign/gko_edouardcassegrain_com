@@ -1,6 +1,7 @@
 # TODO: Merge with Content class
 
 class Game < ActiveRecord::Base
+  translates :title, :body, :meta_description, :meta_title, :slug, :feature_title, :properties 
   include Extensions::Models::BelongsToSection
   include Extensions::Models::BelongsToAccount
   include Extensions::Models::Sluggable
@@ -8,14 +9,19 @@ class Game < ActiveRecord::Base
   include Extensions::Models::Categorizable
   include Extensions::Models::HasManyImageAssignments
   
-  translates :title, :body, :meta_description, :meta_title, :slug, :feature_title, :properties
-  attr_accessible :title, :body, :preview, :properties
+      
+  
+  class Translation
+    attr_accessible :locale
+  end
+  
+  attr_accessible :title, :body, :preview, :properties,  :feature_title, :properties
 
   acts_as_list :scope => [:section_id]
   default_scope :order => 'games.position'
 
   image_accessor :preview
-  attr_accessible :feature_title, :properties 
+
   class << self
     def preview_size
       '410x410#'
