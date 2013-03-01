@@ -1,7 +1,7 @@
 GIT
   remote: git@github.com:jdfdesign/gko_cms3.git
-  revision: e0bfe987cf6132cc93c123b12dc272675b7021da
-  tag: v0.6.24.RC8
+  revision: f284af40ce92dee549a76bf289d93f56fd308e0c
+  branch: v0.6.24.RC10
   specs:
     gko_auth (0.6.24.RC8)
       cancan (>= 1.6.8)
@@ -90,7 +90,7 @@ GEM
       multi_json (~> 1.0)
     activesupport-slices (0.0.2)
     acts_as_indexed (0.7.8)
-    addressable (2.3.2)
+    addressable (2.3.3)
     arel (3.0.2)
     babosa (0.3.9)
     backup (3.0.24)
@@ -116,7 +116,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.5.0)
     cucumber (1.1.9)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -155,7 +155,7 @@ GEM
     has_scope (0.5.1)
     highline (1.6.8)
     hike (1.2.1)
-    i18n (0.6.1)
+    i18n (0.6.4)
     inherited_resources (1.3.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6)
@@ -163,7 +163,7 @@ GEM
     jquery-rails (2.0.3)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
-    json (1.7.6)
+    json (1.7.7)
     launchy (2.2.0)
       addressable (~> 2.3)
     letter_opener (1.0.0)
@@ -183,7 +183,7 @@ GEM
     mobile-fu (1.1.1)
       rack-mobile-detect
       rails
-    multi_json (1.5.0)
+    multi_json (1.6.1)
     mysql2 (0.3.11)
     nested_set (1.7.0)
       activerecord (>= 3.0.0)
@@ -197,11 +197,11 @@ GEM
       net-ssh (>= 2.6.5)
     open4 (1.3.0)
     orm_adapter (0.4.0)
-    paper_trail (2.7.0)
+    paper_trail (2.7.1)
       activerecord (~> 3.0)
       railties (~> 3.0)
     polyglot (0.3.3)
-    rack (1.4.4)
+    rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-mobile-detect (0.4.0)
@@ -228,7 +228,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (10.0.3)
-    rdoc (3.12.1)
+    rdoc (3.12.2)
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
@@ -237,7 +237,7 @@ GEM
       actionpack
     ruby-ole (1.2.11.6)
     rubyzip (0.9.6.1)
-    sass (3.2.5)
+    sass (3.2.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -245,7 +245,7 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    spreadsheet (0.7.9)
+    spreadsheet (0.8.2)
       ruby-ole (>= 1.0)
     sprockets (2.1.3)
       hike (~> 1.2)
@@ -254,8 +254,8 @@ GEM
     systemu (2.5.2)
     term-ansicolor (1.0.7)
     thor (0.14.6)
-    tilt (1.3.3)
-    to_xls (1.5.1)
+    tilt (1.3.4)
+    to_xls (1.5.2)
       spreadsheet
     treetop (1.4.12)
       polyglot

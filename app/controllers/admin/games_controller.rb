@@ -4,6 +4,7 @@ class Admin::GamesController < Admin::ResourcesController
   nested_belongs_to :site, :game_list
   respond_to :html, :js
   custom_actions :collection => [:selected]  
+  cache_sweeper ::GameSweeper, :only => [:create, :update, :destroy]
   
   def toggle_in_homepage
     @game = Game.find_by_id(params[:id])

@@ -1,15 +1,14 @@
-<% 
-games = site.games.with_globalize.in_homepage.limit(3)
-%>
-<% content_for :page_content do %>
+<% content_for :page_content do %>  
+<% cache [I18n.locale, resource.site, resource, 'home'] do %> 
   <div class="row-fluid">
     <div class="span12">
   		<div class="section" id="circles">
-  		  <% games.each_with_index do |game, index| %>
+  		  <% site.games.with_globalize.in_homepage.limit(3).each_with_index do |game, index| %>
   		    <% geom = (index != 1 ? '210x210#' : '410x410#') %>
           <a href='<%= url_for([game.section, game]) %>' class="circle ec-circle ec-circle-<%= spell_integer(index) %>" style='background: #fff url(<%= game.thumbnail.thumbnail(geom).process(:greyscale).url %>) no-repeat center center;'><h3><%= game.title %></h3></a>
   			<% end %>
   		</div>
     </div>
-  </div>   
-<% end %> 
+  </div> 
+<% end %>  
+<% end %>
