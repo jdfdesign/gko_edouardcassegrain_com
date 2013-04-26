@@ -8,9 +8,7 @@ class Game < ActiveRecord::Base
   include Extensions::Models::Publishable
   include Extensions::Models::Categorizable
   include Extensions::Models::HasManyImageAssignments
-  
-      
-  
+
   class Translation
     attr_accessible :locale
   end

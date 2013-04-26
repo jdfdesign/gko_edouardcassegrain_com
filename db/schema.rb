@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.string   "type",       :limit => 40
     t.datetime "deleted_at"
     t.datetime "expires_at"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "assets", :force => true do |t|
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.integer  "site_id"
     t.integer  "section_id"
     t.integer  "account_id"
-    t.integer  "author_id"
     t.string   "type"
     t.string   "title"
     t.string   "slug"
@@ -109,13 +108,16 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.string   "layout",           :limit => 40
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.text     "options"
     t.string   "author_name",      :limit => 120
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position",                        :default => 1
+    t.integer  "access_count",                    :default => 0
   end
 
+  add_index "contents", ["access_count"], :name => "index_contents_on_access_count"
+  add_index "contents", ["position", "section_id"], :name => "index_contents_on_position_and_section_id"
   add_index "contents", ["section_id"], :name => "index_contents_on_section_id"
   add_index "contents", ["site_id"], :name => "index_contents_on_site_id"
   add_index "contents", ["slug"], :name => "index_contents_on_slug"
@@ -196,21 +198,6 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.string   "document_uid"
     t.string   "document_ext"
   end
-
-  create_table "dynamic_files", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "type"
-    t.string   "file_type"
-    t.string   "name"
-    t.string   "format"
-    t.string   "handler"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "dynamic_files", ["name"], :name => "index_dynamic_files_on_name"
-  add_index "dynamic_files", ["site_id"], :name => "index_dynamic_files_on_site_id"
 
   create_table "game_translations", :force => true do |t|
     t.integer  "game_id"
@@ -458,41 +445,29 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.string   "name"
     t.string   "slug"
     t.string   "path"
-    t.integer  "level"
     t.text     "options"
     t.string   "title"
     t.string   "layout"
     t.text     "body"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.text     "meta_keywords"
     t.string   "redirect_url"
-    t.string   "title_addon"
     t.datetime "published_at"
-    t.boolean  "hidden",           :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "hidden",            :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "menu_title"
+    t.boolean  "shallow_permalink", :default => true
+    t.boolean  "robot_index",       :default => true
+    t.boolean  "robot_follow",      :default => true
+    t.boolean  "restricted",        :default => false
+    t.string   "template"
   end
 
   add_index "sections", ["link_id", "link_type"], :name => "index_sections_on_link_id_and_link_type"
+  add_index "sections", ["parent_id", "lft"], :name => "index_sections_on_parent_id_and_lft"
   add_index "sections", ["parent_id"], :name => "index_sections_on_parent_id"
   add_index "sections", ["site_id"], :name => "index_sections_on_site_id"
-
-  create_table "settings", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "name"
-    t.text     "value"
-    t.boolean  "destroyable",             :default => true
-    t.string   "scoping"
-    t.boolean  "restricted",              :default => false
-    t.string   "callback_proc_as_string"
-    t.string   "form_value_type",         :default => "text_area", :null => false
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
-  end
-
-  add_index "settings", ["name"], :name => "index_settings_on_name"
-  add_index "settings", ["site_id"], :name => "index_settings_on_site_id"
 
   create_table "site_registrations", :force => true do |t|
     t.integer "user_id"
@@ -520,11 +495,25 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.string   "meta_title"
     t.string   "subtitle"
     t.string   "timezone"
-    t.string   "locales",    :limit => 17
     t.boolean  "public",                   :default => true
     t.text     "options"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_registrations_count", :default => 0
+    t.text     "plugins"
+    t.string   "logo_mime_type"
+    t.string   "logo_name"
+    t.integer  "logo_size"
+    t.integer  "logo_width"
+    t.integer  "logo_height"
+    t.string   "logo_uid"
+    t.string   "logo_ext"
+    t.string   "default_image_uid"
+    t.integer  "languages_count",          :default => 0
+    t.datetime "liquid_models_updated_at"
+    t.text     "page_types"
+    t.boolean  "front_page_cached",        :default => false
+    t.text     "mailer_settings"
   end
 
   add_index "sites", ["account_id"], :name => "index_sites_on_account_id"

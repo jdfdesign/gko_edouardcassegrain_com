@@ -1,0 +1,11 @@
+<% cache [action_name, I18n.locale, resource.site, resource] do %>
+	<%= render_page_title(resource.title) %>
+	<div class="row-fluid">
+    <div class="span5">
+      <%= render_slideshow_for(resource) %> 
+    </div>
+    <div class="span5">
+      <%= render_html_text(resource.body) %> 
+    </div>
+  </div>
+<% end %>
