@@ -7,10 +7,9 @@ group :assets do
 end
 
 group :production do
- git "git@github.com:jdfdesign/gko_cms3.git", :branch => "v0.6.30.rc7" do
+ git "git@github.com:jdfdesign/gko_cms3.git", :branch => "v0.6.30.rc8" do
    gem 'gko_core'
    gem 'gko_auth'
-   gem 'gko_images'
    gem 'gko_documents'
    gem 'gko_inquiries'
    gem 'gko_categories'
@@ -20,7 +19,6 @@ end
 #group :development, :test do
 #  gem "gko_core", :path => '~/Github/gko_cms3/gko_core'
 #  gem "gko_auth", :path => '~/Github/gko_cms3/gko_auth'
-#  gem "gko_images", :path => '~/Github/gko_cms3/gko_images'
 #  gem "gko_documents", :path => '~/Github/gko_cms3/gko_documents'
 #  gem "gko_inquiries", :path => '~/Github/gko_cms3/gko_inquiries'
 #  gem "gko_categories", :path => '~/Github/gko_cms3/gko_categories'
