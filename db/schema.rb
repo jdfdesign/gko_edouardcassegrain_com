@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206091503) do
+ActiveRecord::Schema.define(:version => 20130428103156) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -514,6 +514,8 @@ ActiveRecord::Schema.define(:version => 20130206091503) do
     t.text     "page_types"
     t.boolean  "front_page_cached",        :default => false
     t.text     "mailer_settings"
+    t.text     "stylesheet"
+    t.text     "javascript"
   end
 
   add_index "sites", ["account_id"], :name => "index_sites_on_account_id"
