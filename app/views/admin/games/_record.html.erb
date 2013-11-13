@@ -2,6 +2,6 @@
 	<td><%= published_status(record) + glink_to(record.labelize, url_for([:edit, :admin, current_site, parent, record])) %></td>
 	<%= content_tag_for_actions do  %>
 		<%= icons_to_actions([:destroy, :edit], record) %>
-	    <%= icon_to_public_page(record.public_url) if record.public_url.present? %>
+	    <%= icon_to_view(record.public_url) if record.public_url.present? %>
 	<% end %>
 <% end %>

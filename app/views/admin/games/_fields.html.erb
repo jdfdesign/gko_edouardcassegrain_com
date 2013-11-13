@@ -26,6 +26,7 @@
 		<% end %>
 		<%= render "#{resource_namespace}/option_fields", :f => f if has_options %>
 		<%= render "#{resource_namespace}/associations_fields", :f => f if has_extensions %>
+		<%= f.input :show_in_homepage %>
 		<%= render 'form_publish_fields', :f => f %>
   	</div>
 	<div class="tab-pane" id="content-preview-tab">

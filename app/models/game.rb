@@ -3,7 +3,6 @@
 class Game < ActiveRecord::Base
   translates :title, :body, :meta_description, :meta_title, :slug, :feature_title, :properties 
   include Extensions::Models::BelongsToSection
-  include Extensions::Models::BelongsToAccount
   include Extensions::Models::Sluggable
   include Extensions::Models::Publishable
   include Extensions::Models::Categorizable
@@ -13,7 +12,7 @@ class Game < ActiveRecord::Base
     attr_accessible :locale
   end
   
-  attr_accessible :title, :body, :preview, :properties,  :feature_title, :properties
+  attr_accessible :title, :body, :preview, :properties,  :feature_title, :properties, :show_in_homepage
 
   acts_as_list :scope => [:section_id]
   default_scope :order => 'games.position'
